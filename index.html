@@ -1,1 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>POLLY | Best-Dressed Guest</title>
+  <!-- Google Fonts + smooth base -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      background-color: #fefaf5;
+      font-family: 'Inter', sans-serif;
+      color: #1e1a17;
+      line-height: 1.4;
+    }
+
+    /* custom smooth container */
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* header / top bar */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      padding: 32px 0 20px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .logo-area h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #231f1b;
+    }
+
+    .logo-area p {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #b4764a;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-weight: 500;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #2b2825;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #b85c2a; }
+    .header-icons {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 1.1rem;
+    }
+    .header-icons i { cursor: pointer; transition: color 0.2s; }
+    .header-icons i:hover { color: #b85c2a; }
+
+    /* HERO section (main layout from PNG description) */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin: 60px 0 70px 0;
+      align-items: center;
+    }
+
+    .hero-left {
+      flex: 1.2;
+      min-width: 280px;
+    }
+
+    .hero-badge {
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #b4764a;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .hero-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: #1f1b17;
+    }
+
+    .hero-highlight {
+      font-style: italic;
+      font-weight: 500;
+      color: #c17b53;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #4a3f38;
+      margin: 1.5rem 0 2rem 0;
+      max-width: 500px;
+    }
+
+    .shop-btn {
+      background: #1e1a17;
+      border: none;
+      padding: 14px 38px;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: white;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .shop-btn i {
+      font-size: 0.9rem;
+      transition: transform 0.2s;
+    }
+    .shop-btn:hover {
+      background: #b85c2a;
+      transform: translateY(-3px);
+    }
+    .shop-btn:hover i {
+      transform: translateX(5px);
+    }
+
+    /* tagline row after button: "Shop Wear: Elevate." */
+    .wear-tagline {
+      margin-top: 2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      border-left: 3px solid #c17b53;
+      padding-left: 1rem;
+      color: #3b2e26;
+    }
+
+    .hero-right {
+      flex: 1;
+      min-width: 260px;
+      background: #f3ede8;
+      border-radius: 40px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+    }
+
+    .pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .pillar-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .pillar-icon {
+      width: 52px;
+      height: 52px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #c17b53;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.03);
+    }
+    .pillar-text h4 {
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: -0.2px;
+    }
+    .pillar-text p {
+      font-size: 0.8rem;
+      color: #6b5a4e;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Fashion Section / "FASHION" and POLLY quote block */
+    .fashion-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 70px 0 50px 0;
+      background: #fdf9f5;
+      border-radius: 60px;
+      padding: 40px 48px;
+      align-items: center;
+    }
+    .fashion-badge {
+      background: #e8ddd4;
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #a55328;
+      margin-bottom: 1rem;
+    }
+    .fashion-left {
+      flex: 1;
+    }
+    .fashion-left h3 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: -0.01em;
+    }
+    .fashion-left .polly-highlight {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin: 0.5rem 0;
+      color: #231f1b;
+    }
+    .fashion-desc {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #5a4a3c;
+      max-width: 400px;
+    }
+    .fashion-right {
+      flex: 0.8;
+      background: #efe2d8;
+      border-radius: 32px;
+      padding: 24px 32px;
+      text-align: center;
+    }
+    .fashion-right .quote {
+      font-style: italic;
+      font-size: 1.2rem;
+      font-weight: 500;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Shop collections extra / brand row D section */
+    .brand-showcase {
+      margin: 70px 0 60px 0;
+    }
+    .section-mini-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .section-mini-title span:first-child {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #b4764a;
+    }
+    .brand-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #ece2da;
+      border-bottom: 1px solid #ece2da;
+      padding: 32px 0;
+    }
+    .brand-item {
+      font-weight: 500;
+      font-size: 1.2rem;
+      letter-spacing: -0.2px;
+      color: #2f2924;
+      transition: 0.2s;
+      cursor: default;
+      font-family: 'Playfair Display', serif;
+    }
+    .brand-item:hover { color: #c17b53; }
+
+    /* Follow us + footer */
+    .footer-area {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin: 50px 0 50px 0;
+      padding-top: 20px;
+      border-top: 1px solid #ece2da;
+    }
+    .social-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .social-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #3d332b;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+    .social-links a i {
+      font-size: 1.2rem;
+    }
+    .social-links a:hover { color: #b85c2a; }
+    .copyright {
+      font-size: 0.75rem;
+      color: #948b82;
+    }
+
+    /* Responsive touches */
+    @media (max-width: 850px) {
+      .container {
+        padding: 0 24px;
+      }
+      .hero-left h2 {
+        font-size: 2.5rem;
+      }
+      .fashion-row {
+        flex-direction: column;
+        padding: 32px 24px;
+      }
+      .top-bar {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .brand-grid {
+        gap: 1rem;
+        justify-content: center;
+      }
+      .footer-area {
+        flex-direction: column;
+        gap: 24px;
+        align-items: flex-start;
+      }
+    }
+    @media (max-width: 550px) {
+      .hero {
+        flex-direction: column;
+      }
+      .pillar-item {
+        flex-wrap: wrap;
+      }
+    }
+    /* extra small details */
+    .deco-dot {
+      width: 6px;
+      height: 6px;
+      background: #c17b53;
+      display: inline-block;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    button {
+      background: none;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Header with POLLY identity -->
+  <div class="top-bar">
+    <div class="logo-area">
+      <h1>POLLY</h1>
+      <p>Best-Dressed Guest</p>
+    </div>
+    <div class="nav-links">
+      <a href="#">New Arrivals</a>
+      <a href="#">Collections</a>
+      <a href="#">Stories</a>
+      <a href="#">The Edit</a>
+    </div>
+    <div class="header-icons">
+      <i class="far fa-heart"></i>
+      <i class="far fa-user"></i>
+      <i class="fas fa-shopping-bag"></i>
+    </div>
+  </div>
+
+  <!-- MAIN HERO SECTION (based on provided layout: POLLY, Best-Dressed Guest + Shop the Collection + desc + Chic/Bold/Live) -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="deco-dot"></span> EDITORS' PICK
+      </div>
+      <h2>
+        POLLY <span class="hero-highlight">Best-Dressed</span><br>Guest
+      </h2>
+      <p class="hero-desc">
+        A trendy clothing website offering bold, flattering styles for every occasion, 
+        designed to boost confidence and showcase personal style. With a focus on modern fashion 
+        and effortless shopping, it makes it easy to stand out.
+      </p>
+      <button class="shop-btn" id="shopNowBtn">
+        Shop the Collection <i class="fas fa-arrow-right"></i>
+      </button>
+      <div class="wear-tagline">
+        Shop Wear: Elevate.
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="pillars">
+        <div class="pillar-item">
+          <div class="pillar-icon"><i class="fas fa-feather-alt"></i></div>
+          <div class="pillar-text">
+            <h4>Chic</h4>
+            <p>STYLISH AND ELEGANT</p>
+          </div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-icon"><i class="fas fa-bolt"></i></div>
+          <div class="pillar-text">
+            <h4>Bold</h4>
+            <p>STRIKING AND DARING</p>
+          </div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-icon"><i class="fas fa-gem"></i></div>
+          <div class="pillar-text">
+            <h4>Live</h4>
+            <p>LUXURIOUS AND HIGH-END</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FASHION / POLLY quote block (FASHION title + POLLY sub + description) -->
+  <div class="fashion-row">
+    <div class="fashion-left">
+      <div class="fashion-badge">THE VIBE</div>
+      <h3>FASHION</h3>
+      <div class="polly-highlight">POLLY</div>
+      <p class="fashion-desc">
+        A trendy clothing website offering bold, flattering styles for every occasion, 
+        designed to boost confidence and showcase personal style. With a focus on modern fashion 
+        and effortless shopping, it makes it easy to stand out.
+      </p>
+    </div>
+    <div class="fashion-right">
+      <div class="quote">
+        “Dress like you’re already famous —<br>confident, chic, unforgettable.”
+      </div>
+      <div style="margin-top: 20px;">
+        <i class="fas fa-star" style="color:#c17b53; font-size: 0.8rem;"></i>
+        <i class="fas fa-star" style="color:#c17b53;"></i>
+        <i class="fas fa-star" style="color:#c17b53;"></i>
+        <i class="fas fa-star" style="color:#c17b53;"></i>
+        <i class="fas fa-star-half-alt" style="color:#c17b53;"></i>
+        <p style="font-size: 0.7rem; margin-top: 8px;">POLLY muse collection</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand row with D / SAY HELLO and luxury partners: Lume Paris, Loro Milan, Zenitizza, Aveu Dubaï -->
+  <div class="brand-showcase">
+    <div class="section-mini-title">
+      <span><i class="far fa-comment-dots"></i> SAY HELLO</span>
+      <span style="font-size:0.7rem; color:#b4764a;">Global icons</span>
+    </div>
+    <div class="brand-grid">
+      <div class="brand-item">Lume Paris</div>
+      <div class="brand-item">Loro Milan</div>
+      <div class="brand-item">Zenitizza</div>
+      <div class="brand-item">Aveu Dubaï</div>
+      <div class="brand-item"><i class="fas fa-map-marker-alt" style="font-size:0.8rem;"></i> D / Edition</div>
+    </div>
+  </div>
+
+  <!-- Follow us + footer links exactly matching given content -->
+  <div class="footer-area">
+    <div class="social-links">
+      <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="#"><i class="fab fa-tiktok"></i> TikTok</a>
+      <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+    </div>
+    <div class="copyright">
+      © 2025 POLLY — Best-Dressed Guest. All rights reserved.
+    </div>
+  </div>
+</div>
+
+<!-- simple interactive toast / alert for shop the collection (enhancement) -->
+<script>
+  (function() {
+    const shopBtn = document.getElementById('shopNowBtn');
+    if (shopBtn) {
+      shopBtn.addEventListener('click', () => {
+        // simulated collection shop action: subtle modern notification
+        const toast = document.createElement('div');
+        toast.innerText = '✨ Discover the new POLLY collection — Bold, Chic & Live ✨';
+        toast.style.position = 'fixed';
+        toast.style.bottom = '30px';
+        toast.style.left = '50%';
+        toast.style.transform = 'translateX(-50%)';
+        toast.style.backgroundColor = '#1e1a17';
+        toast.style.color = '#fefaf5';
+        toast.style.padding = '12px 28px';
+        toast.style.borderRadius = '60px';
+        toast.style.fontSize = '0.85rem';
+        toast.style.fontWeight = '500';
+        toast.style.fontFamily = "'Inter', sans-serif";
+        toast.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
+        toast.style.zIndex = '999';
+        toast.style.backdropFilter = 'blur(4px)';
+        toast.style.letterSpacing = '0.3px';
+        document.body.appendChild(toast);
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          toast.style.transition = 'opacity 0.4s ease';
+          setTimeout(() => toast.remove(), 500);
+        }, 2800);
+      });
+    }
+
+    // optional hover micro-interactions for pillars/brand items
+    const brandItems = document.querySelectorAll('.brand-item');
+    brandItems.forEach(item => {
+      item.style.cursor = 'pointer';
+      item.addEventListener('click', () => {
+        console.log(`Explore ${item.innerText.trim()} collaboration`);
+        // gentle feedback
+        const tempMsg = document.createElement('div');
+        tempMsg.innerText = `✨ ${item.innerText.trim()} x POLLY coming soon ✨`;
+        tempMsg.style.position = 'fixed';
+        tempMsg.style.bottom = '80px';
+        tempMsg.style.left = '50%';
+        tempMsg.style.transform = 'translateX(-50%)';
+        tempMsg.style.backgroundColor = '#c17b53';
+        tempMsg.style.color = 'white';
+        tempMsg.style.padding = '8px 18px';
+        tempMsg.style.borderRadius = '40px';
+        tempMsg.style.fontSize = '0.75rem';
+        tempMsg.style.fontWeight = '500';
+        tempMsg.style.zIndex = '999';
+        document.body.appendChild(tempMsg);
+        setTimeout(() => {
+          tempMsg.style.opacity = '0';
+          tempMsg.style.transition = 'opacity 0.3s';
+          setTimeout(() => tempMsg.remove(), 400);
+        }, 1500);
+      });
+    });
+  })();
+</script>
+</body>
+</html>
