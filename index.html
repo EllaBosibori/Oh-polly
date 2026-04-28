@@ -181,6 +181,26 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: 60px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .pillar-video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      border-radius: 60px;
+    }
+    .pillar-item:hover .pillar-video-bg {
+      opacity: 1;
     }
     .pillar-icon {
       width: 52px;
@@ -193,6 +213,17 @@
       font-size: 1.5rem;
       color: #c17b53;
       box-shadow: 0 6px 12px rgba(0,0,0,0.03);
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+    .pillar-item:hover .pillar-icon {
+      background: rgba(255,255,255,0.95);
+      transform: scale(1.05);
+    }
+    .pillar-text {
+      position: relative;
+      z-index: 2;
     }
     .pillar-text h4 {
       font-weight: 700;
@@ -205,6 +236,11 @@
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 1px;
+    }
+    .pillar-item:hover .pillar-text h4,
+    .pillar-item:hover .pillar-text p {
+      color: white;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
     }
 
     /* Video Section Styles */
@@ -466,6 +502,9 @@
     <div class="hero-right">
       <div class="pillars">
         <div class="pillar-item">
+          <video class="pillar-video-bg" autoplay muted loop playsinline>
+            <source src="Oh%20P%20O%20L%20L%20Y%20(2).mp4" type="video/mp4">
+          </video>
           <div class="pillar-icon"><i class="fas fa-feather-alt"></i></div>
           <div class="pillar-text">
             <h4>Chic</h4>
@@ -473,6 +512,9 @@
           </div>
         </div>
         <div class="pillar-item">
+          <video class="pillar-video-bg" autoplay muted loop playsinline>
+            <source src="Oh%20P%20O%20L%20L%20Y%20(2).mp4" type="video/mp4">
+          </video>
           <div class="pillar-icon"><i class="fas fa-bolt"></i></div>
           <div class="pillar-text">
             <h4>Bold</h4>
@@ -480,6 +522,9 @@
           </div>
         </div>
         <div class="pillar-item">
+          <video class="pillar-video-bg" autoplay muted loop playsinline>
+            <source src="Oh%20P%20O%20L%20L%20Y%20(2).mp4" type="video/mp4">
+          </video>
           <div class="pillar-icon"><i class="fas fa-gem"></i></div>
           <div class="pillar-text">
             <h4>Live</h4>
@@ -621,4 +666,3 @@
 </script>
 </body>
 </html>
-     
