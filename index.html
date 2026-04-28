@@ -207,6 +207,34 @@
       letter-spacing: 1px;
     }
 
+    /* Video Section Styles */
+    .video-section {
+      margin: 40px 0 70px 0;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15);
+      background: #000;
+    }
+    .featured-video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 40px;
+      transition: transform 0.3s ease;
+    }
+    .video-caption {
+      text-align: center;
+      padding: 20px 0 10px 0;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #b4764a;
+    }
+    .video-caption i {
+      margin-right: 8px;
+    }
+
     /* Fashion Section / "FASHION" and POLLY quote block */
     .fashion-row {
       display: flex;
@@ -363,6 +391,12 @@
         gap: 24px;
         align-items: flex-start;
       }
+      .video-section {
+        border-radius: 24px;
+      }
+      .featured-video {
+        border-radius: 24px;
+      }
     }
     @media (max-width: 550px) {
       .hero {
@@ -454,6 +488,17 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- YELLOW MP4 VIDEO SECTION - ADDED HERE -->
+  <div class="video-section">
+    <div class="video-caption">
+      <i class="fas fa-play-circle"></i> FEATURED COLLECTION — LEMON YELLOW EDITION
+    </div>
+    <video class="featured-video" controls autoplay muted loop playsinline>
+      <source src="yellow.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
 
   <!-- FASHION / POLLY quote block (FASHION title + POLLY sub + description) -->
@@ -576,3 +621,4 @@
 </script>
 </body>
 </html>
+     
