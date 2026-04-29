@@ -22,9 +22,8 @@
       line-height: 1.4;
     }
 
-    /* custom smooth container */
     .container {
-      max-width: 1300px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 0 32px;
     }
@@ -76,7 +75,7 @@
     .header-icons i { cursor: pointer; transition: color 0.2s; }
     .header-icons i:hover { color: #b85c2a; }
 
-    /* HERO section (main layout from PNG description) */
+    /* HERO section */
     .hero {
       display: flex;
       flex-wrap: wrap;
@@ -151,7 +150,6 @@
       transform: translateX(5px);
     }
 
-    /* tagline row after button: "Shop Wear: Elevate." */
     .wear-tagline {
       margin-top: 2rem;
       font-family: 'Playfair Display', serif;
@@ -163,128 +161,169 @@
       color: #3b2e26;
     }
 
-    .hero-right {
-      flex: 1;
-      min-width: 260px;
-      background: #f3ede8;
-      border-radius: 40px;
-      padding: 2rem 1.5rem;
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+    /* Chic, Bold, Luxe Sections - FULL VISIBLE CARDS */
+    .pillars-showcase {
+      margin: 80px 0;
     }
 
-    .pillars {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-    .pillar-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      position: relative;
-      overflow: hidden;
-      border-radius: 60px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    .pillar-video-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      border-radius: 60px;
-    }
-    .pillar-item:hover .pillar-video-bg {
-      opacity: 1;
-    }
-    .pillar-icon {
-      width: 52px;
-      height: 52px;
-      background: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      color: #c17b53;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.03);
-      position: relative;
-      z-index: 2;
-      transition: all 0.3s ease;
-    }
-    .pillar-item:hover .pillar-icon {
-      background: rgba(255,255,255,0.95);
-      transform: scale(1.05);
-    }
-    .pillar-text {
-      position: relative;
-      z-index: 2;
-    }
-    .pillar-text h4 {
-      font-weight: 700;
-      font-size: 1.2rem;
-      letter-spacing: -0.2px;
-    }
-    .pillar-text p {
-      font-size: 0.8rem;
-      color: #6b5a4e;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .pillar-item:hover .pillar-text h4,
-    .pillar-item:hover .pillar-text p {
-      color: white;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    }
-
-    /* Video Section Styles */
-    .video-section {
-      margin: 40px 0 70px 0;
-      border-radius: 40px;
-      overflow: hidden;
-      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15);
-      background: #000;
-    }
-    .featured-video {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 40px;
-      transition: transform 0.3s ease;
-    }
-    .video-caption {
+    .pillars-title {
       text-align: center;
-      padding: 20px 0 10px 0;
-      font-size: 0.85rem;
+      margin-bottom: 50px;
+    }
+
+    .pillars-title h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: #1f1b17;
+    }
+
+    .pillars-title p {
+      color: #b4764a;
       letter-spacing: 2px;
       text-transform: uppercase;
-      font-weight: 500;
-      color: #b4764a;
-    }
-    .video-caption i {
-      margin-right: 8px;
+      font-size: 0.8rem;
+      margin-top: 10px;
     }
 
-    /* Fashion Section / "FASHION" and POLLY quote block */
-    .fashion-row {
+    .pillars-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
-      margin: 70px 0 50px 0;
-      background: #fdf9f5;
-      border-radius: 60px;
-      padding: 40px 48px;
-      align-items: center;
+      justify-content: center;
     }
-    .fashion-badge {
-      background: #e8ddd4;
+
+    .pillar-card {
+      flex: 1;
+      min-width: 320px;
+      background: #ffffff;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 50px rgba(0,0,0,0.15);
+    }
+
+    .pillar-media {
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      background: #f0ebe6;
+    }
+
+    .pillar-media video,
+    .pillar-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .pillar-card:hover .pillar-media video,
+    .pillar-card:hover .pillar-media img {
+      transform: scale(1.05);
+    }
+
+    .pillar-info {
+      padding: 28px;
+      text-align: center;
+      background: white;
+    }
+
+    .pillar-icon {
+      font-size: 2.5rem;
+      color: #c17b53;
+      margin-bottom: 12px;
+    }
+
+    .pillar-info h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 8px;
+      color: #1f1b17;
+    }
+
+    .pillar-info p {
+      font-size: 0.85rem;
+      color: #6b5a4e;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .pillar-desc {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #4a3f38;
+      margin-top: 12px;
+    }
+
+    .pillar-btn {
+      margin-top: 20px;
+      background: transparent;
+      border: 2px solid #1e1a17;
+      padding: 10px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .pillar-btn:hover {
+      background: #1e1a17;
+      color: white;
+    }
+
+    /* About Section with minimized yellow.mp4 */
+    .about-section {
+      margin: 80px 0;
+      background: linear-gradient(135deg, #fdf9f5, #fefaf5);
+      border-radius: 60px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
+      padding: 48px;
+    }
+
+    .about-media {
+      flex: 0.8;
+      min-width: 250px;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .about-media video {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 300px;
+      object-fit: cover;
+    }
+
+    .about-content {
+      flex: 1.2;
+      min-width: 280px;
+    }
+
+    .about-badge {
       display: inline-block;
+      background: #e8ddd4;
       padding: 6px 18px;
       border-radius: 40px;
       font-size: 0.7rem;
@@ -293,60 +332,59 @@
       color: #a55328;
       margin-bottom: 1rem;
     }
-    .fashion-left {
-      flex: 1;
-    }
-    .fashion-left h3 {
-      font-size: 2.2rem;
-      font-weight: 700;
+
+    .about-content h2 {
       font-family: 'Playfair Display', serif;
-      letter-spacing: -0.01em;
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #1f1b17;
     }
-    .fashion-left .polly-highlight {
-      font-size: 2.8rem;
-      font-weight: 800;
-      margin: 0.5rem 0;
-      color: #231f1b;
+
+    .about-content h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #b4764a;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
     }
-    .fashion-desc {
-      margin-top: 1rem;
-      font-size: 0.95rem;
-      line-height: 1.5;
-      color: #5a4a3c;
-      max-width: 400px;
+
+    .about-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #4a3f38;
+      margin-bottom: 1.5rem;
     }
-    .fashion-right {
-      flex: 0.8;
-      background: #efe2d8;
-      border-radius: 32px;
-      padding: 24px 32px;
+
+    .about-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .stat {
       text-align: center;
     }
-    .fashion-right .quote {
-      font-style: italic;
-      font-size: 1.2rem;
-      font-weight: 500;
+
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #c17b53;
       font-family: 'Playfair Display', serif;
     }
 
-    /* Shop collections extra / brand row D section */
-    .brand-showcase {
-      margin: 70px 0 60px 0;
-    }
-    .section-mini-title {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-    .section-mini-title span:first-child {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 2px;
+    .stat-label {
+      font-size: 0.7rem;
       text-transform: uppercase;
-      color: #b4764a;
+      letter-spacing: 1px;
+      color: #6b5a4e;
     }
+
+    /* Brand Showcase */
+    .brand-showcase {
+      margin: 80px 0;
+    }
+
     .brand-grid {
       display: flex;
       flex-wrap: wrap;
@@ -355,20 +393,55 @@
       align-items: center;
       border-top: 1px solid #ece2da;
       border-bottom: 1px solid #ece2da;
-      padding: 32px 0;
+      padding: 40px 0;
     }
+
     .brand-item {
       font-weight: 500;
       font-size: 1.2rem;
-      letter-spacing: -0.2px;
       color: #2f2924;
-      transition: 0.2s;
-      cursor: default;
       font-family: 'Playfair Display', serif;
+      cursor: pointer;
+      transition: color 0.2s;
     }
+
     .brand-item:hover { color: #c17b53; }
 
-    /* Follow us + footer */
+    /* Fashion Quote Section */
+    .quote-section {
+      margin: 80px 0;
+      background: #efe2d8;
+      border-radius: 60px;
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .quote-section i {
+      font-size: 3rem;
+      color: #c17b53;
+      opacity: 0.6;
+      margin-bottom: 20px;
+    }
+
+    .quote-section p {
+      font-size: 1.8rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.4;
+    }
+
+    .quote-stars {
+      margin-top: 25px;
+    }
+
+    .quote-stars i {
+      font-size: 1rem;
+      margin: 0 2px;
+    }
+
+    /* Footer */
     .footer-area {
       display: flex;
       flex-wrap: wrap;
@@ -378,10 +451,12 @@
       padding-top: 20px;
       border-top: 1px solid #ece2da;
     }
+
     .social-links {
       display: flex;
       gap: 2rem;
     }
+
     .social-links a {
       text-decoration: none;
       font-weight: 500;
@@ -392,16 +467,19 @@
       gap: 8px;
       font-size: 0.9rem;
     }
+
     .social-links a i {
       font-size: 1.2rem;
     }
+
     .social-links a:hover { color: #b85c2a; }
+
     .copyright {
       font-size: 0.75rem;
       color: #948b82;
     }
 
-    /* Responsive touches */
+    /* Responsive */
     @media (max-width: 850px) {
       .container {
         padding: 0 24px;
@@ -409,14 +487,16 @@
       .hero-left h2 {
         font-size: 2.5rem;
       }
-      .fashion-row {
+      .about-container {
         flex-direction: column;
-        padding: 32px 24px;
+        padding: 32px;
       }
-      .top-bar {
+      .pillars-grid {
         flex-direction: column;
-        gap: 16px;
-        align-items: flex-start;
+        align-items: center;
+      }
+      .pillar-card {
+        max-width: 400px;
       }
       .brand-grid {
         gap: 1rem;
@@ -427,22 +507,14 @@
         gap: 24px;
         align-items: flex-start;
       }
-      .video-section {
-        border-radius: 24px;
+      .quote-section p {
+        font-size: 1.3rem;
       }
-      .featured-video {
-        border-radius: 24px;
-      }
-    }
-    @media (max-width: 550px) {
-      .hero {
-        flex-direction: column;
-      }
-      .pillar-item {
-        flex-wrap: wrap;
+      .about-stats {
+        justify-content: center;
       }
     }
-    /* extra small details */
+
     .deco-dot {
       width: 6px;
       height: 6px;
@@ -451,15 +523,11 @@
       border-radius: 50%;
       margin-right: 8px;
     }
-    button {
-      background: none;
-      border: none;
-    }
   </style>
 </head>
 <body>
 <div class="container">
-  <!-- Header with POLLY identity -->
+  <!-- Header -->
   <div class="top-bar">
     <div class="logo-area">
       <h1>POLLY</h1>
@@ -478,7 +546,7 @@
     </div>
   </div>
 
-  <!-- MAIN HERO SECTION (based on provided layout: POLLY, Best-Dressed Guest + Shop the Collection + desc + Chic/Bold/Live) -->
+  <!-- HERO SECTION -->
   <div class="hero">
     <div class="hero-left">
       <div class="hero-badge">
@@ -489,8 +557,7 @@
       </h2>
       <p class="hero-desc">
         A trendy clothing website offering bold, flattering styles for every occasion, 
-        designed to boost confidence and showcase personal style. With a focus on modern fashion 
-        and effortless shopping, it makes it easy to stand out.
+        designed to boost confidence and showcase personal style.
       </p>
       <button class="shop-btn" id="shopNowBtn">
         Shop the Collection <i class="fas fa-arrow-right"></i>
@@ -500,95 +567,148 @@
       </div>
     </div>
     <div class="hero-right">
-      <div class="pillars">
-        <div class="pillar-item">
-          <video class="pillar-video-bg" autoplay muted loop playsinline>
+      <div style="background: #f3ede8; border-radius: 40px; padding: 2rem;">
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 50px; height: 50px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #c17b53;"><i class="fas fa-feather-alt"></i></div>
+            <div><h4 style="font-size: 1.2rem;">Chic</h4><p style="font-size: 0.7rem; color: #6b5a4e;">STYLISH AND ELEGANT</p></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 50px; height: 50px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #c17b53;"><i class="fas fa-bolt"></i></div>
+            <div><h4 style="font-size: 1.2rem;">Bold</h4><p style="font-size: 0.7rem; color: #6b5a4e;">STRIKING AND DARING</p></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 50px; height: 50px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #c17b53;"><i class="fas fa-gem"></i></div>
+            <div><h4 style="font-size: 1.2rem;">Luxe</h4><p style="font-size: 0.7rem; color: #6b5a4e;">LUXURIOUS AND HIGH-END</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHIC, BOLD, LUXE SECTIONS - WITHOUT yellow.mp4 -->
+  <div class="pillars-showcase">
+    <div class="pillars-title">
+      <h2>Discover Your Style</h2>
+      <p>Experience the essence of POLLY</p>
+    </div>
+    <div class="pillars-grid">
+      
+      <!-- CHIC CARD -->
+      <div class="pillar-card">
+        <div class="pillar-media">
+          <video autoplay muted loop playsinline>
             <source src="Oh%20P%20O%20L%20L%20Y%20(2).mp4" type="video/mp4">
+            Your browser does not support video.
           </video>
+        </div>
+        <div class="pillar-info">
           <div class="pillar-icon"><i class="fas fa-feather-alt"></i></div>
-          <div class="pillar-text">
-            <h4>Chic</h4>
-            <p>STYLISH AND ELEGANT</p>
+          <h3>Chic</h3>
+          <p>STYLISH AND ELEGANT</p>
+          <div class="pillar-desc">
+            Effortlessly sophisticated pieces that blend timeless elegance with modern flair. Perfect for the woman who commands attention.
           </div>
+          <button class="pillar-btn">Explore Chic →</button>
         </div>
-        <div class="pillar-item">
-          <video class="pillar-video-bg" autoplay muted loop playsinline>
-            <source src="Oh%20P%20O%20L%20L%20Y%20(2).mp4" type="video/mp4">
-          </video>
+      </div>
+
+      <!-- BOLD CARD -->
+      <div class="pillar-card">
+        <div class="pillar-media">
+          <img src="https://placehold.co/600x400/f3ede8/c17b53?text=BOLD+COLLECTION" alt="Bold Collection">
+        </div>
+        <div class="pillar-info">
           <div class="pillar-icon"><i class="fas fa-bolt"></i></div>
-          <div class="pillar-text">
-            <h4>Bold</h4>
-            <p>STRIKING AND DARING</p>
+          <h3>Bold</h3>
+          <p>STRIKING AND DARING</p>
+          <div class="pillar-desc">
+            Make a statement with vibrant colors, daring cuts, and unapologetic designs that celebrate confidence and individuality.
           </div>
+          <button class="pillar-btn">Explore Bold →</button>
         </div>
-        <div class="pillar-item">
-          <video class="pillar-video-bg" autoplay muted loop playsinline>
+      </div>
+
+      <!-- LUXE CARD -->
+      <div class="pillar-card">
+        <div class="pillar-media">
+          <video autoplay muted loop playsinline>
             <source src="Oh%20P%20O%20L%20L%20Y%20(2).mp4" type="video/mp4">
+            Your browser does not support video.
           </video>
+        </div>
+        <div class="pillar-info">
           <div class="pillar-icon"><i class="fas fa-gem"></i></div>
-          <div class="pillar-text">
-            <h4>Live</h4>
-            <p>LUXURIOUS AND HIGH-END</p>
+          <h3>Luxe</h3>
+          <p>LUXURIOUS AND HIGH-END</p>
+          <div class="pillar-desc">
+            Premium fabrics, exquisite craftsmanship, and opulent details. Elevate your wardrobe with our most exclusive collection.
           </div>
+          <button class="pillar-btn">Explore Luxe →</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- YELLOW MP4 VIDEO SECTION - ADDED HERE -->
-  <div class="video-section">
-    <div class="video-caption">
-      <i class="fas fa-play-circle"></i> FEATURED COLLECTION — LEMON YELLOW EDITION
-    </div>
-    <video class="featured-video" controls autoplay muted loop playsinline>
-      <source src="yellow.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-
-  <!-- FASHION / POLLY quote block (FASHION title + POLLY sub + description) -->
-  <div class="fashion-row">
-    <div class="fashion-left">
-      <div class="fashion-badge">THE VIBE</div>
-      <h3>FASHION</h3>
-      <div class="polly-highlight">POLLY</div>
-      <p class="fashion-desc">
-        A trendy clothing website offering bold, flattering styles for every occasion, 
-        designed to boost confidence and showcase personal style. With a focus on modern fashion 
-        and effortless shopping, it makes it easy to stand out.
-      </p>
-    </div>
-    <div class="fashion-right">
-      <div class="quote">
-        “Dress like you’re already famous —<br>confident, chic, unforgettable.”
+  <!-- ABOUT SECTION - MINIMIZED YELLOW.MP4 -->
+  <div class="about-section">
+    <div class="about-container">
+      <div class="about-media">
+        <video controls autoplay muted loop playsinline>
+          <source src="yellow.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
-      <div style="margin-top: 20px;">
-        <i class="fas fa-star" style="color:#c17b53; font-size: 0.8rem;"></i>
-        <i class="fas fa-star" style="color:#c17b53;"></i>
-        <i class="fas fa-star" style="color:#c17b53;"></i>
-        <i class="fas fa-star" style="color:#c17b53;"></i>
-        <i class="fas fa-star-half-alt" style="color:#c17b53;"></i>
-        <p style="font-size: 0.7rem; margin-top: 8px;">POLLY muse collection</p>
+      <div class="about-content">
+        <div class="about-badge">ABOUT POLLY</div>
+        <h2>Lemon Yellow Collection</h2>
+        <h3>Bright · Bold · Beautiful</h3>
+        <p>Our signature Lemon Yellow collection embodies the spirit of summer and confidence. Designed for those who aren't afraid to shine, these pieces bring warmth and energy to any wardrobe.</p>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Styles</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Sustainable</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Support</div>
+          </div>
+        </div>
+        <button class="shop-btn" style="background: #c17b53; margin-top: 20px;">Learn More <i class="fas fa-arrow-right"></i></button>
       </div>
     </div>
   </div>
 
-  <!-- Brand row with D / SAY HELLO and luxury partners: Lume Paris, Loro Milan, Zenitizza, Aveu Dubaï -->
+  <!-- QUOTE SECTION -->
+  <div class="quote-section">
+    <i class="fas fa-quote-left"></i>
+    <p>“Dress like you're already famous — confident, chic, unforgettable.”</p>
+    <div class="quote-stars">
+      <i class="fas fa-star" style="color:#c17b53;"></i>
+      <i class="fas fa-star" style="color:#c17b53;"></i>
+      <i class="fas fa-star" style="color:#c17b53;"></i>
+      <i class="fas fa-star" style="color:#c17b53;"></i>
+      <i class="fas fa-star-half-alt" style="color:#c17b53;"></i>
+    </div>
+    <p style="margin-top: 15px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px;">POLLY Muse Collection</p>
+  </div>
+
+  <!-- BRAND SHOWCASE -->
   <div class="brand-showcase">
-    <div class="section-mini-title">
-      <span><i class="far fa-comment-dots"></i> SAY HELLO</span>
-      <span style="font-size:0.7rem; color:#b4764a;">Global icons</span>
-    </div>
     <div class="brand-grid">
       <div class="brand-item">Lume Paris</div>
       <div class="brand-item">Loro Milan</div>
       <div class="brand-item">Zenitizza</div>
       <div class="brand-item">Aveu Dubaï</div>
-      <div class="brand-item"><i class="fas fa-map-marker-alt" style="font-size:0.8rem;"></i> D / Edition</div>
+      <div class="brand-item"><i class="fas fa-map-marker-alt"></i> D / Edition</div>
     </div>
   </div>
 
-  <!-- Follow us + footer links exactly matching given content -->
+  <!-- FOOTER -->
   <div class="footer-area">
     <div class="social-links">
       <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
@@ -601,67 +721,61 @@
   </div>
 </div>
 
-<!-- simple interactive toast / alert for shop the collection (enhancement) -->
 <script>
   (function() {
+    // Shop button toast
     const shopBtn = document.getElementById('shopNowBtn');
     if (shopBtn) {
       shopBtn.addEventListener('click', () => {
-        // simulated collection shop action: subtle modern notification
-        const toast = document.createElement('div');
-        toast.innerText = '✨ Discover the new POLLY collection — Bold, Chic & Live ✨';
-        toast.style.position = 'fixed';
-        toast.style.bottom = '30px';
-        toast.style.left = '50%';
-        toast.style.transform = 'translateX(-50%)';
-        toast.style.backgroundColor = '#1e1a17';
-        toast.style.color = '#fefaf5';
-        toast.style.padding = '12px 28px';
-        toast.style.borderRadius = '60px';
-        toast.style.fontSize = '0.85rem';
-        toast.style.fontWeight = '500';
-        toast.style.fontFamily = "'Inter', sans-serif";
-        toast.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
-        toast.style.zIndex = '999';
-        toast.style.backdropFilter = 'blur(4px)';
-        toast.style.letterSpacing = '0.3px';
-        document.body.appendChild(toast);
-        setTimeout(() => {
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity 0.4s ease';
-          setTimeout(() => toast.remove(), 500);
-        }, 2800);
+        showToast('✨ Discover the new POLLY collection — Bold, Chic & Luxe ✨');
       });
     }
 
-    // optional hover micro-interactions for pillars/brand items
+    // Pillar card buttons
+    const pillarBtns = document.querySelectorAll('.pillar-btn');
+    pillarBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const card = btn.closest('.pillar-card');
+        const title = card.querySelector('h3').innerText;
+        showToast(`✨ Explore ${title} collection at POLLY ✨`);
+      });
+    });
+
+    // Brand items
     const brandItems = document.querySelectorAll('.brand-item');
     brandItems.forEach(item => {
       item.style.cursor = 'pointer';
       item.addEventListener('click', () => {
-        console.log(`Explore ${item.innerText.trim()} collaboration`);
-        // gentle feedback
-        const tempMsg = document.createElement('div');
-        tempMsg.innerText = `✨ ${item.innerText.trim()} x POLLY coming soon ✨`;
-        tempMsg.style.position = 'fixed';
-        tempMsg.style.bottom = '80px';
-        tempMsg.style.left = '50%';
-        tempMsg.style.transform = 'translateX(-50%)';
-        tempMsg.style.backgroundColor = '#c17b53';
-        tempMsg.style.color = 'white';
-        tempMsg.style.padding = '8px 18px';
-        tempMsg.style.borderRadius = '40px';
-        tempMsg.style.fontSize = '0.75rem';
-        tempMsg.style.fontWeight = '500';
-        tempMsg.style.zIndex = '999';
-        document.body.appendChild(tempMsg);
-        setTimeout(() => {
-          tempMsg.style.opacity = '0';
-          tempMsg.style.transition = 'opacity 0.3s';
-          setTimeout(() => tempMsg.remove(), 400);
-        }, 1500);
+        showToast(`✨ ${item.innerText.trim()} x POLLY coming soon ✨`);
       });
     });
+
+    function showToast(message) {
+      const toast = document.createElement('div');
+      toast.innerText = message;
+      toast.style.position = 'fixed';
+      toast.style.bottom = '30px';
+      toast.style.left = '50%';
+      toast.style.transform = 'translateX(-50%)';
+      toast.style.backgroundColor = '#1e1a17';
+      toast.style.color = '#fefaf5';
+      toast.style.padding = '12px 28px';
+      toast.style.borderRadius = '60px';
+      toast.style.fontSize = '0.85rem';
+      toast.style.fontWeight = '500';
+      toast.style.fontFamily = "'Inter', sans-serif";
+      toast.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
+      toast.style.zIndex = '999';
+      toast.style.backdropFilter = 'blur(4px)';
+      toast.style.letterSpacing = '0.3px';
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.4s ease';
+        setTimeout(() => toast.remove(), 500);
+      }, 2800);
+    }
   })();
 </script>
 </body>
