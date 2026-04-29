@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -453,6 +452,30 @@
       border-top: 1px solid #ece2da;
     }
 
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .footer-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .footer-text {
+      font-size: 0.85rem;
+      color: #6b5a4e;
+    }
+
     .social-links {
       display: flex;
       gap: 2rem;
@@ -506,6 +529,10 @@
       .footer-area {
         flex-direction: column;
         gap: 24px;
+        align-items: flex-start;
+      }
+      .footer-left {
+        flex-direction: column;
         align-items: flex-start;
       }
       .quote-section p {
@@ -712,75 +739,15 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- FOOTER WITH POLLY PNG IMAGE -->
   <div class="footer-area">
+    <div class="footer-left">
+      <img src="Oh%20P%20O%20L%20L%20Y.png" alt="POLLY Logo" class="footer-logo">
+      <div class="footer-text">
+        <strong>POLLY</strong><br>
+        Best-Dressed Guest
+      </div>
+    </div>
     <div class="social-links">
       <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-      <a href="#"><i class="fab fa-tiktok"></i> TikTok</a>
-      <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
-    </div>
-    <div class="copyright">
-      © 2025 POLLY — Best-Dressed Guest. All rights reserved.
-    </div>
-  </div>
-</div>
-
-<script>
-  (function() {
-    // Shop button toast
-    const shopBtn = document.getElementById('shopNowBtn');
-    if (shopBtn) {
-      shopBtn.addEventListener('click', () => {
-        showToast('✨ Discover the new POLLY collection — Bold, Chic & Luxe ✨');
-      });
-    }
-
-    // Pillar card buttons
-    const pillarBtns = document.querySelectorAll('.pillar-btn');
-    pillarBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const card = btn.closest('.pillar-card');
-        const title = card.querySelector('h3').innerText;
-        showToast(`✨ Explore ${title} collection at POLLY ✨`);
-      });
-    });
-
-    // Brand items
-    const brandItems = document.querySelectorAll('.brand-item');
-    brandItems.forEach(item => {
-      item.style.cursor = 'pointer';
-      item.addEventListener('click', () => {
-        showToast(`✨ ${item.innerText.trim()} x POLLY coming soon ✨`);
-      });
-    });
-
-    function showToast(message) {
-      const toast = document.createElement('div');
-      toast.innerText = message;
-      toast.style.position = 'fixed';
-      toast.style.bottom = '30px';
-      toast.style.left = '50%';
-      toast.style.transform = 'translateX(-50%)';
-      toast.style.backgroundColor = '#1e1a17';
-      toast.style.color = '#fefaf5';
-      toast.style.padding = '12px 28px';
-      toast.style.borderRadius = '60px';
-      toast.style.fontSize = '0.85rem';
-      toast.style.fontWeight = '500';
-      toast.style.fontFamily = "'Inter', sans-serif";
-      toast.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
-      toast.style.zIndex = '999';
-      toast.style.backdropFilter = 'blur(4px)';
-      toast.style.letterSpacing = '0.3px';
-      document.body.appendChild(toast);
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transition = 'opacity 0.4s ease';
-        setTimeout(() => toast.remove(), 500);
-      }, 2800);
-    }
-  })();
-</script>
-</body>
-</html>
+     
