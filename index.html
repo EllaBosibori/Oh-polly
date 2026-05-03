@@ -267,7 +267,6 @@
       transform: scale(1.05);
     }
 
-    /* Video overlay play indicator */
     .video-overlay {
       position: absolute;
       bottom: 15px;
@@ -511,6 +510,117 @@
       padding: 50px 40px 40px 40px;
     }
 
+    /* BIG COMING SOON SECTION */
+    .coming-soon-section {
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,105,180,0.1));
+      border-radius: 60px;
+      border: 2px solid rgba(255,215,0,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .coming-soon-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,215,0,0.05) 0%, transparent 70%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    .coming-soon-label {
+      font-size: 1rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #ff69b4;
+      margin-bottom: 20px;
+      display: inline-block;
+      background: rgba(255,105,180,0.2);
+      padding: 5px 15px;
+      border-radius: 40px;
+    }
+
+    .coming-soon-title {
+      font-size: 5rem;
+      font-weight: 800;
+      font-family: 'Playfair Display', serif;
+      background: linear-gradient(135deg, #FFD700, #ff69b4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    .coming-soon-subtitle {
+      font-size: 1.2rem;
+      color: #cccccc;
+      letter-spacing: 2px;
+    }
+
+    .coming-soon-highlight {
+      color: #FFD700;
+      font-weight: 600;
+    }
+
+    .countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .countdown-item {
+      text-align: center;
+      background: rgba(0,0,0,0.5);
+      padding: 15px 25px;
+      border-radius: 20px;
+      min-width: 100px;
+      border: 1px solid rgba(255,215,0,0.3);
+    }
+
+    .countdown-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #FFD700;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .countdown-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: #ff69b4;
+      letter-spacing: 2px;
+    }
+
     .footer-grid {
       display: flex;
       flex-wrap: wrap;
@@ -683,6 +793,17 @@
         justify-content: center;
         margin-top: 15px;
       }
+      .coming-soon-title {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+      }
+      .countdown-item {
+        min-width: 70px;
+        padding: 10px 15px;
+      }
+      .countdown-number {
+        font-size: 1.5rem;
+      }
     }
 
     .deco-dot {
@@ -758,7 +879,7 @@
     </div>
   </div>
 
-  <!-- CHIC, BOLD, LUXE SECTIONS - EACH WITH ITS OWN VIDEO -->
+  <!-- CHIC, BOLD, LUXE SECTIONS -->
   <div class="pillars-showcase">
     <div class="pillars-title">
       <h2>Discover Your Style</h2>
@@ -766,7 +887,6 @@
     </div>
     <div class="pillars-grid">
       
-      <!-- CHIC CARD - Video 1 -->
       <div class="pillar-card">
         <div class="pillar-media">
           <video autoplay muted loop playsinline>
@@ -783,13 +903,12 @@
           <h3>Chic</h3>
           <p>STYLISH AND ELEGANT</p>
           <div class="pillar-desc">
-            Effortlessly sophisticated pieces that blend timeless elegance with modern flair. Perfect for the woman who commands attention.
+            Effortlessly sophisticated pieces that blend timeless elegance with modern flair.
           </div>
           <button class="pillar-btn">Explore Chic →</button>
         </div>
       </div>
 
-      <!-- BOLD CARD - Video 2 -->
       <div class="pillar-card">
         <div class="pillar-media">
           <video autoplay muted loop playsinline>
@@ -806,13 +925,12 @@
           <h3>Bold</h3>
           <p>STRIKING AND DARING</p>
           <div class="pillar-desc">
-            Make a statement with vibrant colors, daring cuts, and unapologetic designs that celebrate confidence and individuality.
+            Make a statement with vibrant colors, daring cuts, and unapologetic designs.
           </div>
           <button class="pillar-btn">Explore Bold →</button>
         </div>
       </div>
 
-      <!-- LUXE CARD - Video 3 -->
       <div class="pillar-card">
         <div class="pillar-media">
           <video autoplay muted loop playsinline>
@@ -829,7 +947,7 @@
           <h3>Luxe</h3>
           <p>LUXURIOUS AND HIGH-END</p>
           <div class="pillar-desc">
-            Premium fabrics, exquisite craftsmanship, and opulent details. Elevate your wardrobe with our most exclusive collection.
+            Premium fabrics, exquisite craftsmanship, and opulent details.
           </div>
           <button class="pillar-btn">Explore Luxe →</button>
         </div>
@@ -850,7 +968,7 @@
         <div class="about-badge">ABOUT POLLY</div>
         <h2>Lemon Yellow Collection</h2>
         <h3>Bright · Bold · Beautiful</h3>
-        <p>Our signature Lemon Yellow collection embodies the spirit of summer and confidence. Designed for those who aren't afraid to shine, these pieces bring warmth and energy to any wardrobe.</p>
+        <p>Our signature Lemon Yellow collection embodies the spirit of summer and confidence.</p>
         <div class="about-stats">
           <div class="stat">
             <div class="stat-number">50+</div>
@@ -895,106 +1013,34 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- FOOTER WITH BIG COMING SOON -->
   <div class="footer-area">
-    <div class="footer-grid">
-      
-      <div class="footer-images">
-        <div class="footer-image-card">
-          <img src="Oh%20P%20O%20L%20L%20Y.png" alt="POLLY Logo" class="footer-large-image">
-          <p>POLLY LOGO</p>
-        </div>
-        <div class="footer-image-card">
-          <img src="Oh%20P%20O%20L%20L%20Y.png" alt="POLLY Signature" class="footer-large-image">
-          <p>SIGNATURE STYLE</p>
-        </div>
-        <div class="footer-image-card">
-          <img src="Oh%20P%20O%20L%20L%20Y.png" alt="POLLY Collection" class="footer-large-image">
-          <p>COLLECTION 2025</p>
-        </div>
-      </div>
-
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <ul class="footer-links">
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Shop</a></li>
-          <li><a href="#">Collections</a></li>
-          <li><a href="#">Lookbook</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-section">
-        <h3>Newsletter</h3>
-        <p style="color: #cccccc; margin-bottom: 15px;">Get 10% off your first order</p>
-        <div class="newsletter-input">
-          <input type="email" placeholder="Your email">
-          <button><i class="fas fa-arrow-right"></i></button>
-        </div>
-        <div class="social-links-footer">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-tiktok"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="copyright-bar">
-      © 2025 POLLY — Best-Dressed Guest. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ff69b4;"></i> in Gold, Pink & Black
-    </div>
-  </div>
-</div>
-
-<script>
-  (function() {
-    // NEW ARRIVALS BUTTON - Opens new page
-    const newArrivalsBtn = document.getElementById('newArrivalsBtn');
-    if (newArrivalsBtn) {
-      newArrivalsBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        // Open new arrivals page in same tab
-        window.location.href = 'new-arrivals.html';
-        // OR open in new tab - uncomment below and comment above
-        // window.open('new-arrivals.html', '_blank');
-      });
-    }
     
-    const shopBtn = document.getElementById('shopNowBtn');
-    if (shopBtn) {
-      shopBtn.addEventListener('click', () => {
-        showToast('✨ Discover the new POLLY collection — Bold, Chic & Luxe ✨');
-      });
-    }
-
-    const pillarBtns = document.querySelectorAll('.pillar-btn');
-    pillarBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const card = btn.closest('.pillar-card');
-        const title = card.querySelector('h3').innerText;
-        showToast(`✨ Explore ${title} collection at POLLY ✨`);
-      });
-    });
-
-    const brandItems = document.querySelectorAll('.brand-item');
-    brandItems.forEach(item => {
-      item.style.cursor = 'pointer';
-      item.addEventListener('click', () => {
-        showToast(`✨ ${item.innerText.trim()} x POLLY coming soon ✨`);
-      });
-    });
-
-    function showToast(message) {
-      const toast = document.createElement('div');
-      toast.innerText = message;
-      toast.style.position = 'fixed';
-      toast.style.bottom = '30px';
-      toast.style.left = '50%';
-      toast.style.transform = 'translateX(-50%)';
-      toast.style.backgroundColor = '#1a1a1a';
-      toast.style.color = '#FFD700';
-      toast.style.border = '1px solid #ff69b4';
-      toast.style.padding = '12px 28px';
-      toast.style.borderRadius = '60px
+    <!-- BIG COMING SOON SECTION -->
+    <div class="coming-soon-section">
+      <div class="coming-soon-label">
+        <i class="fas fa-hourglass-half"></i> ANNOUNCEMENT
+      </div>
+      <div class="coming-soon-title">
+        COMING SOON
+      </div>
+      <div class="coming-soon-subtitle">
+        Something <span class="coming-soon-highlight">EXTRAORDINARY</span> is on the horizon
+      </div>
+      
+      <!-- Countdown Timer -->
+      <div class="countdown-timer">
+        <div class="countdown-item">
+          <div class="countdown-number" id="days">00</div>
+          <div class="countdown-label">Days</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="hours">00</div>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="minutes">00</div>
+          <div class="countdown-label">Minutes</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number
