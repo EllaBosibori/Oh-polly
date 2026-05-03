@@ -59,14 +59,51 @@
       display: flex;
       gap: 2rem;
       font-weight: 500;
+      align-items: center;
     }
+    
     .nav-links a {
       text-decoration: none;
       color: #ffffff;
       font-size: 0.9rem;
       transition: color 0.2s;
     }
+    
     .nav-links a:hover { color: #FFD700; }
+    
+    /* New Arrivals Button Style */
+    .new-arrivals-btn {
+      background: linear-gradient(135deg, #FFD700, #ff69b4);
+      border: none;
+      padding: 10px 24px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #0a0a0a;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: 0.25s ease;
+      box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    
+    .new-arrivals-btn i {
+      font-size: 0.9rem;
+      transition: transform 0.2s;
+    }
+    
+    .new-arrivals-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255,215,0,0.4);
+    }
+    
+    .new-arrivals-btn:hover i {
+      transform: translateX(5px);
+    }
+
     .header-icons {
       display: flex;
       gap: 1.2rem;
@@ -213,22 +250,38 @@
 
     .pillar-media {
       width: 100%;
-      height: 400px;
+      height: 450px;
       overflow: hidden;
       background: #2a2a2a;
+      position: relative;
     }
 
-    .pillar-media video,
-    .pillar-media img {
+    .pillar-media video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
     }
 
-    .pillar-card:hover .pillar-media video,
-    .pillar-card:hover .pillar-media img {
+    .pillar-card:hover .pillar-media video {
       transform: scale(1.05);
+    }
+
+    /* Video overlay play indicator */
+    .video-overlay {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFD700;
+      font-size: 1rem;
+      pointer-events: none;
     }
 
     .pillar-info {
@@ -448,7 +501,7 @@
       color: #FFD700;
     }
 
-    /* Footer - LARGE VISIBLE IMAGES */
+    /* Footer */
     .footer-area {
       margin: 50px 0 30px 0;
       padding-top: 40px;
@@ -479,7 +532,6 @@
       padding-left: 12px;
     }
 
-    /* LARGE VISIBLE IMAGES SECTION */
     .footer-images {
       flex: 2;
       display: flex;
@@ -626,6 +678,11 @@
       .quote-section p {
         font-size: 1.3rem;
       }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 15px;
+      }
     }
 
     .deco-dot {
@@ -647,7 +704,9 @@
       <p>Best-Dressed Guest</p>
     </div>
     <div class="nav-links">
-      <a href="#">New Arrivals</a>
+      <a href="#" class="new-arrivals-btn" id="newArrivalsBtn">
+        <i class="fas fa-star"></i> NEW ARRIVALS <i class="fas fa-arrow-right"></i>
+      </a>
       <a href="#">Collections</a>
       <a href="#">Stories</a>
       <a href="#">The Edit</a>
@@ -699,7 +758,7 @@
     </div>
   </div>
 
-  <!-- CHIC, BOLD, LUXE SECTIONS -->
+  <!-- CHIC, BOLD, LUXE SECTIONS - EACH WITH ITS OWN VIDEO -->
   <div class="pillars-showcase">
     <div class="pillars-title">
       <h2>Discover Your Style</h2>
@@ -707,55 +766,70 @@
     </div>
     <div class="pillars-grid">
       
+      <!-- CHIC CARD - Video 1 -->
       <div class="pillar-card">
         <div class="pillar-media">
           <video autoplay muted loop playsinline>
             <source src="chic-video.mp4" type="video/mp4">
+            <source src="P%20O%20L%20%20L%20Y(2).mp4" type="video/mp4">
             Your browser does not support video.
           </video>
+          <div class="video-overlay">
+            <i class="fas fa-play"></i>
+          </div>
         </div>
         <div class="pillar-info">
           <div class="pillar-icon"><i class="fas fa-feather-alt"></i></div>
           <h3>Chic</h3>
           <p>STYLISH AND ELEGANT</p>
           <div class="pillar-desc">
-            Effortlessly sophisticated pieces that blend timeless elegance with modern flair.
+            Effortlessly sophisticated pieces that blend timeless elegance with modern flair. Perfect for the woman who commands attention.
           </div>
           <button class="pillar-btn">Explore Chic →</button>
         </div>
       </div>
 
+      <!-- BOLD CARD - Video 2 -->
       <div class="pillar-card">
         <div class="pillar-media">
           <video autoplay muted loop playsinline>
             <source src="bold-video.mp4" type="video/mp4">
+            <source src="P%20O%20L%20%20L%20Y(2).mp4" type="video/mp4">
             Your browser does not support video.
           </video>
+          <div class="video-overlay">
+            <i class="fas fa-play"></i>
+          </div>
         </div>
         <div class="pillar-info">
           <div class="pillar-icon"><i class="fas fa-bolt"></i></div>
           <h3>Bold</h3>
           <p>STRIKING AND DARING</p>
           <div class="pillar-desc">
-            Make a statement with vibrant colors, daring cuts, and unapologetic designs.
+            Make a statement with vibrant colors, daring cuts, and unapologetic designs that celebrate confidence and individuality.
           </div>
           <button class="pillar-btn">Explore Bold →</button>
         </div>
       </div>
 
+      <!-- LUXE CARD - Video 3 -->
       <div class="pillar-card">
         <div class="pillar-media">
           <video autoplay muted loop playsinline>
             <source src="luxe-video.mp4" type="video/mp4">
+            <source src="P%20O%20L%20%20L%20Y(2).mp4" type="video/mp4">
             Your browser does not support video.
           </video>
+          <div class="video-overlay">
+            <i class="fas fa-play"></i>
+          </div>
         </div>
         <div class="pillar-info">
           <div class="pillar-icon"><i class="fas fa-gem"></i></div>
           <h3>Luxe</h3>
           <p>LUXURIOUS AND HIGH-END</p>
           <div class="pillar-desc">
-            Premium fabrics, exquisite craftsmanship, and opulent details.
+            Premium fabrics, exquisite craftsmanship, and opulent details. Elevate your wardrobe with our most exclusive collection.
           </div>
           <button class="pillar-btn">Explore Luxe →</button>
         </div>
@@ -776,7 +850,7 @@
         <div class="about-badge">ABOUT POLLY</div>
         <h2>Lemon Yellow Collection</h2>
         <h3>Bright · Bold · Beautiful</h3>
-        <p>Our signature Lemon Yellow collection embodies the spirit of summer and confidence.</p>
+        <p>Our signature Lemon Yellow collection embodies the spirit of summer and confidence. Designed for those who aren't afraid to shine, these pieces bring warmth and energy to any wardrobe.</p>
         <div class="about-stats">
           <div class="stat">
             <div class="stat-number">50+</div>
@@ -821,11 +895,10 @@
     </div>
   </div>
 
-  <!-- FOOTER WITH LARGE VISIBLE IMAGES -->
+  <!-- FOOTER -->
   <div class="footer-area">
     <div class="footer-grid">
       
-      <!-- LARGE VISIBLE IMAGES SECTION -->
       <div class="footer-images">
         <div class="footer-image-card">
           <img src="Oh%20P%20O%20L%20L%20Y.png" alt="POLLY Logo" class="footer-large-image">
@@ -841,7 +914,6 @@
         </div>
       </div>
 
-      <!-- QUICK LINKS -->
       <div class="footer-section">
         <h3>Quick Links</h3>
         <ul class="footer-links">
@@ -853,7 +925,6 @@
         </ul>
       </div>
 
-      <!-- NEWSLETTER -->
       <div class="footer-section">
         <h3>Newsletter</h3>
         <p style="color: #cccccc; margin-bottom: 15px;">Get 10% off your first order</p>
@@ -878,6 +949,18 @@
 
 <script>
   (function() {
+    // NEW ARRIVALS BUTTON - Opens new page
+    const newArrivalsBtn = document.getElementById('newArrivalsBtn');
+    if (newArrivalsBtn) {
+      newArrivalsBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Open new arrivals page in same tab
+        window.location.href = 'new-arrivals.html';
+        // OR open in new tab - uncomment below and comment above
+        // window.open('new-arrivals.html', '_blank');
+      });
+    }
+    
     const shopBtn = document.getElementById('shopNowBtn');
     if (shopBtn) {
       shopBtn.addEventListener('click', () => {
@@ -908,28 +991,10 @@
       toast.innerText = message;
       toast.style.position = 'fixed';
       toast.style.bottom = '30px';
-      toast.style.left = '50%;
+      toast.style.left = '50%';
       toast.style.transform = 'translateX(-50%)';
       toast.style.backgroundColor = '#1a1a1a';
       toast.style.color = '#FFD700';
       toast.style.border = '1px solid #ff69b4';
       toast.style.padding = '12px 28px';
-      toast.style.borderRadius = '60px';
-      toast.style.fontSize = '0.85rem';
-      toast.style.fontWeight = '500';
-      toast.style.fontFamily = "'Inter', sans-serif";
-      toast.style.boxShadow = '0 10px 20px rgba(0,0,0,0.5)';
-      toast.style.zIndex = '999';
-      toast.style.backdropFilter = 'blur(8px)';
-      toast.style.letterSpacing = '0.3px';
-      document.body.appendChild(toast);
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transition = 'opacity 0.4s ease';
-        setTimeout(() => toast.remove(), 500);
-      }, 2800);
-    }
-  })();
-</script>
-</body>
-</html>
+      toast.style.borderRadius = '60px
