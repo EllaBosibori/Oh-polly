@@ -514,7 +514,7 @@
     .coming-soon-section {
       text-align: center;
       margin-bottom: 60px;
-      padding: 50px 20px;
+      padding: 60px 20px;
       background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,105,180,0.1));
       border-radius: 60px;
       border: 2px solid rgba(255,215,0,0.3);
@@ -529,7 +529,7 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(255,215,0,0.05) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,215,0,0.08) 0%, transparent 70%);
       animation: pulse 4s ease-in-out infinite;
     }
 
@@ -552,8 +552,10 @@
       margin-bottom: 20px;
       display: inline-block;
       background: rgba(255,105,180,0.2);
-      padding: 5px 15px;
+      padding: 8px 20px;
       border-radius: 40px;
+      position: relative;
+      z-index: 1;
     }
 
     .coming-soon-title {
@@ -568,6 +570,8 @@
       text-transform: uppercase;
       margin-bottom: 20px;
       animation: shimmer 3s ease-in-out infinite;
+      position: relative;
+      z-index: 1;
     }
 
     @keyframes shimmer {
@@ -583,6 +587,8 @@
       font-size: 1.2rem;
       color: #cccccc;
       letter-spacing: 2px;
+      position: relative;
+      z-index: 1;
     }
 
     .coming-soon-highlight {
@@ -596,29 +602,49 @@
       gap: 30px;
       margin-top: 40px;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
     }
 
     .countdown-item {
       text-align: center;
-      background: rgba(0,0,0,0.5);
-      padding: 15px 25px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      padding: 20px 30px;
       border-radius: 20px;
-      min-width: 100px;
-      border: 1px solid rgba(255,215,0,0.3);
+      min-width: 120px;
+      border: 1px solid rgba(255,215,0,0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .countdown-item:hover {
+      transform: translateY(-5px);
+      border-color: #FFD700;
+      box-shadow: 0 10px 30px rgba(255,215,0,0.2);
     }
 
     .countdown-number {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 700;
       color: #FFD700;
       font-family: 'Playfair Display', serif;
     }
 
     .countdown-label {
-      font-size: 0.7rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
       color: #ff69b4;
       letter-spacing: 2px;
+      margin-top: 8px;
+    }
+
+    .countdown-message {
+      margin-top: 30px;
+      font-size: 1rem;
+      color: #ff69b4;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 1;
     }
 
     .footer-grid {
@@ -798,11 +824,14 @@
         letter-spacing: 4px;
       }
       .countdown-item {
-        min-width: 70px;
-        padding: 10px 15px;
+        min-width: 80px;
+        padding: 12px 18px;
       }
       .countdown-number {
-        font-size: 1.5rem;
+        font-size: 2rem;
+      }
+      .countdown-label {
+        font-size: 0.6rem;
       }
     }
 
@@ -1013,32 +1042,12 @@
     </div>
   </div>
 
-  <!-- FOOTER WITH BIG COMING SOON - COUNTDOWN TO JUNE 7, 2028 -->
+  <!-- FOOTER WITH BIG COMING SOON & COUNTDOWN TO JUNE 7, 2028 -->
   <div class="footer-area">
     
     <!-- BIG COMING SOON SECTION -->
     <div class="coming-soon-section">
       <div class="coming-soon-label">
-        <i class="fas fa-hourglass-half"></i> ANNOUNCEMENT
+        <i class="fas fa-hourglass-half"></i> GRAND OPENING
       </div>
-      <div class="coming-soon-title">
-        COMING SOON
-      </div>
-      <div class="coming-soon-subtitle">
-        Something <span class="coming-soon-highlight">EXTRAORDINARY</span> is on the horizon
-      </div>
-      
-      <!-- Countdown Timer to June 7, 2028 -->
-      <div class="countdown-timer">
-        <div class="countdown-item">
-          <div class="countdown-number" id="days">00</div>
-          <div class="countdown-label">Days</div>
-        </div>
-        <div class="countdown-item">
-          <div class="countdown-number" id="hours">00</div>
-          <div class="countdown-label">Hours</div>
-        </div>
-        <div class="countdown-item">
-          <div class="countdown-number" id="minutes">00</div>
-          <div class="countdown-label">Minutes</div>
-       
+      <div class="
