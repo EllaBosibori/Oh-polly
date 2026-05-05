@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -199,6 +198,66 @@
       color: #ff69b4;
     }
 
+    /* Hero Right - Bold Section with dress.avif */
+    .hero-right {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hero-card {
+      background: #1a1a1a;
+      border-radius: 40px;
+      padding: 2rem;
+      border: 1px solid rgba(255,215,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,215,0,0.5);
+    }
+
+    .hero-card-image {
+      width: 100%;
+      border-radius: 25px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .hero-card-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 25px;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-card-image img:hover {
+      transform: scale(1.02);
+    }
+
+    .hero-card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: #FFD700;
+      margin-bottom: 8px;
+    }
+
+    .hero-card-subtitle {
+      font-size: 0.7rem;
+      color: #ff69b4;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero-card-desc {
+      font-size: 0.85rem;
+      color: #cccccc;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
     /* Chic, Bold, Luxe Sections */
     .pillars-showcase {
       margin: 80px 0;
@@ -251,7 +310,7 @@
 
     .pillar-media {
       width: 100%;
-      height: 450px;
+      height: 400px;
       overflow: hidden;
       background: #2a2a2a;
       position: relative;
@@ -871,7 +930,7 @@
     </div>
   </div>
 
-  <!-- HERO SECTION -->
+  <!-- HERO SECTION with dress.avif on the right side -->
   <div class="hero">
     <div class="hero-left">
       <div class="hero-badge">
@@ -892,20 +951,14 @@
       </div>
     </div>
     <div class="hero-right">
-      <div style="background: #1a1a1a; border-radius: 40px; padding: 2rem; border: 1px solid rgba(255,215,0,0.2);">
-        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <div style="width: 50px; height: 50px; background: #2a2a2a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #FFD700;"><i class="fas fa-feather-alt"></i></div>
-            <div><h4 style="font-size: 1.2rem; color: white;">Chic</h4><p style="font-size: 0.7rem; color: #ff69b4;">STYLISH AND ELEGANT</p></div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <div style="width: 50px; height: 50px; background: #2a2a2a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #FFD700;"><i class="fas fa-bolt"></i></div>
-            <div><h4 style="font-size: 1.2rem; color: white;">Bold</h4><p style="font-size: 0.7rem; color: #ff69b4;">STRIKING AND DARING</p></div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <div style="width: 50px; height: 50px; background: #2a2a2a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #FFD700;"><i class="fas fa-gem"></i></div>
-            <div><h4 style="font-size: 1.2rem; color: white;">Luxe</h4><p style="font-size: 0.7rem; color: #ff69b4;">LUXURIOUS AND HIGH-END</p></div>
-          </div>
+      <div class="hero-card">
+        <div class="hero-card-image">
+          <img src="dress.avif" alt="Bold Collection Dress">
+        </div>
+        <div class="hero-card-title">BOLD COLLECTION</div>
+        <div class="hero-card-subtitle">STRIKING AND DARING</div>
+        <div class="hero-card-desc">
+          Make a statement with vibrant colors, daring cuts, and unapologetic designs that celebrate confidence and individuality.
         </div>
       </div>
     </div>
@@ -919,16 +972,12 @@
     </div>
     <div class="pillars-grid">
       
-      <!-- CHIC CARD - Video -->
+      <!-- CHIC CARD -->
       <div class="pillar-card">
         <div class="pillar-media">
-          <video autoplay muted loop playsinline>
-            <source src="chic-video.mp4" type="video/mp4">
-            <source src="P%20O%20L%20%20L%20Y(2).mp4" type="video/mp4">
-            Your browser does not support video.
-          </video>
+          <img src="videoframe_6130.png" alt="Chic Collection">
           <div class="video-overlay">
-            <i class="fas fa-play"></i>
+            <i class="fas fa-expand"></i>
           </div>
         </div>
         <div class="pillar-info">
@@ -936,16 +985,16 @@
           <h3>Chic</h3>
           <p>STYLISH AND ELEGANT</p>
           <div class="pillar-desc">
-            Effortlessly sophisticated pieces that blend timeless elegance with modern flair.
+            Effortlessly sophisticated pieces that blend timeless elegance with modern flair. Perfect for the woman who commands attention.
           </div>
           <button class="pillar-btn">Explore Chic →</button>
         </div>
       </div>
 
-      <!-- BOLD CARD - dress.avif IMAGE -->
+      <!-- BOLD CARD -->
       <div class="pillar-card">
         <div class="pillar-media">
-          <img src="dress.avif" alt="Bold Collection Dress">
+          <img src="dress.avif" alt="Bold Collection">
           <div class="video-overlay">
             <i class="fas fa-expand"></i>
           </div>
@@ -961,7 +1010,7 @@
         </div>
       </div>
 
-      <!-- LUXE CARD - Video -->
+      <!-- LUXE CARD -->
       <div class="pillar-card">
         <div class="pillar-media">
           <video autoplay muted loop playsinline>
@@ -1050,4 +1099,16 @@
     <!-- BIG COMING SOON SECTION -->
     <div class="coming-soon-section">
       <div class="coming-soon-label">
-        <i class="fas fa-hourglass-half"></i>
+        <i class="fas fa-hourglass-half"></i> GRAND OPENING
+      </div>
+      <div class="coming-soon-title">
+        COMING SOON
+      </div>
+      <div class="coming-soon-subtitle">
+        Something <span class="coming-soon-highlight">EXTRAORDINARY</span> is on the horizon
+      </div>
+      
+      <div class="countdown-timer">
+        <div class="countdown-item">
+          <div class="countdown-number" id="days">00</div>
+          <div class="count
