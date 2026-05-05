@@ -112,32 +112,22 @@
     .header-icons i { cursor: pointer; transition: color 0.2s; color: #ffffff; }
     .header-icons i:hover { color: #FFD700; }
 
-    /* HERO section with two cards */
+    /* HERO section with three cards */
     .hero {
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
-      margin: 60px 0 70px 0;
+      margin: 60px 0 50px 0;
     }
 
-    .hero-left {
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .hero-right {
-      flex: 1;
-      min-width: 280px;
-    }
-
-    /* Hero Cards Styling */
     .hero-card {
+      flex: 1;
+      min-width: 280px;
       background: #1a1a1a;
       border-radius: 40px;
       padding: 2rem;
       border: 1px solid rgba(255,215,0,0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      height: 100%;
     }
 
     .hero-card:hover {
@@ -187,6 +177,20 @@
       line-height: 1.5;
     }
 
+    /* Main Text Section */
+    .main-text-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 50px 0 70px 0;
+      align-items: center;
+    }
+
+    .text-left {
+      flex: 1.2;
+      min-width: 280px;
+    }
+
     .hero-badge {
       font-size: 0.75rem;
       letter-spacing: 4px;
@@ -197,10 +201,11 @@
       display: inline-block;
     }
 
-    .hero h2 {
+    .text-left h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: 3.5rem;
       font-weight: 700;
+      line-height: 1.2;
       margin-bottom: 1rem;
       color: #ffffff;
     }
@@ -216,6 +221,7 @@
       line-height: 1.5;
       color: #cccccc;
       margin: 1.5rem 0 2rem 0;
+      max-width: 500px;
     }
 
     .shop-btn {
@@ -255,6 +261,30 @@
       border-left: 3px solid #FFD700;
       padding-left: 1rem;
       color: #ff69b4;
+    }
+
+    .text-right {
+      flex: 0.8;
+      min-width: 260px;
+    }
+
+    .info-card {
+      background: #1a1a1a;
+      border-radius: 40px;
+      padding: 2rem;
+      border: 1px solid rgba(255,215,0,0.2);
+    }
+
+    .info-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #FFD700;
+    }
+
+    .info-card p {
+      color: #cccccc;
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
 
     /* Chic, Bold, Luxe Sections */
@@ -850,6 +880,9 @@
       .container {
         padding: 0 24px;
       }
+      .text-left h2 {
+        font-size: 2.5rem;
+      }
       .about-container {
         flex-direction: column;
         padding: 32px;
@@ -894,6 +927,9 @@
       .hero {
         flex-direction: column;
       }
+      .main-text-section {
+        flex-direction: column;
+      }
     }
 
     .deco-dot {
@@ -929,40 +965,48 @@
     </div>
   </div>
 
-  <!-- HERO SECTION with two cards: Chic (left) and Bold (right) -->
+  <!-- TOP HERO SECTION - Three Cards: Chic, Bold, Luxe -->
   <div class="hero">
-    <!-- CHIC CARD - Left Side -->
-    <div class="hero-left">
-      <div class="hero-card">
-        <div class="hero-card-image">
-          <img src="videoframe_6130.png" alt="Chic Collection">
-        </div>
-        <div class="hero-card-title">CHIC COLLECTION</div>
-        <div class="hero-card-subtitle">STYLISH AND ELEGANT</div>
-        <div class="hero-card-desc">
-          Effortlessly sophisticated pieces that blend timeless elegance with modern flair. Perfect for the woman who commands attention.
-        </div>
+    <!-- CHIC CARD -->
+    <div class="hero-card">
+      <div class="hero-card-image">
+        <img src="videoframe_6130.png" alt="Chic Collection">
+      </div>
+      <div class="hero-card-title">CHIC COLLECTION</div>
+      <div class="hero-card-subtitle">STYLISH AND ELEGANT</div>
+      <div class="hero-card-desc">
+        Effortlessly sophisticated pieces that blend timeless elegance with modern flair. Perfect for the woman who commands attention.
       </div>
     </div>
 
-    <!-- BOLD CARD - Right Side -->
-    <div class="hero-right">
-      <div class="hero-card">
-        <div class="hero-card-image">
-          <img src="dress.avif" alt="Bold Collection">
-        </div>
-        <div class="hero-card-title">BOLD COLLECTION</div>
-        <div class="hero-card-subtitle">STRIKING AND DARING</div>
-        <div class="hero-card-desc">
-          Make a statement with vibrant colors, daring cuts, and unapologetic designs that celebrate confidence and individuality.
-        </div>
+    <!-- BOLD CARD -->
+    <div class="hero-card">
+      <div class="hero-card-image">
+        <img src="dress.avif" alt="Bold Collection">
+      </div>
+      <div class="hero-card-title">BOLD COLLECTION</div>
+      <div class="hero-card-subtitle">STRIKING AND DARING</div>
+      <div class="hero-card-desc">
+        Make a statement with vibrant colors, daring cuts, and unapologetic designs that celebrate confidence and individuality.
+      </div>
+    </div>
+
+    <!-- LUXE CARD -->
+    <div class="hero-card">
+      <div class="hero-card-image">
+        <img src="15486-Red_Wintra_10.avif" alt="Luxe Collection">
+      </div>
+      <div class="hero-card-title">LUXE COLLECTION</div>
+      <div class="hero-card-subtitle">LUXURIOUS AND HIGH-END</div>
+      <div class="hero-card-desc">
+        Premium fabrics, exquisite craftsmanship, and opulent details. Elevate your wardrobe with our most exclusive collection.
       </div>
     </div>
   </div>
 
   <!-- MAIN TEXT SECTION -->
-  <div class="hero" style="margin-top: 0;">
-    <div class="hero-left">
+  <div class="main-text-section">
+    <div class="text-left">
       <div class="hero-badge">
         <span class="deco-dot"></span> EDITORS' PICK
       </div>
@@ -971,7 +1015,8 @@
       </h2>
       <p class="hero-desc">
         A trendy clothing website offering bold, flattering styles for every occasion, 
-        designed to boost confidence and showcase personal style.
+        designed to boost confidence and showcase personal style. With a focus on modern fashion 
+        and effortless shopping, it makes it easy to stand out.
       </p>
       <button class="shop-btn" id="shopNowBtn">
         Shop the Collection <i class="fas fa-arrow-right"></i>
@@ -980,18 +1025,23 @@
         Shop Wear: Elevate.
       </div>
     </div>
-    <div class="hero-right">
-      <div class="hero-card">
-        <div class="hero-card-title">LUXE COLLECTION</div>
-        <div class="hero-card-subtitle">LUXURIOUS AND HIGH-END</div>
-        <div class="hero-card-desc">
-          Premium fabrics, exquisite craftsmanship, and opulent details. Elevate your wardrobe with our most exclusive collection.
+    <div class="text-right">
+      <div class="info-card">
+        <h3><i class="fas fa-gem" style="color: #FFD700; margin-right: 8px;"></i> Why POLLY?</h3>
+        <p>We believe fashion is a form of self-expression. Our curated collections are designed to make you feel confident, chic, and unforgettable.</p>
+        <div style="margin-top: 20px;">
+          <i class="fas fa-star" style="color: #FFD700;"></i>
+          <i class="fas fa-star" style="color: #FFD700;"></i>
+          <i class="fas fa-star" style="color: #FFD700;"></i>
+          <i class="fas fa-star" style="color: #FFD700;"></i>
+          <i class="fas fa-star" style="color: #FFD700;"></i>
+          <p style="margin-top: 8px; font-size: 0.7rem; color: #ff69b4;">Rated 5/5 by our customers</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- CHIC, BOLD, LUXE SECTIONS (Additional section below) -->
+  <!-- CHIC, BOLD, LUXE SECTIONS (Additional gallery section) -->
   <div class="pillars-showcase">
     <div class="pillars-title">
       <h2>Discover Your Style</h2>
@@ -999,7 +1049,6 @@
     </div>
     <div class="pillars-grid">
       
-      <!-- CHIC CARD -->
       <div class="pillar-card">
         <div class="pillar-media">
           <img src="videoframe_6130.png" alt="Chic Collection">
@@ -1018,7 +1067,6 @@
         </div>
       </div>
 
-      <!-- BOLD CARD -->
       <div class="pillar-card">
         <div class="pillar-media">
           <img src="dress.avif" alt="Bold Collection">
@@ -1037,16 +1085,11 @@
         </div>
       </div>
 
-      <!-- LUXE CARD -->
       <div class="pillar-card">
         <div class="pillar-media">
-          <video autoplay muted loop playsinline>
-            <source src="luxe-video.mp4" type="video/mp4">
-            <source src="P%20O%20L%20%20L%20Y(2).mp4" type="video/mp4">
-            Your browser does not support video.
-          </video>
+          <img src="15486-Red_Wintra_10.avif" alt="Luxe Collection">
           <div class="video-overlay">
-            <i class="fas fa-play"></i>
+            <i class="fas fa-expand"></i>
           </div>
         </div>
         <div class="pillar-info">
@@ -1075,42 +1118,4 @@
         <div class="about-badge">ABOUT POLLY</div>
         <h2>Lemon Yellow Collection</h2>
         <h3>Bright · Bold · Beautiful</h3>
-        <p>Our signature Lemon Yellow collection embodies the spirit of summer and confidence.</p>
-        <div class="about-stats">
-          <div class="stat">
-            <div class="stat-number">50+</div>
-            <div class="stat-label">Styles</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Sustainable</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">24/7</div>
-            <div class="stat-label">Support</div>
-          </div>
-        </div>
-        <button class="shop-btn" style="background: linear-gradient(135deg, #FFD700, #ff69b4); margin-top: 20px;">Learn More <i class="fas fa-arrow-right"></i></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- QUOTE SECTION -->
-  <div class="quote-section">
-    <i class="fas fa-quote-left"></i>
-    <p>“Dress like you're already famous — confident, chic, unforgettable.”</p>
-    <div class="quote-stars">
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star-half-alt"></i>
-    </div>
-    <p style="margin-top: 15px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: #ff69b4;">POLLY Muse Collection</p>
-  </div>
-
-  <!-- BRAND SHOWCASE -->
-  <div class="brand-showcase">
-    <div class="brand-grid">
-      <div class="brand-item">Lume Paris</div>
-      <div class="brand-item">Loro
+        <p>Our signature Lemon Yellow collection
