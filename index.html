@@ -256,14 +256,16 @@
       position: relative;
     }
 
-    .pillar-media video {
+    .pillar-media video,
+    .pillar-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
     }
 
-    .pillar-card:hover .pillar-media video {
+    .pillar-card:hover .pillar-media video,
+    .pillar-card:hover .pillar-media img {
       transform: scale(1.05);
     }
 
@@ -916,6 +918,7 @@
     </div>
     <div class="pillars-grid">
       
+      <!-- CHIC CARD - Video -->
       <div class="pillar-card">
         <div class="pillar-media">
           <video autoplay muted loop playsinline>
@@ -938,15 +941,12 @@
         </div>
       </div>
 
+      <!-- BOLD CARD - dress.avif IMAGE -->
       <div class="pillar-card">
         <div class="pillar-media">
-          <video autoplay muted loop playsinline>
-            <source src="bold-video.mp4" type="video/mp4">
-            <source src="P%20O%20L%20%20L%20Y(2).mp4" type="video/mp4">
-            Your browser does not support video.
-          </video>
+          <img src="dress.avif" alt="Bold Collection Dress">
           <div class="video-overlay">
-            <i class="fas fa-play"></i>
+            <i class="fas fa-expand"></i>
           </div>
         </div>
         <div class="pillar-info">
@@ -954,12 +954,13 @@
           <h3>Bold</h3>
           <p>STRIKING AND DARING</p>
           <div class="pillar-desc">
-            Make a statement with vibrant colors, daring cuts, and unapologetic designs.
+            Make a statement with vibrant colors, daring cuts, and unapologetic designs that celebrate confidence and individuality.
           </div>
           <button class="pillar-btn">Explore Bold →</button>
         </div>
       </div>
 
+      <!-- LUXE CARD - Video -->
       <div class="pillar-card">
         <div class="pillar-media">
           <video autoplay muted loop playsinline>
@@ -976,7 +977,7 @@
           <h3>Luxe</h3>
           <p>LUXURIOUS AND HIGH-END</p>
           <div class="pillar-desc">
-            Premium fabrics, exquisite craftsmanship, and opulent details.
+            Premium fabrics, exquisite craftsmanship, and opulent details. Elevate your wardrobe with our most exclusive collection.
           </div>
           <button class="pillar-btn">Explore Luxe →</button>
         </div>
@@ -997,7 +998,7 @@
         <div class="about-badge">ABOUT POLLY</div>
         <h2>Lemon Yellow Collection</h2>
         <h3>Bright · Bold · Beautiful</h3>
-        <p>Our signature Lemon Yellow collection embodies the spirit of summer and confidence.</p>
+        <p>Our signature Lemon Yellow collection embodies the spirit of summer and confidence. Designed for those who aren't afraid to shine, these pieces bring warmth and energy to any wardrobe.</p>
         <div class="about-stats">
           <div class="stat">
             <div class="stat-number">50+</div>
@@ -1042,12 +1043,10 @@
     </div>
   </div>
 
-  <!-- FOOTER WITH BIG COMING SOON & COUNTDOWN TO JUNE 7, 2028 -->
+  <!-- FOOTER WITH BIG COMING SOON & COUNTDOWN -->
   <div class="footer-area">
     
     <!-- BIG COMING SOON SECTION -->
     <div class="coming-soon-section">
       <div class="coming-soon-label">
-        <i class="fas fa-hourglass-half"></i> GRAND OPENING
-      </div>
-      <div class="
+        <i class="fas fa-hourglass-half"></i>
