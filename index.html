@@ -527,7 +527,7 @@
       color: #ff69b4;
     }
 
-    /* Brand Showcase */
+    /* Brand Showcase with French Locations */
     .brand-showcase {
       margin: 80px 0;
     }
@@ -759,6 +759,7 @@
       padding-left: 12px;
     }
 
+    /* Updated Footer Images - 4 images now */
     .footer-images {
       flex: 2;
       display: flex;
@@ -770,7 +771,7 @@
     .footer-image-card {
       text-align: center;
       flex: 1;
-      min-width: 180px;
+      min-width: 160px;
       background: #1a1a1a;
       padding: 20px;
       border-radius: 20px;
@@ -786,7 +787,7 @@
 
     .footer-large-image {
       width: 100%;
-      max-width: 200px;
+      max-width: 180px;
       height: auto;
       border-radius: 15px;
       margin-bottom: 12px;
@@ -800,10 +801,51 @@
 
     .footer-image-card p {
       color: #ff69b4;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 500;
       letter-spacing: 1px;
       margin-top: 8px;
+    }
+
+    /* French Locations Section */
+    .french-locations {
+      margin: 30px 0;
+      padding: 25px;
+      background: rgba(255,215,0,0.05);
+      border-radius: 30px;
+      border: 1px solid rgba(255,215,0,0.15);
+    }
+
+    .french-locations h4 {
+      color: #FFD700;
+      font-size: 1rem;
+      margin-bottom: 15px;
+      text-align: center;
+      letter-spacing: 2px;
+    }
+
+    .locations-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .location-tag {
+      background: rgba(255,105,180,0.15);
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      color: #ffffff;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 1px solid rgba(255,215,0,0.2);
+    }
+
+    .location-tag:hover {
+      background: rgba(255,215,0,0.2);
+      color: #FFD700;
+      transform: translateY(-2px);
     }
 
     .footer-links {
@@ -900,7 +942,7 @@
       }
       .footer-image-card {
         width: 100%;
-        max-width: 280px;
+        max-width: 250px;
       }
       .quote-section p {
         font-size: 1.3rem;
@@ -965,157 +1007,64 @@
     </div>
   </div>
 
-  <!-- TOP HERO SECTION - Three Cards: Chic, Bold, Luxe -->
+  <!-- TOP HERO SECTION - Three Cards -->
   <div class="hero">
-    <!-- CHIC CARD -->
     <div class="hero-card">
       <div class="hero-card-image">
         <img src="videoframe_6130.png" alt="Chic Collection">
       </div>
       <div class="hero-card-title">CHIC COLLECTION</div>
       <div class="hero-card-subtitle">STYLISH AND ELEGANT</div>
-      <div class="hero-card-desc">
-        Effortlessly sophisticated pieces that blend timeless elegance with modern flair. Perfect for the woman who commands attention.
-      </div>
+      <div class="hero-card-desc">Effortlessly sophisticated pieces that blend timeless elegance with modern flair.</div>
     </div>
-
-    <!-- BOLD CARD -->
     <div class="hero-card">
       <div class="hero-card-image">
         <img src="dress.avif" alt="Bold Collection">
       </div>
       <div class="hero-card-title">BOLD COLLECTION</div>
       <div class="hero-card-subtitle">STRIKING AND DARING</div>
-      <div class="hero-card-desc">
-        Make a statement with vibrant colors, daring cuts, and unapologetic designs that celebrate confidence and individuality.
-      </div>
+      <div class="hero-card-desc">Make a statement with vibrant colors, daring cuts, and unapologetic designs.</div>
     </div>
-
-    <!-- LUXE CARD -->
     <div class="hero-card">
       <div class="hero-card-image">
         <img src="15486-Red_Wintra_10.avif" alt="Luxe Collection">
       </div>
       <div class="hero-card-title">LUXE COLLECTION</div>
       <div class="hero-card-subtitle">LUXURIOUS AND HIGH-END</div>
-      <div class="hero-card-desc">
-        Premium fabrics, exquisite craftsmanship, and opulent details. Elevate your wardrobe with our most exclusive collection.
-      </div>
+      <div class="hero-card-desc">Premium fabrics, exquisite craftsmanship, and opulent details.</div>
     </div>
   </div>
 
   <!-- MAIN TEXT SECTION -->
   <div class="main-text-section">
     <div class="text-left">
-      <div class="hero-badge">
-        <span class="deco-dot"></span> EDITORS' PICK
-      </div>
-      <h2>
-        POLLY <span class="hero-highlight">Best-Dressed</span><br>Guest
-      </h2>
-      <p class="hero-desc">
-        A trendy clothing website offering bold, flattering styles for every occasion, 
-        designed to boost confidence and showcase personal style. With a focus on modern fashion 
-        and effortless shopping, it makes it easy to stand out.
-      </p>
-      <button class="shop-btn" id="shopNowBtn">
-        Shop the Collection <i class="fas fa-arrow-right"></i>
-      </button>
-      <div class="wear-tagline">
-        Shop Wear: Elevate.
-      </div>
+      <div class="hero-badge"><span class="deco-dot"></span> EDITORS' PICK</div>
+      <h2>POLLY <span class="hero-highlight">Best-Dressed</span><br>Guest</h2>
+      <p class="hero-desc">A trendy clothing website offering bold, flattering styles for every occasion, designed to boost confidence and showcase personal style.</p>
+      <button class="shop-btn" id="shopNowBtn">Shop the Collection <i class="fas fa-arrow-right"></i></button>
+      <div class="wear-tagline">Shop Wear: Elevate.</div>
     </div>
     <div class="text-right">
       <div class="info-card">
         <h3><i class="fas fa-gem" style="color: #FFD700; margin-right: 8px;"></i> Why POLLY?</h3>
         <p>We believe fashion is a form of self-expression. Our curated collections are designed to make you feel confident, chic, and unforgettable.</p>
-        <div style="margin-top: 20px;">
-          <i class="fas fa-star" style="color: #FFD700;"></i>
-          <i class="fas fa-star" style="color: #FFD700;"></i>
-          <i class="fas fa-star" style="color: #FFD700;"></i>
-          <i class="fas fa-star" style="color: #FFD700;"></i>
-          <i class="fas fa-star" style="color: #FFD700;"></i>
-          <p style="margin-top: 8px; font-size: 0.7rem; color: #ff69b4;">Rated 5/5 by our customers</p>
-        </div>
+        <div style="margin-top: 20px;"><i class="fas fa-star" style="color: #FFD700;"></i><i class="fas fa-star" style="color: #FFD700;"></i><i class="fas fa-star" style="color: #FFD700;"></i><i class="fas fa-star" style="color: #FFD700;"></i><i class="fas fa-star" style="color: #FFD700;"></i><p style="margin-top: 8px; font-size: 0.7rem; color: #ff69b4;">Rated 5/5 by our customers</p></div>
       </div>
     </div>
   </div>
 
-  <!-- CHIC, BOLD, LUXE SECTIONS (Additional gallery section) -->
+  <!-- CHIC, BOLD, LUXE GALLERY SECTION -->
   <div class="pillars-showcase">
-    <div class="pillars-title">
-      <h2>Discover Your Style</h2>
-      <p>Experience the essence of POLLY</p>
-    </div>
+    <div class="pillars-title"><h2>Discover Your Style</h2><p>Experience the essence of POLLY</p></div>
     <div class="pillars-grid">
-      
-      <div class="pillar-card">
-        <div class="pillar-media">
-          <img src="videoframe_6130.png" alt="Chic Collection">
-          <div class="video-overlay">
-            <i class="fas fa-expand"></i>
-          </div>
-        </div>
-        <div class="pillar-info">
-          <div class="pillar-icon"><i class="fas fa-feather-alt"></i></div>
-          <h3>Chic</h3>
-          <p>STYLISH AND ELEGANT</p>
-          <div class="pillar-desc">
-            Effortlessly sophisticated pieces that blend timeless elegance with modern flair.
-          </div>
-          <button class="pillar-btn">Explore Chic →</button>
-        </div>
-      </div>
-
-      <div class="pillar-card">
-        <div class="pillar-media">
-          <img src="dress.avif" alt="Bold Collection">
-          <div class="video-overlay">
-            <i class="fas fa-expand"></i>
-          </div>
-        </div>
-        <div class="pillar-info">
-          <div class="pillar-icon"><i class="fas fa-bolt"></i></div>
-          <h3>Bold</h3>
-          <p>STRIKING AND DARING</p>
-          <div class="pillar-desc">
-            Make a statement with vibrant colors, daring cuts, and unapologetic designs.
-          </div>
-          <button class="pillar-btn">Explore Bold →</button>
-        </div>
-      </div>
-
-      <div class="pillar-card">
-        <div class="pillar-media">
-          <img src="15486-Red_Wintra_10.avif" alt="Luxe Collection">
-          <div class="video-overlay">
-            <i class="fas fa-expand"></i>
-          </div>
-        </div>
-        <div class="pillar-info">
-          <div class="pillar-icon"><i class="fas fa-gem"></i></div>
-          <h3>Luxe</h3>
-          <p>LUXURIOUS AND HIGH-END</p>
-          <div class="pillar-desc">
-            Premium fabrics, exquisite craftsmanship, and opulent details.
-          </div>
-          <button class="pillar-btn">Explore Luxe →</button>
-        </div>
-      </div>
+      <div class="pillar-card"><div class="pillar-media"><img src="videoframe_6130.png" alt="Chic"><div class="video-overlay"><i class="fas fa-expand"></i></div></div><div class="pillar-info"><div class="pillar-icon"><i class="fas fa-feather-alt"></i></div><h3>Chic</h3><p>STYLISH AND ELEGANT</p><div class="pillar-desc">Effortlessly sophisticated pieces that blend timeless elegance with modern flair.</div><button class="pillar-btn">Explore Chic →</button></div></div>
+      <div class="pillar-card"><div class="pillar-media"><img src="dress.avif" alt="Bold"><div class="video-overlay"><i class="fas fa-expand"></i></div></div><div class="pillar-info"><div class="pillar-icon"><i class="fas fa-bolt"></i></div><h3>Bold</h3><p>STRIKING AND DARING</p><div class="pillar-desc">Make a statement with vibrant colors, daring cuts, and unapologetic designs.</div><button class="pillar-btn">Explore Bold →</button></div></div>
+      <div class="pillar-card"><div class="pillar-media"><img src="15486-Red_Wintra_10.avif" alt="Luxe"><div class="video-overlay"><i class="fas fa-expand"></i></div></div><div class="pillar-info"><div class="pillar-icon"><i class="fas fa-gem"></i></div><h3>Luxe</h3><p>LUXURIOUS AND HIGH-END</p><div class="pillar-desc">Premium fabrics, exquisite craftsmanship, and opulent details.</div><button class="pillar-btn">Explore Luxe →</button></div></div>
     </div>
   </div>
 
   <!-- ABOUT SECTION -->
   <div class="about-section">
     <div class="about-container">
-      <div class="about-media">
-        <video controls autoplay muted loop playsinline>
-          <source src="yellow.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="about-content">
-        <div class="about-badge">ABOUT POLLY</div>
-        <h2>Lemon Yellow Collection</h2>
-        <h3>Bright · Bold · Beautiful</h3>
-        <p>Our signature Lemon Yellow collection
+      <div class="about-media"><video controls autoplay muted loop playsinline><source src="yellow.mp4" type="video/mp4"></video></div>
+     
