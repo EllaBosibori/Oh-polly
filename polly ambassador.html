@@ -1,1 +1,795 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>POLLY Ambassador | BTS Instagram Story</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      padding: 40px 20px;
+    }
+
+    /* Instagram Story Container */
+    .story-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    /* Main Story Card */
+    .instagram-story {
+      width: 360px;
+      height: 640px;
+      background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+      border-radius: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 30px 50px rgba(0,0,0,0.5), 0 0 0 8px #2a2a2a, 0 0 0 12px #1a1a1a;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .instagram-story:hover {
+      transform: scale(1.02);
+    }
+
+    /* Progress Bar */
+    .progress-bars {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      gap: 4px;
+      z-index: 20;
+    }
+    .progress-segment {
+      flex: 1;
+      height: 3px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: white;
+      transition: width 0.1s linear;
+    }
+
+    /* Header */
+    .story-header {
+      position: absolute;
+      top: 20px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 15;
+    }
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .avatar {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #FFD700, #ff69b4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 18px;
+      color: #0a0a0a;
+    }
+    .username {
+      font-weight: 700;
+      font-size: 14px;
+      color: white;
+    }
+    .timestamp {
+      font-size: 11px;
+      color: rgba(255,255,255,0.7);
+      margin-left: 6px;
+    }
+    .more-icon {
+      color: white;
+      font-size: 18px;
+    }
+
+    /* Background Media Container */
+    .story-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* BTS Badge */
+    .bts-badge {
+      position: absolute;
+      top: 80px;
+      left: 16px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #FFD700;
+      border: 1px solid rgba(255,215,0,0.4);
+      z-index: 10;
+      letter-spacing: 1px;
+    }
+
+    /* Main Content Overlay */
+    .story-content {
+      position: absolute;
+      bottom: 100px;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      z-index: 10;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    }
+
+    .ambassador-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #FFD700;
+      margin-bottom: 6px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .caption {
+      font-size: 14px;
+      color: white;
+      line-height: 1.4;
+      margin-bottom: 12px;
+      opacity: 0.95;
+    }
+
+    .hashtags {
+      font-size: 11px;
+      color: #ff69b4;
+      letter-spacing: 0.5px;
+    }
+
+    /* Music Note */
+    .music-sticker {
+      position: absolute;
+      bottom: 80px;
+      right: 16px;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(5px);
+      padding: 6px 12px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: white;
+      z-index: 10;
+    }
+
+    /* Reply Bar */
+    .reply-bar {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+    .reply-input {
+      color: white;
+      font-size: 13px;
+      opacity: 0.8;
+    }
+    .send-icon {
+      color: white;
+      font-size: 18px;
+    }
+
+    /* Additional Story Previews */
+    .story-previews {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .preview-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FFD700, #ff69b4);
+      padding: 2px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .preview-circle:hover {
+      transform: scale(1.05);
+    }
+    .preview-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #FFD700;
+    }
+    .preview-label {
+      font-size: 10px;
+      color: #aaa;
+      text-align: center;
+      margin-top: 5px;
+    }
+
+    /* Instruction */
+    .instruction {
+      text-align: center;
+      color: #888;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+    .instruction i {
+      color: #FFD700;
+    }
+
+    /* Carousel Indicator */
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+      position: absolute;
+      bottom: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 15;
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      transition: all 0.2s;
+    }
+    .dot.active {
+      background: #FFD700;
+      width: 18px;
+      border-radius: 4px;
+    }
+
+    /* Animation for auto-play */
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; text-shadow: 0 0 5px #FFD700; }
+    }
+
+    .ambassador-name {
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+<div class="story-container">
+  <!-- Instagram Story Mockup -->
+  <div class="instagram-story" id="instagramStory">
+    <!-- Progress Bars -->
+    <div class="progress-bars" id="progressContainer">
+      <div class="progress-segment"><div class="progress-fill" id="progress1"></div></div>
+      <div class="progress-segment"><div class="progress-fill" id="progress2"></div></div>
+      <div class="progress-segment"><div class="progress-fill" id="progress3"></div></div>
+      <div class="progress-segment"><div class="progress-fill" id="progress4"></div></div>
+      <div class="progress-segment"><div class="progress-fill" id="progress5"></div></div>
+    </div>
+
+    <!-- Header -->
+    <div class="story-header">
+      <div class="user-info">
+        <div class="avatar">✨</div>
+        <div>
+          <span class="username">pollyambassadors</span>
+          <span class="timestamp">• 2h ago</span>
+        </div>
+      </div>
+      <div class="more-icon"><i class="fas fa-ellipsis-h"></i></div>
+    </div>
+
+    <!-- Background Image (Dynamic via JS) -->
+    <img class="story-bg" id="storyBg" src="" alt="BTS">
+
+    <!-- BTS Badge -->
+    <div class="bts-badge"><i class="fas fa-video"></i> BEHIND THE SCENES</div>
+
+    <!-- Carousel Dots -->
+    <div class="carousel-dots" id="carouselDots"></div>
+
+    <!-- Content Overlay -->
+    <div class="story-content">
+      <div class="ambassador-name" id="ambassadorName">Sofia Reyes</div>
+      <div class="caption" id="caption">Getting ready for the POLLY Golden Hour shoot ✨ Nothing like the energy backstage — the fits, the laughs, and that perfect lighting. 💛 #POLLYBehindTheScenes</div>
+      <div class="hashtags" id="hashtags">#POLLYAmbassador #BestDressedGuest #BTS</div>
+    </div>
+
+    <!-- Music Sticker -->
+    <div class="music-sticker">
+      <i class="fas fa-music"></i>
+      <span id="musicText">Golden Hour • JVKE</span>
+    </div>
+
+    <!-- Reply Bar -->
+    <div class="reply-bar">
+      <div class="reply-input"><i class="far fa-comment-dots"></i> Send message...</div>
+      <div class="send-icon"><i class="far fa-heart"></i></div>
+    </div>
+  </div>
+
+  <!-- Story Previews (next stories) -->
+  <div class="story-previews">
+    <div class="preview-circle" data-story="0">
+      <div class="preview-inner"><i class="fas fa-camera"></i></div>
+      <div class="preview-label">BTS #1</div>
+    </div>
+    <div class="preview-circle" data-story="1">
+      <div class="preview-inner"><i class="fas fa-makeup-brush"></i></div>
+      <div class="preview-label">BTS #2</div>
+    </div>
+    <div class="preview-circle" data-story="2">
+      <div class="preview-inner"><i class="fas fa-running"></i></div>
+      <div class="preview-label">BTS #3</div>
+    </div>
+    <div class="preview-circle" data-story="3">
+      <div class="preview-inner"><i class="fas fa-laugh-beam"></i></div>
+      <div class="preview-label">BTS #4</div>
+    </div>
+    <div class="preview-circle" data-story="4">
+      <div class="preview-inner"><i class="fas fa-glass-cheers"></i></div>
+      <div class="preview-label">BTS #5</div>
+    </div>
+  </div>
+  <div class="instruction">
+    <i class="fas fa-hand-pointer"></i> Click story to pause • Click circles to change scene • Auto-plays every 7 seconds
+  </div>
+</div>
+
+<script>
+  // Story data — Behind the scenes of POLLY Ambassador
+  const stories = [
+    {
+      image: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&h=1200&fit=crop",
+      ambassador: "Sofia Reyes",
+      caption: "Golden Hour magic ✨ The POLLY team setting up the perfect shot. This Lemon Yellow moment is everything! 💛",
+      hashtags: "#POLLYAmbassador #GoldenHour #BTS",
+      music: "Golden Hour • JVKE"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=1200&fit=crop",
+      ambassador: "Sofia Reyes",
+      caption: "Hair & makeup magic 🎨 Prepping for the Bold Collection campaign. The energy backstage is electric!",
+      hashtags: "#POLLYBTS #MakeupMoments #BoldCollection",
+      music: "Unstoppable • Sia"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&h=1200&fit=crop",
+      ambassador: "Sofia Reyes",
+      caption: "Quick fit check before stepping onto set 🖤 The new Luxe cape is giving main character energy.",
+      hashtags: "#POLLYLuxe #FitCheck #AmbassadorLife",
+      music: "Runway • Vintage Culture"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&h=1200&fit=crop",
+      ambassador: "Sofia Reyes",
+      caption: "Candid laughs with the creative team 🎬 This is what being a POLLY ambassador is all about — passion, creativity, sisterhood.",
+      hashtags: "#POLLYFamily #Sisterhood #BehindTheScenes",
+      music: "Feeling Good • Nina Simone"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&h=1200&fit=crop",
+      ambassador: "Sofia Reyes",
+      caption: "Wrap party vibes! 🥂 Another iconic campaign in the books. Can't wait for you to see what we've created. #POLLYMagic",
+      hashtags: "#POLLYWrapParty #BestDressedGuest #ComingSoon",
+      music: "Celebration • Kool & The Gang"
+    }
+  ];
+
+  let currentIndex = 0;
+  let progressInterval = null;
+  let isPaused = false;
+  let currentProgress = 0;
+  const STORY_DURATION = 7000; // 7 seconds per story
+  const PROGRESS_STEPS = 100;
+  let progressStartTime = 0;
+
+  // DOM elements
+  const storyBg = document.getElementById('storyBg');
+  const ambassadorNameSpan = document.getElementById('ambassadorName');
+  const captionSpan = document.getElementById('caption');
+  const hashtagsSpan = document.getElementById('hashtags');
+  const musicSpan = document.getElementById('musicText');
+  const progressFills = [
+    document.getElementById('progress1'),
+    document.getElementById('progress2'),
+    document.getElementById('progress3'),
+    document.getElementById('progress4'),
+    document.getElementById('progress5')
+  ];
+  const carouselDots = document.getElementById('carouselDots');
+
+  // Update story content
+  function updateStoryContent(index) {
+    const story = stories[index];
+    storyBg.src = story.image;
+    ambassadorNameSpan.textContent = story.ambassador;
+    captionSpan.textContent = story.caption;
+    hashtagsSpan.textContent = story.hashtags;
+    musicSpan.innerHTML = `<i class="fas fa-music"></i> ${story.music}`;
+    
+    // Update active dot
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, i) => {
+      if (i === index) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+    
+    // Reset progress bars visuals
+    for (let i = 0; i < progressFills.length; i++) {
+      if (i < index) {
+        progressFills[i].style.width = '100%';
+      } else if (i === index) {
+        progressFills[i].style.width = '0%';
+      } else {
+        progressFills[i].style.width = '0%';
+      }
+    }
+  }
+
+  // Animate progress for current story
+  function startProgressAnimation() {
+    if (progressInterval) clearInterval(progressInterval);
+    
+    const startTime = Date.now();
+    const segmentIndex = currentIndex;
+    
+    progressInterval = setInterval(() => {
+      if (isPaused) return;
+      
+      const elapsed = Date.now() - startTime;
+      const percent = Math.min(100, (elapsed / STORY_DURATION) * 100);
+      
+      if (progressFills[segmentIndex]) {
+        progressFills[segmentIndex].style.width = percent + '%';
+      }
+      
+      if (percent >= 100) {
+        // Move to next story
+        clearInterval(progressInterval);
+        goToNextStory();
+      }
+    }, 30);
+  }
+
+  function goToNextStory() {
+    if (currentIndex + 1 < stories.length) {
+      currentIndex++;
+      updateStoryContent(currentIndex);
+      startProgressAnimation();
+    } else {
+      // Loop back to first story
+      currentIndex = 0;
+      updateStoryContent(currentIndex);
+      startProgressAnimation();
+    }
+  }
+
+  function goToPrevStory() {
+    if (currentIndex - 1 >= 0) {
+      currentIndex--;
+      updateStoryContent(currentIndex);
+      startProgressAnimation();
+    } else {
+      currentIndex = stories.length - 1;
+      updateStoryContent(currentIndex);
+      startProgressAnimation();
+    }
+  }
+
+  // Pause/Resume on click (tap story)
+  const storyElement = document.getElementById('instagramStory');
+  storyElement.addEventListener('click', (e) => {
+    e.stopPropagation();
+    isPaused = !isPaused;
+    if (!isPaused) {
+      // Resume: restart progress animation from current state
+      if (progressInterval) clearInterval(progressInterval);
+      const currentPercent = parseFloat(progressFills[currentIndex].style.width) || 0;
+      const remainingTime = STORY_DURATION * (1 - currentPercent / 100);
+      
+      const startTime = Date.now();
+      const segmentIdx = currentIndex;
+      const startPercent = currentPercent;
+      
+      progressInterval = setInterval(() => {
+        if (isPaused) return;
+        const elapsed = Date.now() - startTime;
+        const newPercent = Math.min(100, startPercent + (elapsed / STORY_DURATION) * 100);
+        progressFills[segmentIdx].style.width = newPercent + '%';
+        
+        if (newPercent >= 100) {
+          clearInterval(progressInterval);
+          goToNextStory();
+        }
+      }, 30);
+    } else {
+      // paused, just clear interval but keep progress
+      if (progressInterval) clearInterval(progressInterval);
+    }
+  });
+
+  // Create carousel dots
+  function createDots() {
+    carouselDots.innerHTML = '';
+    for (let i = 0; i < stories.length; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === currentIndex) dot.classList.add('active');
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (progressInterval) clearInterval(progressInterval);
+        currentIndex = i;
+        updateStoryContent(currentIndex);
+        startProgressAnimation();
+        isPaused = false;
+      });
+      carouselDots.appendChild(dot);
+    }
+  }
+
+  // Preview circles navigation
+  document.querySelectorAll('.preview-circle').forEach((circle, idx) => {
+    circle.addEventListener('click', () => {
+      if (progressInterval) clearInterval(progressInterval);
+      currentIndex = idx;
+      updateStoryContent(currentIndex);
+      startProgressAnimation();
+      isPaused = false;
+    });
+  });
+
+  // Touch/swipe simulation (optional) - left/right click zones
+  storyElement.addEventListener('click', (e) => {
+    const rect = storyElement.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const width = rect.width;
+    if (x < width / 3) {
+      // Left side - go previous
+      if (progressInterval) clearInterval(progressInterval);
+      goToPrevStory();
+      isPaused = false;
+    } else if (x > (width * 2) / 3) {
+      // Right side - go next
+      if (progressInterval) clearInterval(progressInterval);
+      goToNextStory();
+      isPaused = false;
+    }
+    // Middle click handled by pause toggle above, but we'll override to prevent double
+    // Actually we already have toggle on entire story, but we need to differentiate.
+    // To avoid conflict: we will NOT use story-wide pause toggle, instead use zone-based.
+    // Let's refactor: remove the previous story-wide click, use zone clicks for navigation + pause on center?
+    // Better: Keep it simple: tap left/right edges = prev/next, tap center = pause/resume
+    // But we already added event on whole story. Let's adjust:
+  });
+
+  // Override to have proper zone behavior without conflict: we will remove previous full click and add zone logic
+  // Remove previous listener and add new:
+  const newStoryElement = document.getElementById('instagramStory');
+  // Clone to remove old listener? Just replace with new logic.
+  // We'll re-assign after removing all listeners by cloning? Simpler: remove and re-add.
+  const oldListener = storyElement;
+  const newElement = oldListener.cloneNode(true);
+  oldListener.parentNode.replaceChild(newElement, oldListener);
+  
+  // Reassign variables
+  const freshStory = document.getElementById('instagramStory');
+  const freshProgressFills = [
+    document.getElementById('progress1'),
+    document.getElementById('progress2'),
+    document.getElementById('progress3'),
+    document.getElementById('progress4'),
+    document.getElementById('progress5')
+  ];
+  
+  // Update global references
+  window.progressFills = freshProgressFills;
+  
+  // Zone click handler
+  freshStory.addEventListener('click', (e) => {
+    const rect = freshStory.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const width = rect.width;
+    
+    if (x < width / 3) {
+      // Left third: previous story
+      if (progressInterval) clearInterval(progressInterval);
+      isPaused = false;
+      goToPrevStory();
+    } else if (x > (width * 2) / 3) {
+      // Right third: next story
+      if (progressInterval) clearInterval(progressInterval);
+      isPaused = false;
+      goToNextStory();
+    } else {
+      // Middle third: pause/resume
+      isPaused = !isPaused;
+      if (!isPaused) {
+        // Resume animation
+        const currentPercent = parseFloat(progressFills[currentIndex]?.style.width) || 0;
+        const remainingTime = STORY_DURATION * (1 - currentPercent / 100);
+        const startTime = Date.now();
+        const segmentIdx = currentIndex;
+        const startPercent = currentPercent;
+        
+        if (progressInterval) clearInterval(progressInterval);
+        progressInterval = setInterval(() => {
+          if (isPaused) return;
+          const elapsed = Date.now() - startTime;
+          const newPercent = Math.min(100, startPercent + (elapsed / STORY_DURATION) * 100);
+          if (progressFills[segmentIdx]) {
+            progressFills[segmentIdx].style.width = newPercent + '%';
+          }
+          if (newPercent >= 100) {
+            clearInterval(progressInterval);
+            goToNextStory();
+          }
+        }, 30);
+      } else {
+        if (progressInterval) clearInterval(progressInterval);
+      }
+    }
+  });
+  
+  // Re-create dots and reattach preview circles
+  function recreateDots() {
+    const dotsContainer = document.getElementById('carouselDots');
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < stories.length; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === currentIndex) dot.classList.add('active');
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (progressInterval) clearInterval(progressInterval);
+        currentIndex = i;
+        updateStoryContentWithRef(currentIndex);
+        startProgressAnimationWithRef();
+        isPaused = false;
+      });
+      dotsContainer.appendChild(dot);
+    }
+  }
+  
+  function updateStoryContentWithRef(index) {
+    const story = stories[index];
+    document.getElementById('storyBg').src = story.image;
+    document.getElementById('ambassadorName').textContent = story.ambassador;
+    document.getElementById('caption').textContent = story.caption;
+    document.getElementById('hashtags').textContent = story.hashtags;
+    document.getElementById('musicText').innerHTML = `<i class="fas fa-music"></i> ${story.music}`;
+    
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, i) => {
+      if (i === index) dot.classList.add('active');
+      else dot.classList.remove('active');
+    });
+    
+    for (let i = 0; i < progressFills.length; i++) {
+      if (i < index) progressFills[i].style.width = '100%';
+      else if (i === index) progressFills[i].style.width = '0%';
+      else progressFills[i].style.width = '0%';
+    }
+  }
+  
+  function startProgressAnimationWithRef() {
+    if (progressInterval) clearInterval(progressInterval);
+    const startTime = Date.now();
+    const segmentIndex = currentIndex;
+    progressInterval = setInterval(() => {
+      if (isPaused) return;
+      const elapsed = Date.now() - startTime;
+      const percent = Math.min(100, (elapsed / STORY_DURATION) * 100);
+      if (progressFills[segmentIndex]) {
+        progressFills[segmentIndex].style.width = percent + '%';
+      }
+      if (percent >= 100) {
+        clearInterval(progressInterval);
+        goToNextStoryWithRef();
+      }
+    }, 30);
+  }
+  
+  function goToNextStoryWithRef() {
+    if (currentIndex + 1 < stories.length) {
+      currentIndex++;
+      updateStoryContentWithRef(currentIndex);
+      startProgressAnimationWithRef();
+    } else {
+      currentIndex = 0;
+      updateStoryContentWithRef(currentIndex);
+      startProgressAnimationWithRef();
+    }
+  }
+  
+  function goToPrevStoryWithRef() {
+    if (currentIndex - 1 >= 0) {
+      currentIndex--;
+      updateStoryContentWithRef(currentIndex);
+      startProgressAnimationWithRef();
+    } else {
+      currentIndex = stories.length - 1;
+      updateStoryContentWithRef(currentIndex);
+      startProgressAnimationWithRef();
+    }
+  }
+  
+  // Reassign methods
+  window.goToNextStory = goToNextStoryWithRef;
+  window.goToPrevStory = goToPrevStoryWithRef;
+  
+  // Re-attach preview circles
+  document.querySelectorAll('.preview-circle').forEach((circle, idx) => {
+    circle.removeEventListener('click', () => {});
+    circle.addEventListener('click', () => {
+      if (progressInterval) clearInterval(progressInterval);
+      currentIndex = idx;
+      updateStoryContentWithRef(currentIndex);
+      startProgressAnimationWithRef();
+      isPaused = false;
+    });
+  });
+  
+  // Initialize first story
+  updateStoryContentWithRef(0);
+  startProgressAnimationWithRef();
+  recreateDots();
+  
+  // Also handle music note hover (just for fun)
+  console.log('POLLY Ambassador BTS Stories — ready to share! 📸');
+</script>
+</body>
+</html>
