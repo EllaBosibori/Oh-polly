@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>POLLY | Best-Dressed Guest - Home</title>
+  <title>POLLY | Best-Dressed Guest - Collections</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <!-- Font Awesome 6 -->
@@ -983,6 +983,7 @@
       <a href="#" class="new-arrivals-btn" id="newArrivalsBtn">
         <i class="fas fa-star"></i> NEW ARRIVALS <i class="fas fa-arrow-right"></i>
       </a>
+      <!-- ACTIVE COLLECTIONS LINK - navigates to collections.html when clicked -->
       <a href="collections.html" id="collectionsLink">Collections</a>
       <a href="#" id="storiesLink">Stories</a>
       <a href="#" id="theEditLink">The Edit</a>
@@ -1182,51 +1183,7 @@
 </div>
 
 <script>
-  // ============================================
-  // PAGE NAVIGATION SYSTEM
-  // ============================================
-  
-  // Configuration: Set to true to enable actual page redirects
-  const ENABLE_REDIRECTS = false;
-  
-  // Page URL mappings
-  const pageUrls = {
-    'home': 'index.html',
-    'new-arrivals': 'new-arrivals.html',
-    'collections': 'collections.html',
-    'stories': 'stories.html',
-    'the-edit': 'the-edit.html',
-    'about-us': 'about.html',
-    'shop': 'shop.html',
-    'lookbook': 'lookbook.html',
-    'contact': 'contact.html',
-    'chic-collection': 'collection-chic.html',
-    'bold-collection': 'collection-bold.html',
-    'luxe-collection': 'collection-luxe.html'
-  };
-  
-  // Navigate to a page
-  function navigateTo(page, collectionType = null) {
-    let url = '';
-    let pageName = '';
-    
-    if (collectionType) {
-      pageName = `${collectionType}-collection`;
-      url = pageUrls[pageName] || '#';
-    } else {
-      pageName = page.toLowerCase().replace(/ /g, '-');
-      url = pageUrls[pageName] || '#';
-    }
-    
-    if (ENABLE_REDIRECTS && url !== '#') {
-      window.location.href = url;
-    } else {
-      showToast(`✨ Navigating to ${page} page ✨`);
-      console.log(`[Navigation] Would redirect to: ${url}`);
-    }
-  }
-  
-  // Show toast notification
+  // Simple utility message for non-redirect interactions (keeps demo flow)
   function showToast(message, isError = false) {
     const toast = document.createElement('div');
     toast.innerText = message;
@@ -1245,7 +1202,6 @@
     toast.style.boxShadow = '0 10px 20px rgba(0,0,0,0.5)';
     toast.style.zIndex = '999';
     toast.style.backdropFilter = 'blur(8px)';
-    toast.style.letterSpacing = '0.3px';
     document.body.appendChild(toast);
     setTimeout(() => {
       toast.style.opacity = '0';
@@ -1253,15 +1209,12 @@
       setTimeout(() => toast.remove(), 500);
     }, 2800);
   }
-  
-  // ============================================
-  // COUNTDOWN TIMER (June 7, 2028)
-  // ============================================
+
+  // Countdown Timer (June 7, 2028)
   function updateCountdown() {
     const targetDate = new Date('June 7, 2028 00:00:00').getTime();
     const now = new Date().getTime();
     const distance = targetDate - now;
-    
     if (distance < 0) {
       document.getElementById('days').innerHTML = '00';
       document.getElementById('hours').innerHTML = '00';
@@ -1269,169 +1222,99 @@
       document.getElementById('seconds').innerHTML = '00';
       return;
     }
-    
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
     document.getElementById('days').innerHTML = String(days).padStart(2, '0');
     document.getElementById('hours').innerHTML = String(hours).padStart(2, '0');
     document.getElementById('minutes').innerHTML = String(minutes).padStart(2, '0');
     document.getElementById('seconds').innerHTML = String(seconds).padStart(2, '0');
   }
-  
   setInterval(updateCountdown, 1000);
   updateCountdown();
-  
-  // ============================================
-  // HEADER NAVIGATION
-  // ============================================
-  document.getElementById('homeLink')?.addEventListener('click', () => navigateTo('home'));
+
+  // Header non-collections interactions
+  document.getElementById('homeLink')?.addEventListener('click', () => showToast('✨ Welcome to POLLY Home ✨'));
   document.getElementById('newArrivalsBtn')?.addEventListener('click', (e) => {
     e.preventDefault();
-    navigateTo('new-arrivals');
+    showToast('⭐ New Arrivals coming soon! Stay tuned ⭐');
   });
-  document.getElementById('collectionsLink')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigateTo('collections');
-  });
+  // Collections link already uses href="collections.html" - actual navigation
   document.getElementById('storiesLink')?.addEventListener('click', (e) => {
     e.preventDefault();
-    navigateTo('stories');
+    showToast('📖 POLLY Stories — launching soon.');
   });
   document.getElementById('theEditLink')?.addEventListener('click', (e) => {
     e.preventDefault();
-    navigateTo('the-edit');
+    showToast('✂️ The Edit - Curated looks dropping soon.');
   });
-  
-  // ============================================
-  // HEADER ICONS
-  // ============================================
   document.getElementById('wishlistIcon')?.addEventListener('click', () => showToast('❤️ Wishlist - Coming Soon!'));
   document.getElementById('accountIcon')?.addEventListener('click', () => showToast('👤 Account - Coming Soon!'));
   document.getElementById('cartIcon')?.addEventListener('click', () => showToast('🛍️ Your bag is empty'));
-  
-  // ============================================
-  // HERO CARDS NAVIGATION
-  // ============================================
+
+  // Hero cards: preview navigation toast
   document.querySelectorAll('.hero-card').forEach(card => {
     card.addEventListener('click', () => {
       const collection = card.dataset.collection;
-      if (collection) {
-        navigateTo(`${collection.charAt(0).toUpperCase() + collection.slice(1)} Collection`, collection);
-      }
+      showToast(`✨ Explore ${collection?.toUpperCase()} collection. ✨`);
     });
   });
-  
-  // ============================================
-  // PILLAR CARDS & BUTTONS
-  // ============================================
+
+  // Pillar card and buttons
   document.querySelectorAll('.pillar-card').forEach(card => {
     card.addEventListener('click', (e) => {
       if (!e.target.classList.contains('pillar-btn')) {
         const collection = card.dataset.collection;
-        if (collection) {
-          navigateTo(`${collection.charAt(0).toUpperCase() + collection.slice(1)} Collection`, collection);
-        }
+        showToast(`🌟 Discover ${collection?.toUpperCase()} style. 🌟`);
       }
     });
   });
-  
   document.querySelectorAll('.pillar-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
-      const card = btn.closest('.pillar-card');
-      const title = card?.querySelector('h3')?.innerText || '';
-      navigateTo(`${title} Collection`, title.toLowerCase());
+      const title = btn.closest('.pillar-card')?.querySelector('h3')?.innerText || '';
+      showToast(`🚀 ${title} collection preview — coming soon.`);
     });
   });
+
+  // Action buttons
+  document.getElementById('shopNowBtn')?.addEventListener('click', () => showToast('🛒 Shop the Collection — launch offer incoming.'));
+  document.getElementById('learnMoreBtn')?.addEventListener('click', () => showToast('💛 Learn more about POLLY Lemon Yellow.'));
   
-  // ============================================
-  // ACTION BUTTONS
-  // ============================================
-  document.getElementById('shopNowBtn')?.addEventListener('click', () => navigateTo('shop'));
-  document.getElementById('learnMoreBtn')?.addEventListener('click', () => navigateTo('about-us'));
+  // Footer links
+  document.getElementById('aboutUsLink')?.addEventListener('click', (e) => { e.preventDefault(); showToast('📖 POLLY story: fashion for the bold.'); });
+  document.getElementById('shopLink')?.addEventListener('click', (e) => { e.preventDefault(); showToast('🛍️ Shop page — new drops soon.'); });
+  document.getElementById('collectionsFooterLink')?.addEventListener('click', (e) => { e.preventDefault(); showToast('👗 Explore all collections.'); });
+  document.getElementById('lookbookLink')?.addEventListener('click', (e) => { e.preventDefault(); showToast('📸 POLLY Lookbook — inspiration awaits.'); });
+  document.getElementById('contactLink')?.addEventListener('click', (e) => { e.preventDefault(); showToast('📧 Reach us at hello@polly.com'); });
   
-  // ============================================
-  // FOOTER NAVIGATION
-  // ============================================
-  document.getElementById('aboutUsLink')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigateTo('about-us');
-  });
-  document.getElementById('shopLink')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigateTo('shop');
-  });
-  document.getElementById('collectionsFooterLink')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigateTo('collections');
-  });
-  document.getElementById('lookbookLink')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigateTo('lookbook');
-  });
-  document.getElementById('contactLink')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigateTo('contact');
-  });
-  
-  // ============================================
-  // NEWSLETTER SIGNUP
-  // ============================================
+  // Newsletter
   document.getElementById('newsletterBtn')?.addEventListener('click', () => {
     const email = document.getElementById('newsletterEmail')?.value;
     if (email && email.includes('@') && email.includes('.')) {
-      showToast(`✨ Thanks for subscribing! ✨`);
+      showToast(`✨ Thanks for joining the POLLY insider list! ✨`);
       document.getElementById('newsletterEmail').value = '';
     } else {
       showToast('✨ Please enter a valid email address ✨', true);
     }
   });
+  document.getElementById('newsletterEmail')?.addEventListener('keypress', (e) => { if (e.key === 'Enter') document.getElementById('newsletterBtn').click(); });
   
-  document.getElementById('newsletterEmail')?.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      document.getElementById('newsletterBtn').click();
-    }
-  });
-  
-  // ============================================
-  // LOCATION TAGS
-  // ============================================
+  // Locations & brand interactions
   document.querySelectorAll('.location-tag').forEach(tag => {
-    tag.addEventListener('click', () => {
-      const location = tag.innerText.trim();
-      showToast(`📍 ${location} — Store opening soon!`);
-    });
+    tag.addEventListener('click', () => { showToast(`📍 ${tag.innerText.trim()} — boutique opening soon.`); });
   });
-  
-  // ============================================
-  // BRAND ITEMS
-  // ============================================
   document.querySelectorAll('.brand-item').forEach(item => {
-    item.addEventListener('click', () => {
-      showToast(`✨ ${item.innerText.trim()} x POLLY collaboration coming soon ✨`);
-    });
+    item.addEventListener('click', () => { showToast(`✨ ${item.innerText.trim()} x POLLY collaboration coming soon ✨`); });
   });
-  
-  // ============================================
-  // SOCIAL LINKS
-  // ============================================
   document.querySelectorAll('.social-link').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const platform = link.dataset.platform;
-      showToast(`📱 Follow us on ${platform.charAt(0).toUpperCase() + platform.slice(1)}!`);
+      showToast(`📱 Follow us on ${platform ? platform.charAt(0).toUpperCase() + platform.slice(1) : 'social'}!`);
     });
   });
-  
-  // ============================================
-  // HELPER FUNCTION TO ENABLE REDIRECTS
-  // ============================================
-  console.log('POLLY Website Loaded');
-  console.log(`Redirects Enabled: ${ENABLE_REDIRECTS}`);
-  console.log('To enable actual page redirects, set ENABLE_REDIRECTS = true');
 </script>
 </body>
 </html>
