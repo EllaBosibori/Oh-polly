@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>POLLY | Best-Dressed Guest</title>
+  <title>POLLY | Best-Dressed Guest - Home</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <!-- Font Awesome 6 -->
@@ -38,6 +38,10 @@
       border-bottom: 1px solid rgba(255,215,0,0.2);
     }
 
+    .logo-area {
+      cursor: pointer;
+    }
+
     .logo-area h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
@@ -60,6 +64,7 @@
       gap: 2rem;
       font-weight: 500;
       align-items: center;
+      flex-wrap: wrap;
     }
     
     .nav-links a {
@@ -113,6 +118,13 @@
     .header-icons i { cursor: pointer; transition: color 0.2s; color: #ffffff; }
     .header-icons i:hover { color: #FFD700; }
 
+    /* Active page indicator */
+    .nav-links a.active {
+      color: #FFD700;
+      border-bottom: 2px solid #FFD700;
+      padding-bottom: 4px;
+    }
+
     /* HERO section with three cards */
     .hero {
       display: flex;
@@ -129,6 +141,7 @@
       padding: 2rem;
       border: 1px solid rgba(255,215,0,0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
     }
 
     .hero-card:hover {
@@ -626,14 +639,8 @@
     }
 
     @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 0.5;
-      }
-      50% {
-        transform: scale(1.1);
-        opacity: 1;
-      }
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 1; }
     }
 
     .coming-soon-label {
@@ -667,12 +674,8 @@
     }
 
     @keyframes shimmer {
-      0%, 100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.7;
-      }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
     }
 
     .coming-soon-subtitle {
@@ -760,7 +763,6 @@
       padding-left: 12px;
     }
 
-    /* Footer Images */
     .footer-images {
       flex: 2;
       display: flex;
@@ -822,7 +824,6 @@
       margin-top: 8px;
     }
 
-    /* Store Locations Section */
     .store-locations {
       margin: 30px 0 20px 0;
       padding: 20px;
@@ -871,10 +872,6 @@
       transform: translateY(-2px);
     }
 
-    .location-tag:hover i {
-      color: #ff69b4;
-    }
-
     .footer-links {
       list-style: none;
     }
@@ -887,6 +884,7 @@
       color: #cccccc;
       text-decoration: none;
       transition: color 0.2s;
+      cursor: pointer;
     }
 
     .footer-links a:hover {
@@ -946,59 +944,21 @@
 
     /* Responsive */
     @media (max-width: 850px) {
-      .container {
-        padding: 0 24px;
-      }
-      .text-left h2 {
-        font-size: 2.5rem;
-      }
-      .about-container {
-        flex-direction: column;
-        padding: 32px;
-      }
-      .pillars-grid {
-        flex-direction: column;
-        align-items: center;
-      }
-      .footer-grid {
-        flex-direction: column;
-      }
-      .footer-images {
-        flex-direction: column;
-        align-items: center;
-      }
-      .footer-image-card {
-        width: 100%;
-        max-width: 220px;
-      }
-      .quote-section p {
-        font-size: 1.3rem;
-      }
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 15px;
-      }
-      .coming-soon-title {
-        font-size: 2.5rem;
-        letter-spacing: 4px;
-      }
-      .countdown-item {
-        min-width: 80px;
-        padding: 12px 18px;
-      }
-      .countdown-number {
-        font-size: 2rem;
-      }
-      .countdown-label {
-        font-size: 0.6rem;
-      }
-      .hero {
-        flex-direction: column;
-      }
-      .main-text-section {
-        flex-direction: column;
-      }
+      .container { padding: 0 24px; }
+      .text-left h2 { font-size: 2.5rem; }
+      .about-container { flex-direction: column; padding: 32px; }
+      .pillars-grid { flex-direction: column; align-items: center; }
+      .footer-grid { flex-direction: column; }
+      .footer-images { flex-direction: column; align-items: center; }
+      .footer-image-card { width: 100%; max-width: 220px; }
+      .quote-section p { font-size: 1.3rem; }
+      .nav-links { justify-content: center; margin-top: 15px; gap: 1rem; }
+      .coming-soon-title { font-size: 2.5rem; letter-spacing: 4px; }
+      .countdown-item { min-width: 70px; padding: 12px 15px; }
+      .countdown-number { font-size: 1.8rem; }
+      .hero { flex-direction: column; }
+      .main-text-section { flex-direction: column; }
+      .top-bar { flex-direction: column; align-items: center; gap: 15px; text-align: center; }
     }
 
     .deco-dot {
@@ -1015,11 +975,9 @@
 <div class="container">
   <!-- Header -->
   <div class="top-bar">
-    <div class="logo-area">
-      <a href="#" style="text-decoration: none;" id="homeLink">
-        <h1>POLLY</h1>
-        <p>Best-Dressed Guest</p>
-      </a>
+    <div class="logo-area" id="homeLink">
+      <h1>POLLY</h1>
+      <p>Best-Dressed Guest</p>
     </div>
     <div class="nav-links">
       <a href="#" class="new-arrivals-btn" id="newArrivalsBtn">
@@ -1030,15 +988,15 @@
       <a href="#" id="theEditLink">The Edit</a>
     </div>
     <div class="header-icons">
-      <i class="far fa-heart"></i>
-      <i class="far fa-user"></i>
-      <i class="fas fa-shopping-bag"></i>
+      <i class="far fa-heart" id="wishlistIcon"></i>
+      <i class="far fa-user" id="accountIcon"></i>
+      <i class="fas fa-shopping-bag" id="cartIcon"></i>
     </div>
   </div>
 
   <!-- TOP HERO SECTION - Three Cards -->
   <div class="hero">
-    <div class="hero-card">
+    <div class="hero-card" data-collection="chic">
       <div class="hero-card-image">
         <img src="videoframe_6130.png" alt="Chic Collection">
       </div>
@@ -1046,7 +1004,7 @@
       <div class="hero-card-subtitle">STYLISH AND ELEGANT</div>
       <div class="hero-card-desc">Effortlessly sophisticated pieces that blend timeless elegance with modern flair.</div>
     </div>
-    <div class="hero-card">
+    <div class="hero-card" data-collection="bold">
       <div class="hero-card-image">
         <img src="dress.avif" alt="Bold Collection">
       </div>
@@ -1054,7 +1012,7 @@
       <div class="hero-card-subtitle">STRIKING AND DARING</div>
       <div class="hero-card-desc">Make a statement with vibrant colors, daring cuts, and unapologetic designs.</div>
     </div>
-    <div class="hero-card">
+    <div class="hero-card" data-collection="luxe">
       <div class="hero-card-image">
         <img src="15486-Red_Wintra_10.avif" alt="Luxe Collection">
       </div>
@@ -1086,9 +1044,9 @@
   <div class="pillars-showcase">
     <div class="pillars-title"><h2>Discover Your Style</h2><p>Experience the essence of POLLY</p></div>
     <div class="pillars-grid">
-      <div class="pillar-card"><div class="pillar-media"><img src="videoframe_6130.png" alt="Chic"><div class="video-overlay"><i class="fas fa-expand"></i></div></div><div class="pillar-info"><div class="pillar-icon"><i class="fas fa-feather-alt"></i></div><h3>Chic</h3><p>STYLISH AND ELEGANT</p><div class="pillar-desc">Effortlessly sophisticated pieces that blend timeless elegance with modern flair.</div><button class="pillar-btn">Explore Chic →</button></div></div>
-      <div class="pillar-card"><div class="pillar-media"><img src="dress.avif" alt="Bold"><div class="video-overlay"><i class="fas fa-expand"></i></div></div><div class="pillar-info"><div class="pillar-icon"><i class="fas fa-bolt"></i></div><h3>Bold</h3><p>STRIKING AND DARING</p><div class="pillar-desc">Make a statement with vibrant colors, daring cuts, and unapologetic designs.</div><button class="pillar-btn">Explore Bold →</button></div></div>
-      <div class="pillar-card"><div class="pillar-media"><img src="15486-Red_Wintra_10.avif" alt="Luxe"><div class="video-overlay"><i class="fas fa-expand"></i></div></div><div class="pillar-info"><div class="pillar-icon"><i class="fas fa-gem"></i></div><h3>Luxe</h3><p>LUXURIOUS AND HIGH-END</p><div class="pillar-desc">Premium fabrics, exquisite craftsmanship, and opulent details.</div><button class="pillar-btn">Explore Luxe →</button></div></div>
+      <div class="pillar-card" data-collection="chic"><div class="pillar-media"><img src="videoframe_6130.png" alt="Chic"><div class="video-overlay"><i class="fas fa-expand"></i></div></div><div class="pillar-info"><div class="pillar-icon"><i class="fas fa-feather-alt"></i></div><h3>Chic</h3><p>STYLISH AND ELEGANT</p><div class="pillar-desc">Effortlessly sophisticated pieces that blend timeless elegance with modern flair.</div><button class="pillar-btn">Explore Chic →</button></div></div>
+      <div class="pillar-card" data-collection="bold"><div class="pillar-media"><img src="dress.avif" alt="Bold"><div class="video-overlay"><i class="fas fa-expand"></i></div></div><div class="pillar-info"><div class="pillar-icon"><i class="fas fa-bolt"></i></div><h3>Bold</h3><p>STRIKING AND DARING</p><div class="pillar-desc">Make a statement with vibrant colors, daring cuts, and unapologetic designs.</div><button class="pillar-btn">Explore Bold →</button></div></div>
+      <div class="pillar-card" data-collection="luxe"><div class="pillar-media"><img src="15486-Red_Wintra_10.avif" alt="Luxe"><div class="video-overlay"><i class="fas fa-expand"></i></div></div><div class="pillar-info"><div class="pillar-icon"><i class="fas fa-gem"></i></div><h3>Luxe</h3><p>LUXURIOUS AND HIGH-END</p><div class="pillar-desc">Premium fabrics, exquisite craftsmanship, and opulent details.</div><button class="pillar-btn">Explore Luxe →</button></div></div>
     </div>
   </div>
 
@@ -1106,7 +1064,7 @@
           <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Sustainable</div></div>
           <div class="stat"><div class="stat-number">24/7</div><div class="stat-label">Support</div></div>
         </div>
-        <button class="shop-btn" style="background: linear-gradient(135deg, #FFD700, #ff69b4); margin-top: 20px;">Learn More <i class="fas fa-arrow-right"></i></button>
+        <button class="shop-btn" id="learnMoreBtn" style="background: linear-gradient(135deg, #FFD700, #ff69b4); margin-top: 20px;">Learn More <i class="fas fa-arrow-right"></i></button>
       </div>
     </div>
   </div>
@@ -1209,10 +1167,10 @@
           <button id="newsletterBtn"><i class="fas fa-arrow-right"></i></button>
         </div>
         <div class="social-links-footer">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-tiktok"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link" data-platform="instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" data-platform="tiktok"><i class="fab fa-tiktok"></i></a>
+          <a href="#" class="social-link" data-platform="facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" data-platform="twitter"><i class="fab fa-twitter"></i></a>
         </div>
       </div>
     </div>
@@ -1224,181 +1182,52 @@
 </div>
 
 <script>
-  // Countdown Timer to June 7, 2028
-  function updateCountdown() {
-    const targetDate = new Date('June 7, 2028 00:00:00').getTime();
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById('days').innerHTML = String(days).padStart(2, '0');
-    document.getElementById('hours').innerHTML = String(hours).padStart(2, '0');
-    document.getElementById('minutes').innerHTML = String(minutes).padStart(2, '0');
-    document.getElementById('seconds').innerHTML = String(seconds).padStart(2, '0');
+  // ============================================
+  // PAGE NAVIGATION SYSTEM
+  // ============================================
+  
+  // Configuration: Set to true to enable actual page redirects
+  const ENABLE_REDIRECTS = false;
+  
+  // Page URL mappings
+  const pageUrls = {
+    'home': 'index.html',
+    'new-arrivals': 'new-arrivals.html',
+    'collections': 'collections.html',
+    'stories': 'stories.html',
+    'the-edit': 'the-edit.html',
+    'about-us': 'about.html',
+    'shop': 'shop.html',
+    'lookbook': 'lookbook.html',
+    'contact': 'contact.html',
+    'chic-collection': 'collection-chic.html',
+    'bold-collection': 'collection-bold.html',
+    'luxe-collection': 'collection-luxe.html'
+  };
+  
+  // Navigate to a page
+  function navigateTo(page, collectionType = null) {
+    let url = '';
+    let pageName = '';
+    
+    if (collectionType) {
+      pageName = `${collectionType}-collection`;
+      url = pageUrls[pageName] || '#';
+    } else {
+      pageName = page.toLowerCase().replace(/ /g, '-');
+      url = pageUrls[pageName] || '#';
+    }
+    
+    if (ENABLE_REDIRECTS && url !== '#') {
+      window.location.href = url;
+    } else {
+      showToast(`✨ Navigating to ${page} page ✨`);
+      console.log(`[Navigation] Would redirect to: ${url}`);
+    }
   }
-
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
-
-  // Navigation Functions
-  function navigateTo(page) {
-    showToast(`✨ Navigating to ${page} page ✨`);
-    // Uncomment the line below to actually redirect
-    // window.location.href = `${page.toLowerCase().replace(' ', '-')}.html`;
-  }
-
-  // Header Navigation Links
-  const newArrivalsBtn = document.getElementById('newArrivalsBtn');
-  if (newArrivalsBtn) {
-    newArrivalsBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      navigateTo('New Arrivals');
-    });
-  }
-
-  const collectionsLink = document.getElementById('collectionsLink');
-  if (collectionsLink) {
-    collectionsLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      navigateTo('Collections');
-    });
-  }
-
-  const storiesLink = document.getElementById('storiesLink');
-  if (storiesLink) {
-    storiesLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      navigateTo('Stories');
-    });
-  }
-
-  const theEditLink = document.getElementById('theEditLink');
-  if (theEditLink) {
-    theEditLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      navigateTo('The Edit');
-    });
-  }
-
-  const homeLink = document.getElementById('homeLink');
-  if (homeLink) {
-    homeLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      showToast('✨ Welcome back to POLLY ✨');
-    });
-  }
-
-  // Footer Links
-  const aboutUsLink = document.getElementById('aboutUsLink');
-  if (aboutUsLink) {
-    aboutUsLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      navigateTo('About Us');
-    });
-  }
-
-  const shopLink = document.getElementById('shopLink');
-  if (shopLink) {
-    shopLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      navigateTo('Shop');
-    });
-  }
-
-  const collectionsFooterLink = document.getElementById('collectionsFooterLink');
-  if (collectionsFooterLink) {
-    collectionsFooterLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      navigateTo('Collections');
-    });
-  }
-
-  const lookbookLink = document.getElementById('lookbookLink');
-  if (lookbookLink) {
-    lookbookLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      navigateTo('Lookbook');
-    });
-  }
-
-  const contactLink = document.getElementById('contactLink');
-  if (contactLink) {
-    contactLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      navigateTo('Contact');
-    });
-  }
-
-  // Shop Button
-  const shopBtn = document.getElementById('shopNowBtn');
-  if (shopBtn) {
-    shopBtn.addEventListener('click', () => {
-      navigateTo('Shop');
-    });
-  }
-
-  // Newsletter Signup
-  const newsletterBtn = document.getElementById('newsletterBtn');
-  if (newsletterBtn) {
-    newsletterBtn.addEventListener('click', () => {
-      const email = document.getElementById('newsletterEmail').value;
-      if (email && email.includes('@')) {
-        showToast(`✨ Thanks for subscribing! ✨`);
-        document.getElementById('newsletterEmail').value = '';
-      } else {
-        showToast('✨ Please enter a valid email address ✨');
-      }
-    });
-  }
-
-  // Pillar Buttons
-  const pillarBtns = document.querySelectorAll('.pillar-btn');
-  pillarBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const card = btn.closest('.pillar-card');
-      const title = card.querySelector('h3').innerText;
-      navigateTo(`${title} Collection`);
-    });
-  });
-
-  // Location Tags
-  const locationTags = document.querySelectorAll('.location-tag');
-  locationTags.forEach(tag => {
-    tag.addEventListener('click', () => {
-      const location = tag.innerText.trim();
-      showToast(`📍 ${location} — Store opening soon!`);
-    });
-  });
-
-  // Brand Items
-  const brandItems = document.querySelectorAll('.brand-item');
-  brandItems.forEach(item => {
-    item.style.cursor = 'pointer';
-    item.addEventListener('click', () => {
-      showToast(`✨ ${item.innerText.trim()} x POLLY collaboration coming soon ✨`);
-    });
-  });
-
-  // Header Icons
-  const headerIcons = document.querySelectorAll('.header-icons i');
-  headerIcons.forEach(icon => {
-    icon.addEventListener('click', () => {
-      if (icon.classList.contains('fa-heart')) {
-        showToast('❤️ Wishlist - Coming Soon!');
-      } else if (icon.classList.contains('fa-user')) {
-        showToast('👤 Account - Coming Soon!');
-      } else if (icon.classList.contains('fa-shopping-bag')) {
-        showToast('🛍️ Your bag is empty');
-      }
-    });
-  });
-
-  function showToast(message) {
+  
+  // Show toast notification
+  function showToast(message, isError = false) {
     const toast = document.createElement('div');
     toast.innerText = message;
     toast.style.position = 'fixed';
@@ -1406,8 +1235,8 @@
     toast.style.left = '50%';
     toast.style.transform = 'translateX(-50%)';
     toast.style.backgroundColor = '#1a1a1a';
-    toast.style.color = '#FFD700';
-    toast.style.border = '1px solid #ff69b4';
+    toast.style.color = isError ? '#ff69b4' : '#FFD700';
+    toast.style.border = `1px solid ${isError ? '#ff69b4' : '#FFD700'}`;
     toast.style.padding = '12px 28px';
     toast.style.borderRadius = '60px';
     toast.style.fontSize = '0.85rem';
@@ -1424,6 +1253,185 @@
       setTimeout(() => toast.remove(), 500);
     }, 2800);
   }
+  
+  // ============================================
+  // COUNTDOWN TIMER (June 7, 2028)
+  // ============================================
+  function updateCountdown() {
+    const targetDate = new Date('June 7, 2028 00:00:00').getTime();
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+    
+    if (distance < 0) {
+      document.getElementById('days').innerHTML = '00';
+      document.getElementById('hours').innerHTML = '00';
+      document.getElementById('minutes').innerHTML = '00';
+      document.getElementById('seconds').innerHTML = '00';
+      return;
+    }
+    
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    document.getElementById('days').innerHTML = String(days).padStart(2, '0');
+    document.getElementById('hours').innerHTML = String(hours).padStart(2, '0');
+    document.getElementById('minutes').innerHTML = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').innerHTML = String(seconds).padStart(2, '0');
+  }
+  
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+  
+  // ============================================
+  // HEADER NAVIGATION
+  // ============================================
+  document.getElementById('homeLink')?.addEventListener('click', () => navigateTo('home'));
+  document.getElementById('newArrivalsBtn')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo('new-arrivals');
+  });
+  document.getElementById('collectionsLink')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo('collections');
+  });
+  document.getElementById('storiesLink')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo('stories');
+  });
+  document.getElementById('theEditLink')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo('the-edit');
+  });
+  
+  // ============================================
+  // HEADER ICONS
+  // ============================================
+  document.getElementById('wishlistIcon')?.addEventListener('click', () => showToast('❤️ Wishlist - Coming Soon!'));
+  document.getElementById('accountIcon')?.addEventListener('click', () => showToast('👤 Account - Coming Soon!'));
+  document.getElementById('cartIcon')?.addEventListener('click', () => showToast('🛍️ Your bag is empty'));
+  
+  // ============================================
+  // HERO CARDS NAVIGATION
+  // ============================================
+  document.querySelectorAll('.hero-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const collection = card.dataset.collection;
+      if (collection) {
+        navigateTo(`${collection.charAt(0).toUpperCase() + collection.slice(1)} Collection`, collection);
+      }
+    });
+  });
+  
+  // ============================================
+  // PILLAR CARDS & BUTTONS
+  // ============================================
+  document.querySelectorAll('.pillar-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (!e.target.classList.contains('pillar-btn')) {
+        const collection = card.dataset.collection;
+        if (collection) {
+          navigateTo(`${collection.charAt(0).toUpperCase() + collection.slice(1)} Collection`, collection);
+        }
+      }
+    });
+  });
+  
+  document.querySelectorAll('.pillar-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const card = btn.closest('.pillar-card');
+      const title = card?.querySelector('h3')?.innerText || '';
+      navigateTo(`${title} Collection`, title.toLowerCase());
+    });
+  });
+  
+  // ============================================
+  // ACTION BUTTONS
+  // ============================================
+  document.getElementById('shopNowBtn')?.addEventListener('click', () => navigateTo('shop'));
+  document.getElementById('learnMoreBtn')?.addEventListener('click', () => navigateTo('about-us'));
+  
+  // ============================================
+  // FOOTER NAVIGATION
+  // ============================================
+  document.getElementById('aboutUsLink')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo('about-us');
+  });
+  document.getElementById('shopLink')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo('shop');
+  });
+  document.getElementById('collectionsFooterLink')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo('collections');
+  });
+  document.getElementById('lookbookLink')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo('lookbook');
+  });
+  document.getElementById('contactLink')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo('contact');
+  });
+  
+  // ============================================
+  // NEWSLETTER SIGNUP
+  // ============================================
+  document.getElementById('newsletterBtn')?.addEventListener('click', () => {
+    const email = document.getElementById('newsletterEmail')?.value;
+    if (email && email.includes('@') && email.includes('.')) {
+      showToast(`✨ Thanks for subscribing! ✨`);
+      document.getElementById('newsletterEmail').value = '';
+    } else {
+      showToast('✨ Please enter a valid email address ✨', true);
+    }
+  });
+  
+  document.getElementById('newsletterEmail')?.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      document.getElementById('newsletterBtn').click();
+    }
+  });
+  
+  // ============================================
+  // LOCATION TAGS
+  // ============================================
+  document.querySelectorAll('.location-tag').forEach(tag => {
+    tag.addEventListener('click', () => {
+      const location = tag.innerText.trim();
+      showToast(`📍 ${location} — Store opening soon!`);
+    });
+  });
+  
+  // ============================================
+  // BRAND ITEMS
+  // ============================================
+  document.querySelectorAll('.brand-item').forEach(item => {
+    item.addEventListener('click', () => {
+      showToast(`✨ ${item.innerText.trim()} x POLLY collaboration coming soon ✨`);
+    });
+  });
+  
+  // ============================================
+  // SOCIAL LINKS
+  // ============================================
+  document.querySelectorAll('.social-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const platform = link.dataset.platform;
+      showToast(`📱 Follow us on ${platform.charAt(0).toUpperCase() + platform.slice(1)}!`);
+    });
+  });
+  
+  // ============================================
+  // HELPER FUNCTION TO ENABLE REDIRECTS
+  // ============================================
+  console.log('POLLY Website Loaded');
+  console.log(`Redirects Enabled: ${ENABLE_REDIRECTS}`);
+  console.log('To enable actual page redirects, set ENABLE_REDIRECTS = true');
 </script>
 </body>
 </html>
