@@ -67,6 +67,7 @@
       color: #ffffff;
       font-size: 0.9rem;
       transition: color 0.2s;
+      cursor: pointer;
     }
     
     .nav-links a:hover { color: #FFD700; }
@@ -759,7 +760,7 @@
       padding-left: 12px;
     }
 
-    /* Footer Images - including the new video */
+    /* Footer Images */
     .footer-images {
       flex: 2;
       display: flex;
@@ -1015,16 +1016,18 @@
   <!-- Header -->
   <div class="top-bar">
     <div class="logo-area">
-      <h1>POLLY</h1>
-      <p>Best-Dressed Guest</p>
+      <a href="#" style="text-decoration: none;" id="homeLink">
+        <h1>POLLY</h1>
+        <p>Best-Dressed Guest</p>
+      </a>
     </div>
     <div class="nav-links">
       <a href="#" class="new-arrivals-btn" id="newArrivalsBtn">
         <i class="fas fa-star"></i> NEW ARRIVALS <i class="fas fa-arrow-right"></i>
       </a>
-      <a href="#">Collections</a>
-      <a href="#">Stories</a>
-      <a href="#">The Edit</a>
+      <a href="#" id="collectionsLink">Collections</a>
+      <a href="#" id="storiesLink">Stories</a>
+      <a href="#" id="theEditLink">The Edit</a>
     </div>
     <div class="header-icons">
       <i class="far fa-heart"></i>
@@ -1127,7 +1130,7 @@
     </div>
   </div>
 
-  <!-- FOOTER WITH BIG COMING SOON & COUNTDOWN -->
+  <!-- FOOTER SECTION -->
   <div class="footer-area">
     
     <!-- BIG COMING SOON SECTION -->
@@ -1146,7 +1149,7 @@
 
     <div class="footer-grid">
       
-      <!-- Footer Images - Including the new video -->
+      <!-- Footer Images -->
       <div class="footer-images">
         <div class="footer-image-card">
           <img src="Oh%20P%20O%20L%20L%20Y.png" alt="POLLY Logo" class="footer-large-image">
@@ -1189,11 +1192,11 @@
       <div class="footer-section">
         <h3>Quick Links</h3>
         <ul class="footer-links">
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Shop</a></li>
-          <li><a href="#">Collections</a></li>
-          <li><a href="#">Lookbook</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#" id="aboutUsLink">About Us</a></li>
+          <li><a href="#" id="shopLink">Shop</a></li>
+          <li><a href="#" id="collectionsFooterLink">Collections</a></li>
+          <li><a href="#" id="lookbookLink">Lookbook</a></li>
+          <li><a href="#" id="contactLink">Contact</a></li>
         </ul>
       </div>
 
@@ -1202,8 +1205,8 @@
         <h3>Newsletter</h3>
         <p style="color: #cccccc; margin-bottom: 15px;">Get 10% off your first order</p>
         <div class="newsletter-input">
-          <input type="email" placeholder="Your email">
-          <button><i class="fas fa-arrow-right"></i></button>
+          <input type="email" placeholder="Your email" id="newsletterEmail">
+          <button id="newsletterBtn"><i class="fas fa-arrow-right"></i></button>
         </div>
         <div class="social-links-footer">
           <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1241,12 +1244,92 @@
   setInterval(updateCountdown, 1000);
   updateCountdown();
 
-  // New Arrivals Button
+  // Navigation Functions
+  function navigateTo(page) {
+    showToast(`✨ Navigating to ${page} page ✨`);
+    // Uncomment the line below to actually redirect
+    // window.location.href = `${page.toLowerCase().replace(' ', '-')}.html`;
+  }
+
+  // Header Navigation Links
   const newArrivalsBtn = document.getElementById('newArrivalsBtn');
   if (newArrivalsBtn) {
     newArrivalsBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      window.location.href = 'new-arrivals.html';
+      navigateTo('New Arrivals');
+    });
+  }
+
+  const collectionsLink = document.getElementById('collectionsLink');
+  if (collectionsLink) {
+    collectionsLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigateTo('Collections');
+    });
+  }
+
+  const storiesLink = document.getElementById('storiesLink');
+  if (storiesLink) {
+    storiesLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigateTo('Stories');
+    });
+  }
+
+  const theEditLink = document.getElementById('theEditLink');
+  if (theEditLink) {
+    theEditLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigateTo('The Edit');
+    });
+  }
+
+  const homeLink = document.getElementById('homeLink');
+  if (homeLink) {
+    homeLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      showToast('✨ Welcome back to POLLY ✨');
+    });
+  }
+
+  // Footer Links
+  const aboutUsLink = document.getElementById('aboutUsLink');
+  if (aboutUsLink) {
+    aboutUsLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigateTo('About Us');
+    });
+  }
+
+  const shopLink = document.getElementById('shopLink');
+  if (shopLink) {
+    shopLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigateTo('Shop');
+    });
+  }
+
+  const collectionsFooterLink = document.getElementById('collectionsFooterLink');
+  if (collectionsFooterLink) {
+    collectionsFooterLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigateTo('Collections');
+    });
+  }
+
+  const lookbookLink = document.getElementById('lookbookLink');
+  if (lookbookLink) {
+    lookbookLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigateTo('Lookbook');
+    });
+  }
+
+  const contactLink = document.getElementById('contactLink');
+  if (contactLink) {
+    contactLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigateTo('Contact');
     });
   }
 
@@ -1254,7 +1337,21 @@
   const shopBtn = document.getElementById('shopNowBtn');
   if (shopBtn) {
     shopBtn.addEventListener('click', () => {
-      showToast('✨ Discover the new POLLY collection — Bold, Chic & Luxe ✨');
+      navigateTo('Shop');
+    });
+  }
+
+  // Newsletter Signup
+  const newsletterBtn = document.getElementById('newsletterBtn');
+  if (newsletterBtn) {
+    newsletterBtn.addEventListener('click', () => {
+      const email = document.getElementById('newsletterEmail').value;
+      if (email && email.includes('@')) {
+        showToast(`✨ Thanks for subscribing! ✨`);
+        document.getElementById('newsletterEmail').value = '';
+      } else {
+        showToast('✨ Please enter a valid email address ✨');
+      }
     });
   }
 
@@ -1265,7 +1362,7 @@
       e.stopPropagation();
       const card = btn.closest('.pillar-card');
       const title = card.querySelector('h3').innerText;
-      showToast(`✨ Explore ${title} collection at POLLY ✨`);
+      navigateTo(`${title} Collection`);
     });
   });
 
@@ -1274,7 +1371,7 @@
   locationTags.forEach(tag => {
     tag.addEventListener('click', () => {
       const location = tag.innerText.trim();
-      showToast(`📍 Visit us at ${location} — Coming soon!`);
+      showToast(`📍 ${location} — Store opening soon!`);
     });
   });
 
@@ -1283,7 +1380,21 @@
   brandItems.forEach(item => {
     item.style.cursor = 'pointer';
     item.addEventListener('click', () => {
-      showToast(`✨ ${item.innerText.trim()} x POLLY coming soon ✨`);
+      showToast(`✨ ${item.innerText.trim()} x POLLY collaboration coming soon ✨`);
+    });
+  });
+
+  // Header Icons
+  const headerIcons = document.querySelectorAll('.header-icons i');
+  headerIcons.forEach(icon => {
+    icon.addEventListener('click', () => {
+      if (icon.classList.contains('fa-heart')) {
+        showToast('❤️ Wishlist - Coming Soon!');
+      } else if (icon.classList.contains('fa-user')) {
+        showToast('👤 Account - Coming Soon!');
+      } else if (icon.classList.contains('fa-shopping-bag')) {
+        showToast('🛍️ Your bag is empty');
+      }
     });
   });
 
