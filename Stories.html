@@ -1,1 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>POLLY | Stories - Fashion & Inspiration</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      background-color: #0a0a0a;
+      font-family: 'Inter', sans-serif;
+      color: #ffffff;
+      line-height: 1.4;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* header / top bar */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      padding: 32px 0 20px 0;
+      border-bottom: 1px solid rgba(255,215,0,0.2);
+    }
+
+    .logo-area {
+      cursor: pointer;
+    }
+
+    .logo-area h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #FFD700;
+    }
+
+    .logo-area p {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #ff69b4;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-weight: 500;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+    
+    .nav-links a:hover { color: #FFD700; }
+    
+    .new-arrivals-link {
+      background: linear-gradient(135deg, #FFD700, #ff69b4);
+      border: none;
+      padding: 10px 24px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #0a0a0a;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: 0.25s ease;
+      box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    
+    .new-arrivals-link i {
+      font-size: 0.9rem;
+      transition: transform 0.2s;
+    }
+    
+    .new-arrivals-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255,215,0,0.4);
+    }
+    
+    .new-arrivals-link:hover i {
+      transform: translateX(5px);
+    }
+
+    .header-icons {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 1.1rem;
+    }
+    .header-icons i { cursor: pointer; transition: color 0.2s; color: #ffffff; }
+    .header-icons i:hover { color: #FFD700; }
+
+    .nav-links a.active {
+      color: #FFD700;
+      border-bottom: 2px solid #FFD700;
+      padding-bottom: 4px;
+    }
+
+    /* Stories Hero */
+    .stories-hero {
+      text-align: center;
+      margin: 60px 0 40px 0;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(255,105,180,0.08));
+      border-radius: 60px;
+    }
+    .stories-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: #FFD700;
+      margin-bottom: 16px;
+    }
+    .stories-hero p {
+      color: #ff69b4;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Featured Story */
+    .featured-story {
+      margin: 60px 0;
+      background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+      border-radius: 40px;
+      overflow: hidden;
+      border: 1px solid rgba(255,215,0,0.3);
+      transition: transform 0.3s ease;
+    }
+    .featured-story:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,215,0,0.6);
+    }
+    .featured-grid {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .featured-media {
+      flex: 1;
+      min-width: 300px;
+      height: 500px;
+      overflow: hidden;
+    }
+    .featured-media video, .featured-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .featured-story:hover .featured-media video,
+    .featured-story:hover .featured-media img {
+      transform: scale(1.03);
+    }
+    .featured-content {
+      flex: 1;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .featured-badge {
+      display: inline-block;
+      background: #ff69b4;
+      color: #0a0a0a;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 40px;
+      width: fit-content;
+      margin-bottom: 20px;
+    }
+    .featured-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: #FFD700;
+      margin-bottom: 20px;
+    }
+    .featured-excerpt {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #cccccc;
+      margin-bottom: 25px;
+    }
+    .read-more-btn {
+      background: transparent;
+      border: 2px solid #FFD700;
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #FFD700;
+      cursor: pointer;
+      transition: all 0.3s;
+      width: fit-content;
+    }
+    .read-more-btn:hover {
+      background: #FFD700;
+      color: #0a0a0a;
+    }
+
+    /* Stories Grid */
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 2rem;
+      margin: 60px 0;
+    }
+    .story-card {
+      background: #1a1a1a;
+      border-radius: 30px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,215,0,0.2);
+      cursor: pointer;
+    }
+    .story-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 40px rgba(255,215,0,0.1);
+      border-color: rgba(255,215,0,0.5);
+    }
+    .story-image {
+      height: 280px;
+      overflow: hidden;
+    }
+    .story-image img, .story-image video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .story-card:hover .story-image img,
+    .story-card:hover .story-image video {
+      transform: scale(1.05);
+    }
+    .story-tag {
+      display: inline-block;
+      background: rgba(255,105,180,0.2);
+      color: #ff69b4;
+      font-size: 0.7rem;
+      padding: 4px 12px;
+      border-radius: 40px;
+      margin: 20px 0 0 20px;
+    }
+    .story-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin: 12px 20px 8px;
+      color: #FFD700;
+    }
+    .story-meta {
+      font-size: 0.75rem;
+      color: #888;
+      margin: 0 20px 12px;
+      letter-spacing: 1px;
+    }
+    .story-preview {
+      font-size: 0.85rem;
+      color: #cccccc;
+      line-height: 1.5;
+      margin: 0 20px 20px;
+    }
+
+    /* Quote Section */
+    .quote-block {
+      margin: 80px 0;
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+      border-radius: 60px;
+      padding: 60px 40px;
+      text-align: center;
+      border: 1px solid rgba(255,215,0,0.2);
+    }
+    .quote-block i {
+      font-size: 3rem;
+      color: #FFD700;
+      opacity: 0.6;
+      margin-bottom: 20px;
+    }
+    .quote-block p {
+      font-size: 1.8rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #ffffff;
+    }
+
+    /* Footer */
+    .footer-area {
+      margin: 50px 0 30px 0;
+      padding-top: 40px;
+      border-top: 2px solid rgba(255,215,0,0.3);
+      background: linear-gradient(180deg, #0a0a0a, #050505);
+      border-radius: 40px 40px 0 0;
+      padding: 50px 40px 40px 40px;
+    }
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      justify-content: space-between;
+    }
+    .footer-section {
+      flex: 1;
+      min-width: 200px;
+    }
+    .footer-section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: #FFD700;
+      border-left: 3px solid #FFD700;
+      padding-left: 12px;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    .footer-links a {
+      color: #cccccc;
+      text-decoration: none;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+    .footer-links a:hover { color: #FFD700; }
+    .social-links-footer {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 20px;
+    }
+    .social-links-footer a {
+      color: #ffffff;
+      font-size: 1.5rem;
+      transition: color 0.2s;
+    }
+    .social-links-footer a:hover { color: #FFD700; }
+    .newsletter-input {
+      display: flex;
+      margin-top: 15px;
+    }
+    .newsletter-input input {
+      flex: 1;
+      padding: 12px;
+      background: #2a2a2a;
+      border: 1px solid rgba(255,215,0,0.3);
+      border-radius: 40px 0 0 40px;
+      color: white;
+      outline: none;
+    }
+    .newsletter-input button {
+      background: linear-gradient(135deg, #FFD700, #ff69b4);
+      border: none;
+      padding: 12px 20px;
+      border-radius: 0 40px 40px 0;
+      cursor: pointer;
+      color: #0a0a0a;
+      font-weight: 600;
+    }
+    .copyright-bar {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,215,0,0.2);
+      color: #888888;
+      font-size: 0.8rem;
+    }
+    @media (max-width: 850px) {
+      .container { padding: 0 24px; }
+      .stories-hero h1 { font-size: 2.5rem; }
+      .featured-content h2 { font-size: 2rem; }
+      .stories-grid { grid-template-columns: 1fr; }
+      .featured-grid { flex-direction: column; }
+      .featured-media { height: 350px; }
+      .quote-block p { font-size: 1.3rem; }
+      .top-bar { flex-direction: column; align-items: center; gap: 15px; }
+      .nav-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Header -->
+  <div class="top-bar">
+    <div class="logo-area" id="homeLink">
+      <h1>POLLY</h1>
+      <p>Best-Dressed Guest</p>
+    </div>
+    <div class="nav-links">
+      <a href="new-arrivals.html" class="new-arrivals-link">
+        <i class="fas fa-star"></i> NEW ARRIVALS <i class="fas fa-arrow-right"></i>
+      </a>
+      <a href="collections.html">Collections</a>
+      <a href="stories.html" class="active">Stories</a>
+      <a href="the-edit.html">The Edit</a>
+    </div>
+    <div class="header-icons">
+      <i class="far fa-heart" id="wishlistIcon"></i>
+      <i class="far fa-user" id="accountIcon"></i>
+      <i class="fas fa-shopping-bag" id="cartIcon"></i>
+    </div>
+  </div>
+
+  <!-- Stories Hero -->
+  <div class="stories-hero">
+    <h1>POLLY Stories</h1>
+    <p>Inspiring narratives of style, confidence, and the art of being the best-dressed guest</p>
+  </div>
+
+  <!-- Featured Story -->
+  <div class="featured-story">
+    <div class="featured-grid">
+      <div class="featured-media">
+        <video autoplay muted loop playsinline>
+          <source src="yellow.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="featured-content">
+        <div class="featured-badge">COVER STORY</div>
+        <h2>The Lemon Yellow Revolution</h2>
+        <p class="featured-excerpt">How a single color became the symbol of unapologetic confidence. Meet the women who dared to wear sunshine and changed the way we see power dressing. From Paris to Tokyo, the Lemon Yellow movement is taking over.</p>
+        <button class="read-more-btn" data-story="lemon">Read Full Story <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stories Grid -->
+  <div class="stories-grid">
+    <!-- Story 1 -->
+    <div class="story-card" data-story="chic-muse">
+      <div class="story-image">
+        <img src="videoframe_6130.png" alt="Chic Muse">
+      </div>
+      <div class="story-tag">CHIC</div>
+      <h3>Muse: Sophia Chen</h3>
+      <div class="story-meta">March 2025 • 5 min read</div>
+      <p class="story-preview">The architect turned fashion icon shares how she built a wardrobe that speaks before she does. Discover the power of tailored elegance.</p>
+    </div>
+
+    <!-- Story 2 -->
+    <div class="story-card" data-story="bold-runway">
+      <div class="story-image">
+        <img src="dress.avif" alt="Bold Runway">
+      </div>
+      <div class="story-tag">BOLD</div>
+      <h3>Runway Diaries: Milan</h3>
+      <div class="story-meta">February 2025 • 7 min read</div>
+      <p class="story-preview">Backstage at POLLY's first Milan show. The energy, the drama, and the statement pieces that broke the internet.</p>
+    </div>
+
+    <!-- Story 3 -->
+    <div class="story-card" data-story="luxe-craftsmanship">
+      <div class="story-image">
+        <img src="15486-Red_Wintra_10.avif" alt="Luxe Craftsmanship">
+      </div>
+      <div class="story-tag">LUXE</div>
+      <h3>The Art of Embellishment</h3>
+      <div class="story-meta">January 2025 • 6 min read</div>
+      <p class="story-preview">Meet the artisans behind POLLY's hand-beaded gowns. A journey into the atelier where magic happens.</p>
+    </div>
+
+    <!-- Story 4 -->
+    <div class="story-card" data-story="sustainable">
+      <div class="story-image">
+        <video autoplay muted loop playsinline>
+          <source src="velina-premium-chiffon-cape-in-powder-blue.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="story-tag">SUSTAINABILITY</div>
+      <h3>Fashion With A Future</h3>
+      <div class="story-meta">December 2024 • 8 min read</div>
+      <p class="story-preview">How POLLY is redefining luxury with eco-conscious fabrics and ethical production. Our commitment to the planet.</p>
+    </div>
+
+    <!-- Story 5 -->
+    <div class="story-card" data-story="street-style">
+      <div class="story-image">
+        <img src="Oh%20P%20O%20L%20L%20Y.png" alt="Street Style">
+      </div>
+      <div class="story-tag">STREET</div>
+      <h3>Best-Dressed in Paris</h3>
+      <div class="story-meta">March 2025 • 4 min read</div>
+      <p class="story-preview">We hit the streets of Le Marais to capture real women wearing POLLY. Unfiltered, unapologetic, unforgettable.</p>
+    </div>
+
+    <!-- Story 6 -->
+    <div class="story-card" data-story="iconic-moments">
+      <div class="story-image">
+        <img src="15486-Black_Wintra_10.avif" alt="Iconic Moments">
+      </div>
+      <div class="story-tag">HERITAGE</div>
+      <h3>POLLY's Greatest Hits</h3>
+      <div class="story-meta">February 2025 • 10 min read</div>
+      <p class="story-preview">From the first capsule to the latest drop — celebrating the iconic pieces that defined a generation.</p>
+    </div>
+  </div>
+
+  <!-- Quote Block -->
+  <div class="quote-block">
+    <i class="fas fa-quote-left"></i>
+    <p>“Every woman has a story. At POLLY, we help you tell it through what you wear.”</p>
+    <div style="margin-top: 20px;"><i class="fas fa-star" style="color: #FFD700;"></i><i class="fas fa-star" style="color: #FFD700;"></i><i class="fas fa-star" style="color: #FFD700;"></i><i class="fas fa-star" style="color: #FFD700;"></i><i class="fas fa-star" style="color: #FFD700;"></i></div>
+    <p style="margin-top: 15px; font-size: 0.85rem; letter-spacing: 2px; color: #ff69b4;">— Elena Rossi, Creative Director</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-area">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h3>POLLY</h3>
+        <p style="color:#cccccc; margin-bottom: 1rem;">Best-Dressed Guest since 2025</p>
+        <div class="social-links-footer">
+          <a href="#" class="social-link" data-platform="instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" data-platform="tiktok"><i class="fab fa-tiktok"></i></a>
+          <a href="#" class="social-link" data-platform="facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Discover</h3>
+        <ul class="footer-links">
+          <li><a href="new-arrivals.html">New Arrivals</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="the-edit.html">The Edit</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul class="footer-links">
+          <li><a href="#" id="contactLink">Contact</a></li>
+          <li><a href="#" id="newsletterFooterLink">Newsletter</a></li>
+          <li><a href="#" id="returnsFooterLink">Returns</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Stay Inspired</h3>
+        <div class="newsletter-input">
+          <input type="email" placeholder="Your email" id="footerNewsEmail">
+          <button id="footerNewsBtn"><i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="copyright-bar">
+      © 2025 POLLY — Best-Dressed Guest. All rights reserved. | Stories worth sharing
+    </div>
+  </div>
+</div>
+
+<script>
+  // Toast notification helper
+  function showToast(message, isError = false) {
+    const toast = document.createElement('div');
+    toast.innerText = message;
+    toast.style.position = 'fixed';
+    toast.style.bottom = '30px';
+    toast.style.left = '50%';
+    toast.style.transform = 'translateX(-50%)';
+    toast.style.backgroundColor = '#1a1a1a';
+    toast.style.color = isError ? '#ff69b4' : '#FFD700';
+    toast.style.border = `1px solid ${isError ? '#ff69b4' : '#FFD700'}`;
+    toast.style.padding = '12px 28px';
+    toast.style.borderRadius = '60px';
+    toast.style.fontSize = '0.85rem';
+    toast.style.fontWeight = '500';
+    toast.style.fontFamily = "'Inter', sans-serif";
+    toast.style.boxShadow = '0 10px 20px rgba(0,0,0,0.5)';
+    toast.style.zIndex = '1000';
+    toast.style.backdropFilter = 'blur(8px)';
+    document.body.appendChild(toast);
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transition = 'opacity 0.4s ease';
+      setTimeout(() => toast.remove(), 500);
+    }, 2800);
+  }
+
+  // Header interactions
+  document.getElementById('homeLink')?.addEventListener('click', () => window.location.href = 'index.html');
+  document.getElementById('wishlistIcon')?.addEventListener('click', () => showToast('❤️ Save stories to your wishlist'));
+  document.getElementById('accountIcon')?.addEventListener('click', () => showToast('👤 Sign in to save your favorite stories'));
+  document.getElementById('cartIcon')?.addEventListener('click', () => showToast('🛍️ Shop the pieces from our stories'));
+
+  // Featured story button
+  document.querySelector('.read-more-btn')?.addEventListener('click', () => {
+    showToast('✨ The Lemon Yellow Revolution — full story available in print & digital ✨');
+  });
+
+  // Story cards click
+  document.querySelectorAll('.story-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const title = card.querySelector('h3')?.innerText || 'Story';
+      showToast(`📖 "${title}" — coming soon to POLLY Magazine`);
+    });
+  });
+
+  // Social links
+  document.querySelectorAll('.social-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const platform = link.getAttribute('data-platform');
+      showToast(`📱 Follow us on ${platform} for more inspiring stories!`);
+    });
+  });
+
+  // Footer newsletter
+  document.getElementById('footerNewsBtn')?.addEventListener('click', () => {
+    const email = document.getElementById('footerNewsEmail')?.value;
+    if (email && email.includes('@') && email.includes('.')) {
+      showToast('📰 Thanks for subscribing! Stories delivered weekly.');
+      document.getElementById('footerNewsEmail').value = '';
+    } else {
+      showToast('✨ Please enter a valid email address ✨', true);
+    }
+  });
+
+  // Footer links
+  document.getElementById('contactLink')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    showToast('📧 hello@polly.com — share your story with us');
+  });
+  document.getElementById('newsletterFooterLink')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    showToast('📬 Sign up for our newsletter for exclusive stories');
+  });
+  document.getElementById('returnsFooterLink')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    showToast('🔄 Easy returns on all editorial picks');
+  });
+
+  console.log('Stories page loaded — inspiring narratives await');
+</script>
+</body>
+</html>
