@@ -759,7 +759,7 @@
       padding-left: 12px;
     }
 
-    /* Footer Images - 4 images including Black Wintra */
+    /* Footer Images - including the new video */
     .footer-images {
       flex: 2;
       display: flex;
@@ -771,7 +771,7 @@
     .footer-image-card {
       text-align: center;
       flex: 1;
-      min-width: 150px;
+      min-width: 160px;
       background: #1a1a1a;
       padding: 15px;
       border-radius: 20px;
@@ -799,6 +799,20 @@
       transform: scale(1.05);
     }
 
+    .footer-video {
+      width: 100%;
+      max-width: 160px;
+      height: auto;
+      border-radius: 15px;
+      margin-bottom: 10px;
+      border: 2px solid #FFD700;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-video:hover {
+      transform: scale(1.05);
+    }
+
     .footer-image-card p {
       color: #ff69b4;
       font-size: 0.7rem;
@@ -807,8 +821,8 @@
       margin-top: 8px;
     }
 
-    /* French Locations Section */
-    .french-locations {
+    /* Store Locations Section */
+    .store-locations {
       margin: 30px 0 20px 0;
       padding: 20px;
       background: rgba(255,215,0,0.05);
@@ -816,7 +830,7 @@
       border: 1px solid rgba(255,215,0,0.15);
     }
 
-    .french-locations h4 {
+    .store-locations h4 {
       color: #FFD700;
       font-size: 0.9rem;
       margin-bottom: 15px;
@@ -833,19 +847,31 @@
 
     .location-tag {
       background: rgba(255,105,180,0.15);
-      padding: 6px 16px;
+      padding: 8px 18px;
       border-radius: 40px;
       font-size: 0.75rem;
       color: #ffffff;
       transition: all 0.3s ease;
       cursor: pointer;
       border: 1px solid rgba(255,215,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .location-tag i {
+      color: #FFD700;
+      font-size: 0.7rem;
     }
 
     .location-tag:hover {
       background: rgba(255,215,0,0.2);
       color: #FFD700;
       transform: translateY(-2px);
+    }
+
+    .location-tag:hover i {
+      color: #ff69b4;
     }
 
     .footer-links {
@@ -942,7 +968,7 @@
       }
       .footer-image-card {
         width: 100%;
-        max-width: 200px;
+        max-width: 220px;
       }
       .quote-section p {
         font-size: 1.3rem;
@@ -1059,11 +1085,4 @@
     <div class="pillars-grid">
       <div class="pillar-card"><div class="pillar-media"><img src="videoframe_6130.png" alt="Chic"><div class="video-overlay"><i class="fas fa-expand"></i></div></div><div class="pillar-info"><div class="pillar-icon"><i class="fas fa-feather-alt"></i></div><h3>Chic</h3><p>STYLISH AND ELEGANT</p><div class="pillar-desc">Effortlessly sophisticated pieces that blend timeless elegance with modern flair.</div><button class="pillar-btn">Explore Chic →</button></div></div>
       <div class="pillar-card"><div class="pillar-media"><img src="dress.avif" alt="Bold"><div class="video-overlay"><i class="fas fa-expand"></i></div></div><div class="pillar-info"><div class="pillar-icon"><i class="fas fa-bolt"></i></div><h3>Bold</h3><p>STRIKING AND DARING</p><div class="pillar-desc">Make a statement with vibrant colors, daring cuts, and unapologetic designs.</div><button class="pillar-btn">Explore Bold →</button></div></div>
-      <div class="pillar-card"><div class="pillar-media"><img src="15486-Red_Wintra_10.avif" alt="Luxe"><div class="video-overlay"><i class="fas fa-expand"></i></div></div><div class="pillar-info"><div class="pillar-icon"><i class="fas fa-gem"></i></div><h3>Luxe</h3><p>LUXURIOUS AND HIGH-END</p><div class="pillar-desc">Premium fabrics, exquisite craftsmanship, and opulent details.</div><button class="pillar-btn">Explore Luxe →</button></div></div>
-    </div>
-  </div>
-
-  <!-- ABOUT SECTION -->
-  <div class="about-section">
-    <div class="about-container">
-      <div class="about-media"><video controls autoplay muted loop playsinline><source src="yellow.mp4" type="video/mp
+      <div class="pillar-card"><div class="pillar-media"><img src="15486-Red_Wintra_10.avif" alt="Luxe"><div class="video-overlay"><i class="fas fa-expand"></i></div></div><div class="
