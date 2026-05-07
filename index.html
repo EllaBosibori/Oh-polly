@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>POLLY | Best-Dressed Guest - Home</title>
+  <title>POLLY | Best-Dressed Guest</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <!-- Font Awesome 6 -->
@@ -77,8 +77,23 @@
     
     .nav-links a:hover { color: #FFD700; }
     
-    /* New Arrivals Button Style */
-    .new-arrivals-btn {
+    /* Navigation Buttons / Links - all functional page links */
+    .nav-btn {
+      background: transparent;
+      border: none;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #ffffff;
+      cursor: pointer;
+      transition: color 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .nav-btn:hover { color: #FFD700; }
+    
+    /* New Arrivals Button Style (special gradient) */
+    .new-arrivals-link {
       background: linear-gradient(135deg, #FFD700, #ff69b4);
       border: none;
       padding: 10px 24px;
@@ -96,17 +111,17 @@
       text-decoration: none;
     }
     
-    .new-arrivals-btn i {
+    .new-arrivals-link i {
       font-size: 0.9rem;
       transition: transform 0.2s;
     }
     
-    .new-arrivals-btn:hover {
+    .new-arrivals-link:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(255,215,0,0.4);
     }
     
-    .new-arrivals-btn:hover i {
+    .new-arrivals-link:hover i {
       transform: translateX(5px);
     }
 
@@ -973,18 +988,22 @@
 </head>
 <body>
 <div class="container">
-  <!-- Header -->
+  <!-- Header with FULLY FUNCTIONAL LINKS: New Arrivals, Collections, Stories, The Edit -->
   <div class="top-bar">
     <div class="logo-area" id="homeLink">
       <h1>POLLY</h1>
       <p>Best-Dressed Guest</p>
     </div>
     <div class="nav-links">
-      <a href="new-arrivals.html" class="new-arrivals-btn" id="newArrivalsBtn">
+      <!-- NEW ARRIVALS leads to new-arrivals.html -->
+      <a href="new-arrivals.html" class="new-arrivals-link" id="newArrivalsLink">
         <i class="fas fa-star"></i> NEW ARRIVALS <i class="fas fa-arrow-right"></i>
       </a>
+      <!-- COLLECTIONS leads to collections.html -->
       <a href="collections.html" id="collectionsLink">Collections</a>
+      <!-- STORIES leads to stories.html -->
       <a href="stories.html" id="storiesLink">Stories</a>
+      <!-- THE EDIT leads to the-edit.html -->
       <a href="the-edit.html" id="theEditLink">The Edit</a>
     </div>
     <div class="header-icons">
@@ -994,7 +1013,7 @@
     </div>
   </div>
 
-  <!-- TOP HERO SECTION - Three Cards -->
+  <!-- TOP HERO SECTION - Three Cards (preview only) -->
   <div class="hero">
     <div class="hero-card" data-collection="chic">
       <div class="hero-card-image">
@@ -1090,7 +1109,6 @@
 
   <!-- FOOTER SECTION -->
   <div class="footer-area">
-    
     <!-- BIG COMING SOON SECTION -->
     <div class="coming-soon-section">
       <div class="coming-soon-label"><i class="fas fa-hourglass-half"></i> GRAND OPENING</div>
@@ -1106,7 +1124,6 @@
     </div>
 
     <div class="footer-grid">
-      
       <!-- Footer Images -->
       <div class="footer-images">
         <div class="footer-image-card">
@@ -1152,7 +1169,7 @@
         <ul class="footer-links">
           <li><a href="#" id="aboutUsLink">About Us</a></li>
           <li><a href="#" id="shopLink">Shop</a></li>
-          <li><a href="#" id="collectionsFooterLink">Collections</a></li>
+          <li><a href="collections.html" id="collectionsFooterLink">Collections</a></li>
           <li><a href="#" id="lookbookLink">Lookbook</a></li>
           <li><a href="#" id="contactLink">Contact</a></li>
         </ul>
@@ -1182,51 +1199,7 @@
 </div>
 
 <script>
-  // ============================================
-  // PAGE NAVIGATION SYSTEM
-  // ============================================
-  
-  // Configuration: Set to true to enable actual page redirects
-  const ENABLE_REDIRECTS = false;
-  
-  // Page URL mappings
-  const pageUrls = {
-    'home': 'index.html',
-    'new-arrivals': 'new-arrivals.html',
-    'collections': 'collections.html',
-    'stories': 'stories.html',
-    'the-edit': 'the-edit.html',
-    'about-us': 'about.html',
-    'shop': 'shop.html',
-    'lookbook': 'lookbook.html',
-    'contact': 'contact.html',
-    'chic-collection': 'collection-chic.html',
-    'bold-collection': 'collection-bold.html',
-    'luxe-collection': 'collection-luxe.html'
-  };
-  
-  // Navigate to a page
-  function navigateTo(page, collectionType = null) {
-    let url = '';
-    let pageName = '';
-    
-    if (collectionType) {
-      pageName = `${collectionType}-collection`;
-      url = pageUrls[pageName] || '#';
-    } else {
-      pageName = page.toLowerCase().replace(/ /g, '-');
-      url = pageUrls[pageName] || '#';
-    }
-    
-    if (ENABLE_REDIRECTS && url !== '#') {
-      window.location.href = url;
-    } else {
-      showToast(`✨ Navigating to ${page} page ✨`);
-      console.log(`[Navigation] Would redirect to: ${url}`);
-    }
-  }
-  
-  // Show toast notification
+  // Toast helper for UI feedback (non-page navigation interactions)
   function showToast(message, isError = false) {
     const toast = document.createElement('div');
     toast.innerText = message;
@@ -1245,7 +1218,6 @@
     toast.style.boxShadow = '0 10px 20px rgba(0,0,0,0.5)';
     toast.style.zIndex = '999';
     toast.style.backdropFilter = 'blur(8px)';
-    toast.style.letterSpacing = '0.3px';
     document.body.appendChild(toast);
     setTimeout(() => {
       toast.style.opacity = '0';
@@ -1253,15 +1225,12 @@
       setTimeout(() => toast.remove(), 500);
     }, 2800);
   }
-  
-  // ============================================
-  // COUNTDOWN TIMER (June 7, 2028)
-  // ============================================
+
+  // Countdown Timer (June 7, 2028)
   function updateCountdown() {
     const targetDate = new Date('June 7, 2028 00:00:00').getTime();
     const now = new Date().getTime();
     const distance = targetDate - now;
-    
     if (distance < 0) {
       document.getElementById('days').innerHTML = '00';
       document.getElementById('hours').innerHTML = '00';
@@ -1269,169 +1238,70 @@
       document.getElementById('seconds').innerHTML = '00';
       return;
     }
-    
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
     document.getElementById('days').innerHTML = String(days).padStart(2, '0');
     document.getElementById('hours').innerHTML = String(hours).padStart(2, '0');
     document.getElementById('minutes').innerHTML = String(minutes).padStart(2, '0');
     document.getElementById('seconds').innerHTML = String(seconds).padStart(2, '0');
   }
-  
   setInterval(updateCountdown, 1000);
   updateCountdown();
-  
-  // ============================================
-  // HEADER NAVIGATION
-  // ============================================
-  document.getElementById('homeLink')?.addEventListener('click', () => navigateTo('home'));
-  document.getElementById('newArrivalsBtn')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigateTo('new-arrivals');
-  });
-  document.getElementById('collectionsLink')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigateTo('collections');
-  });
-  document.getElementById('storiesLink')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigateTo('stories');
-  });
-  document.getElementById('theEditLink')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigateTo('the-edit');
-  });
-  
-  // ============================================
-  // HEADER ICONS
-  // ============================================
+
+  // Header icons (simple toasts)
   document.getElementById('wishlistIcon')?.addEventListener('click', () => showToast('❤️ Wishlist - Coming Soon!'));
   document.getElementById('accountIcon')?.addEventListener('click', () => showToast('👤 Account - Coming Soon!'));
   document.getElementById('cartIcon')?.addEventListener('click', () => showToast('🛍️ Your bag is empty'));
-  
-  // ============================================
-  // HERO CARDS NAVIGATION
-  // ============================================
+
+  // Home logo link (navigate to current page refresh or simulate)
+  document.getElementById('homeLink')?.addEventListener('click', () => window.location.href = 'index.html');
+
+  // Hero cards (preview not redirect)
   document.querySelectorAll('.hero-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const collection = card.dataset.collection;
-      if (collection) {
-        navigateTo(`${collection.charAt(0).toUpperCase() + collection.slice(1)} Collection`, collection);
-      }
-    });
+    card.addEventListener('click', () => showToast(`✨ Explore ${card.dataset.collection?.toUpperCase()} collection. ✨`));
   });
-  
-  // ============================================
-  // PILLAR CARDS & BUTTONS
-  // ============================================
-  document.querySelectorAll('.pillar-card').forEach(card => {
-    card.addEventListener('click', (e) => {
-      if (!e.target.classList.contains('pillar-btn')) {
-        const collection = card.dataset.collection;
-        if (collection) {
-          navigateTo(`${collection.charAt(0).toUpperCase() + collection.slice(1)} Collection`, collection);
-        }
-      }
-    });
-  });
-  
+
+  // Pillar buttons expand info
   document.querySelectorAll('.pillar-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
-      const card = btn.closest('.pillar-card');
-      const title = card?.querySelector('h3')?.innerText || '';
-      navigateTo(`${title} Collection`, title.toLowerCase());
+      showToast(`✨ Full collection experience coming soon. ✨`);
     });
   });
+
+  // Shop & Learn More Buttons
+  document.getElementById('shopNowBtn')?.addEventListener('click', () => showToast('🛒 Shop the Collection — new drops arriving weekly.'));
+  document.getElementById('learnMoreBtn')?.addEventListener('click', () => showToast('💛 Discover the Lemon Yellow story.'));
+
+  // Footer links (some redirect to existing pages, others toasts)
+  document.getElementById('aboutUsLink')?.addEventListener('click', (e) => { e.preventDefault(); showToast('📖 POLLY: iconic fashion for the modern guest.'); });
+  document.getElementById('shopLink')?.addEventListener('click', (e) => { e.preventDefault(); showToast('🛍️ Shop page launching with exclusive edits.'); });
+  document.getElementById('collectionsFooterLink')?.addEventListener('click', (e) => { e.preventDefault(); window.location.href = 'collections.html'; });
+  document.getElementById('lookbookLink')?.addEventListener('click', (e) => { e.preventDefault(); showToast('📸 POLLY Lookbook — coming this season.'); });
+  document.getElementById('contactLink')?.addEventListener('click', (e) => { e.preventDefault(); showToast('📧 hello@polly.com | Press: press@polly.com'); });
   
-  // ============================================
-  // ACTION BUTTONS
-  // ============================================
-  document.getElementById('shopNowBtn')?.addEventListener('click', () => navigateTo('shop'));
-  document.getElementById('learnMoreBtn')?.addEventListener('click', () => navigateTo('about-us'));
-  
-  // ============================================
-  // FOOTER NAVIGATION
-  // ============================================
-  document.getElementById('aboutUsLink')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigateTo('about-us');
-  });
-  document.getElementById('shopLink')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigateTo('shop');
-  });
-  document.getElementById('collectionsFooterLink')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigateTo('collections');
-  });
-  document.getElementById('lookbookLink')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigateTo('lookbook');
-  });
-  document.getElementById('contactLink')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigateTo('contact');
-  });
-  
-  // ============================================
-  // NEWSLETTER SIGNUP
-  // ============================================
+  // Newsletter
   document.getElementById('newsletterBtn')?.addEventListener('click', () => {
     const email = document.getElementById('newsletterEmail')?.value;
     if (email && email.includes('@') && email.includes('.')) {
       showToast(`✨ Thanks for subscribing! ✨`);
       document.getElementById('newsletterEmail').value = '';
-    } else {
-      showToast(`✨ Please enter a valid email address ✨`, true);
-    }
+    } else { showToast('✨ Please enter a valid email address ✨', true); }
   });
+  document.getElementById('newsletterEmail')?.addEventListener('keypress', (e) => { if (e.key === 'Enter') document.getElementById('newsletterBtn').click(); });
   
-  document.getElementById('newsletterEmail')?.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      document.getElementById('newsletterBtn').click();
-    }
-  });
-  
-  // ============================================
-  // LOCATION TAGS
-  // ============================================
+  // Locations & brand items
   document.querySelectorAll('.location-tag').forEach(tag => {
-    tag.addEventListener('click', () => {
-      const location = tag.innerText.trim();
-      showToast(`📍 ${location} — Store opening soon!`);
-    });
+    tag.addEventListener('click', () => showToast(`📍 ${tag.innerText.trim()} — opening soon.`));
   });
-  
-  // ============================================
-  // BRAND ITEMS
-  // ============================================
   document.querySelectorAll('.brand-item').forEach(item => {
-    item.addEventListener('click', () => {
-      showToast(`✨ ${item.innerText.trim()} x POLLY collaboration coming soon ✨`);
-    });
+    item.addEventListener('click', () => showToast(`✨ ${item.innerText.trim()} x POLLY collaboration coming soon ✨`));
   });
-  
-  // ============================================
-  // SOCIAL LINKS
-  // ============================================
   document.querySelectorAll('.social-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const platform = link.dataset.platform;
-      showToast(`📱 Follow us on ${platform.charAt(0).toUpperCase() + platform.slice(1)}!`);
-    });
+    link.addEventListener('click', (e) => { e.preventDefault(); showToast(`📱 Follow us on ${link.dataset.platform}!`); });
   });
-  
-  // ============================================
-  // HELPER FUNCTION TO ENABLE REDIRECTS
-  // ============================================
-  console.log('POLLY Website Loaded');
-  console.log(`Redirects Enabled: ${ENABLE_REDIRECTS}`);
-  console.log('To enable actual page redirects, set ENABLE_REDIRECTS = true');
 </script>
 </body>
 </html>
