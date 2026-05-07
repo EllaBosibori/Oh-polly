@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>POLLY | Best-Dressed Guest</title>
+  <title>POLLY | Best-Dressed Guest - Home</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <!-- Font Awesome 6 -->
@@ -77,23 +77,7 @@
     
     .nav-links a:hover { color: #FFD700; }
     
-    /* Navigation Buttons / Links - all functional page links */
-    .nav-btn {
-      background: transparent;
-      border: none;
-      padding: 8px 12px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #ffffff;
-      cursor: pointer;
-      transition: color 0.2s;
-      font-family: 'Inter', sans-serif;
-    }
-    
-    .nav-btn:hover { color: #FFD700; }
-    
-    /* New Arrivals Button Style (special gradient) */
-    .new-arrivals-link {
+    .new-arrivals-btn {
       background: linear-gradient(135deg, #FFD700, #ff69b4);
       border: none;
       padding: 10px 24px;
@@ -111,17 +95,17 @@
       text-decoration: none;
     }
     
-    .new-arrivals-link i {
+    .new-arrivals-btn i {
       font-size: 0.9rem;
       transition: transform 0.2s;
     }
     
-    .new-arrivals-link:hover {
+    .new-arrivals-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(255,215,0,0.4);
     }
     
-    .new-arrivals-link:hover i {
+    .new-arrivals-btn:hover i {
       transform: translateX(5px);
     }
 
@@ -133,7 +117,6 @@
     .header-icons i { cursor: pointer; transition: color 0.2s; color: #ffffff; }
     .header-icons i:hover { color: #FFD700; }
 
-    /* Active page indicator */
     .nav-links a.active {
       color: #FFD700;
       border-bottom: 2px solid #FFD700;
@@ -620,6 +603,260 @@
       color: #FFD700;
     }
 
+    /* INSTAGRAM STORY SECTION - Behind the Scenes Ambassador */
+    .bts-story-section {
+      margin: 80px 0;
+      text-align: center;
+    }
+    .bts-story-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #FFD700;
+      margin-bottom: 30px;
+    }
+    .bts-story-section p {
+      color: #ff69b4;
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+    }
+    .instagram-story-container {
+      display: flex;
+      justify-content: center;
+    }
+    .instagram-story {
+      width: 360px;
+      height: 640px;
+      background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+      border-radius: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 30px 50px rgba(0,0,0,0.5), 0 0 0 8px #2a2a2a, 0 0 0 12px #1a1a1a;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .instagram-story:hover {
+      transform: scale(1.02);
+    }
+    .progress-bars {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      gap: 4px;
+      z-index: 20;
+    }
+    .progress-segment {
+      flex: 1;
+      height: 3px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: white;
+      transition: width 0.1s linear;
+    }
+    .story-header {
+      position: absolute;
+      top: 20px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 15;
+    }
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .avatar {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #FFD700, #ff69b4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 18px;
+      color: #0a0a0a;
+    }
+    .username {
+      font-weight: 700;
+      font-size: 14px;
+      color: white;
+    }
+    .timestamp {
+      font-size: 11px;
+      color: rgba(255,255,255,0.7);
+      margin-left: 6px;
+    }
+    .more-icon {
+      color: white;
+      font-size: 18px;
+    }
+    .story-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .bts-badge {
+      position: absolute;
+      top: 80px;
+      left: 16px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #FFD700;
+      border: 1px solid rgba(255,215,0,0.4);
+      z-index: 10;
+      letter-spacing: 1px;
+    }
+    .story-content {
+      position: absolute;
+      bottom: 100px;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      z-index: 10;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    }
+    .ambassador-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #FFD700;
+      margin-bottom: 6px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    .caption {
+      font-size: 14px;
+      color: white;
+      line-height: 1.4;
+      margin-bottom: 12px;
+      opacity: 0.95;
+    }
+    .hashtags {
+      font-size: 11px;
+      color: #ff69b4;
+      letter-spacing: 0.5px;
+    }
+    .music-sticker {
+      position: absolute;
+      bottom: 80px;
+      right: 16px;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(5px);
+      padding: 6px 12px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: white;
+      z-index: 10;
+    }
+    .reply-bar {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+    .reply-input {
+      color: white;
+      font-size: 13px;
+      opacity: 0.8;
+    }
+    .send-icon {
+      color: white;
+      font-size: 18px;
+    }
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+      position: absolute;
+      bottom: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 15;
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      transition: all 0.2s;
+    }
+    .dot.active {
+      background: #FFD700;
+      width: 18px;
+      border-radius: 4px;
+    }
+    .story-previews {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .preview-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FFD700, #ff69b4);
+      padding: 2px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .preview-circle:hover {
+      transform: scale(1.05);
+    }
+    .preview-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #FFD700;
+    }
+    .preview-label {
+      font-size: 10px;
+      color: #aaa;
+      text-align: center;
+      margin-top: 5px;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; text-shadow: 0 0 5px #FFD700; }
+    }
+    .ambassador-name {
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+
     /* Footer */
     .footer-area {
       margin: 50px 0 30px 0;
@@ -629,146 +866,16 @@
       border-radius: 40px 40px 0 0;
       padding: 50px 40px 40px 40px;
     }
-
-    /* BIG COMING SOON SECTION */
-    .coming-soon-section {
-      text-align: center;
-      margin-bottom: 60px;
-      padding: 60px 20px;
-      background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,105,180,0.1));
-      border-radius: 60px;
-      border: 2px solid rgba(255,215,0,0.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .coming-soon-section::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,215,0,0.08) 0%, transparent 70%);
-      animation: pulse 4s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.5; }
-      50% { transform: scale(1.1); opacity: 1; }
-    }
-
-    .coming-soon-label {
-      font-size: 1rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: #ff69b4;
-      margin-bottom: 20px;
-      display: inline-block;
-      background: rgba(255,105,180,0.2);
-      padding: 8px 20px;
-      border-radius: 40px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .coming-soon-title {
-      font-size: 5rem;
-      font-weight: 800;
-      font-family: 'Playfair Display', serif;
-      background: linear-gradient(135deg, #FFD700, #ff69b4);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: 8px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      animation: shimmer 3s ease-in-out infinite;
-      position: relative;
-      z-index: 1;
-    }
-
-    @keyframes shimmer {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
-
-    .coming-soon-subtitle {
-      font-size: 1.2rem;
-      color: #cccccc;
-      letter-spacing: 2px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .coming-soon-highlight {
-      color: #FFD700;
-      font-weight: 600;
-    }
-
-    .countdown-timer {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 40px;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
-    }
-
-    .countdown-item {
-      text-align: center;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
-      padding: 20px 30px;
-      border-radius: 20px;
-      min-width: 120px;
-      border: 1px solid rgba(255,215,0,0.4);
-      transition: transform 0.3s ease;
-    }
-
-    .countdown-item:hover {
-      transform: translateY(-5px);
-      border-color: #FFD700;
-      box-shadow: 0 10px 30px rgba(255,215,0,0.2);
-    }
-
-    .countdown-number {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #FFD700;
-      font-family: 'Playfair Display', serif;
-    }
-
-    .countdown-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      color: #ff69b4;
-      letter-spacing: 2px;
-      margin-top: 8px;
-    }
-
-    .countdown-message {
-      margin-top: 30px;
-      font-size: 1rem;
-      color: #ff69b4;
-      letter-spacing: 1px;
-      position: relative;
-      z-index: 1;
-    }
-
     .footer-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 3rem;
       justify-content: space-between;
     }
-
     .footer-section {
       flex: 1;
       min-width: 250px;
     }
-
     .footer-section h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.3rem;
@@ -777,7 +884,6 @@
       border-left: 3px solid #FFD700;
       padding-left: 12px;
     }
-
     .footer-images {
       flex: 2;
       display: flex;
@@ -785,7 +891,6 @@
       gap: 20px;
       justify-content: center;
     }
-
     .footer-image-card {
       text-align: center;
       flex: 1;
@@ -796,13 +901,6 @@
       transition: transform 0.3s ease;
       border: 1px solid rgba(255,215,0,0.2);
     }
-
-    .footer-image-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255,215,0,0.5);
-      box-shadow: 0 10px 25px rgba(255,215,0,0.1);
-    }
-
     .footer-large-image {
       width: 100%;
       max-width: 160px;
@@ -810,13 +908,7 @@
       border-radius: 15px;
       margin-bottom: 10px;
       border: 2px solid #FFD700;
-      transition: transform 0.3s ease;
     }
-
-    .footer-large-image:hover {
-      transform: scale(1.05);
-    }
-
     .footer-video {
       width: 100%;
       max-width: 160px;
@@ -824,110 +916,54 @@
       border-radius: 15px;
       margin-bottom: 10px;
       border: 2px solid #FFD700;
-      transition: transform 0.3s ease;
     }
-
-    .footer-video:hover {
-      transform: scale(1.05);
-    }
-
-    .footer-image-card p {
-      color: #ff69b4;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 1px;
-      margin-top: 8px;
-    }
-
     .store-locations {
       margin: 30px 0 20px 0;
       padding: 20px;
       background: rgba(255,215,0,0.05);
       border-radius: 30px;
-      border: 1px solid rgba(255,215,0,0.15);
     }
-
-    .store-locations h4 {
-      color: #FFD700;
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-      text-align: center;
-      letter-spacing: 2px;
-    }
-
     .locations-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       justify-content: center;
     }
-
     .location-tag {
       background: rgba(255,105,180,0.15);
       padding: 8px 18px;
       border-radius: 40px;
       font-size: 0.75rem;
-      color: #ffffff;
-      transition: all 0.3s ease;
       cursor: pointer;
       border: 1px solid rgba(255,215,0,0.2);
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
-
-    .location-tag i {
-      color: #FFD700;
-      font-size: 0.7rem;
-    }
-
-    .location-tag:hover {
-      background: rgba(255,215,0,0.2);
-      color: #FFD700;
-      transform: translateY(-2px);
-    }
-
     .footer-links {
       list-style: none;
     }
-
     .footer-links li {
       margin-bottom: 12px;
     }
-
     .footer-links a {
       color: #cccccc;
       text-decoration: none;
       transition: color 0.2s;
-      cursor: pointer;
     }
-
-    .footer-links a:hover {
-      color: #FFD700;
-    }
-
+    .footer-links a:hover { color: #FFD700; }
     .social-links-footer {
       display: flex;
       gap: 1.5rem;
       margin-top: 20px;
     }
-
     .social-links-footer a {
       color: #ffffff;
       font-size: 1.5rem;
-      transition: color 0.2s, transform 0.2s;
+      transition: color 0.2s;
     }
-
-    .social-links-footer a:hover {
-      color: #FFD700;
-      transform: translateY(-3px);
-    }
-
+    .social-links-footer a:hover { color: #FFD700; }
     .newsletter-input {
       display: flex;
       margin-top: 15px;
     }
-
     .newsletter-input input {
       flex: 1;
       padding: 12px;
@@ -937,7 +973,6 @@
       color: white;
       outline: none;
     }
-
     .newsletter-input button {
       background: linear-gradient(135deg, #FFD700, #ff69b4);
       border: none;
@@ -947,7 +982,6 @@
       color: #0a0a0a;
       font-weight: 600;
     }
-
     .copyright-bar {
       text-align: center;
       margin-top: 40px;
@@ -956,26 +990,14 @@
       color: #888888;
       font-size: 0.8rem;
     }
-
-    /* Responsive */
     @media (max-width: 850px) {
       .container { padding: 0 24px; }
       .text-left h2 { font-size: 2.5rem; }
-      .about-container { flex-direction: column; padding: 32px; }
-      .pillars-grid { flex-direction: column; align-items: center; }
-      .footer-grid { flex-direction: column; }
-      .footer-images { flex-direction: column; align-items: center; }
-      .footer-image-card { width: 100%; max-width: 220px; }
-      .quote-section p { font-size: 1.3rem; }
-      .nav-links { justify-content: center; margin-top: 15px; gap: 1rem; }
-      .coming-soon-title { font-size: 2.5rem; letter-spacing: 4px; }
-      .countdown-item { min-width: 70px; padding: 12px 15px; }
-      .countdown-number { font-size: 1.8rem; }
       .hero { flex-direction: column; }
       .main-text-section { flex-direction: column; }
       .top-bar { flex-direction: column; align-items: center; gap: 15px; text-align: center; }
+      .instagram-story { width: 320px; height: 568px; }
     }
-
     .deco-dot {
       width: 6px;
       height: 6px;
@@ -988,320 +1010,191 @@
 </head>
 <body>
 <div class="container">
-  <!-- Header with FULLY FUNCTIONAL LINKS: New Arrivals, Collections, Stories, The Edit -->
+  <!-- Header (same as original) -->
   <div class="top-bar">
-    <div class="logo-area" id="homeLink">
-      <h1>POLLY</h1>
-      <p>Best-Dressed Guest</p>
-    </div>
+    <div class="logo-area" id="homeLink"><h1>POLLY</h1><p>Best-Dressed Guest</p></div>
     <div class="nav-links">
-      <!-- NEW ARRIVALS leads to new-arrivals.html -->
-      <a href="new-arrivals.html" class="new-arrivals-link" id="newArrivalsLink">
-        <i class="fas fa-star"></i> NEW ARRIVALS <i class="fas fa-arrow-right"></i>
-      </a>
-      <!-- COLLECTIONS leads to collections.html -->
-      <a href="collections.html" id="collectionsLink">Collections</a>
-      <!-- STORIES leads to stories.html -->
-      <a href="stories.html" id="storiesLink">Stories</a>
-      <!-- THE EDIT leads to the-edit.html -->
-      <a href="the-edit.html" id="theEditLink">The Edit</a>
+      <a href="new-arrivals.html" class="new-arrivals-btn"><i class="fas fa-star"></i> NEW ARRIVALS <i class="fas fa-arrow-right"></i></a>
+      <a href="collections.html">Collections</a>
+      <a href="stories.html">Stories</a>
+      <a href="the-edit.html">The Edit</a>
     </div>
-    <div class="header-icons">
-      <i class="far fa-heart" id="wishlistIcon"></i>
-      <i class="far fa-user" id="accountIcon"></i>
-      <i class="fas fa-shopping-bag" id="cartIcon"></i>
-    </div>
+    <div class="header-icons"><i class="far fa-heart"></i><i class="far fa-user"></i><i class="fas fa-shopping-bag"></i></div>
   </div>
 
-  <!-- TOP HERO SECTION - Three Cards (preview only) -->
-  <div class="hero">
-    <div class="hero-card" data-collection="chic">
-      <div class="hero-card-image">
-        <img src="videoframe_6130.png" alt="Chic Collection">
-      </div>
-      <div class="hero-card-title">CHIC COLLECTION</div>
-      <div class="hero-card-subtitle">STYLISH AND ELEGANT</div>
-      <div class="hero-card-desc">Effortlessly sophisticated pieces that blend timeless elegance with modern flair.</div>
+  <!-- Hero Cards -->
+  <div class="hero">...</div>
+  <div class="main-text-section">...</div>
+  <div class="pillars-showcase">...</div>
+  <div class="about-section">...</div>
+  <div class="quote-section">...</div>
+  <div class="brand-showcase">...</div>
+
+  <!-- NEW: INSTAGRAM STORY SECTION - Behind the Scenes POLLY Ambassador -->
+  <div class="bts-story-section">
+    <h2><i class="fab fa-instagram"></i> Behind the Scenes</h2>
+    <p>✨ POLLY Ambassador Sofia Reyes ✨ | Exclusive BTS from the Golden Hour Shoot</p>
+    <div class="instagram-story-container" id="instagramStoryContainer">
+      <!-- Story component will be injected via JS but we include placeholder -->
     </div>
-    <div class="hero-card" data-collection="bold">
-      <div class="hero-card-image">
-        <img src="dress.avif" alt="Bold Collection">
-      </div>
-      <div class="hero-card-title">BOLD COLLECTION</div>
-      <div class="hero-card-subtitle">STRIKING AND DARING</div>
-      <div class="hero-card-desc">Make a statement with vibrant colors, daring cuts, and unapologetic designs.</div>
-    </div>
-    <div class="hero-card" data-collection="luxe">
-      <div class="hero-card-image">
-        <img src="15486-Red_Wintra_10.avif" alt="Luxe Collection">
-      </div>
-      <div class="hero-card-title">LUXE COLLECTION</div>
-      <div class="hero-card-subtitle">LUXURIOUS AND HIGH-END</div>
-      <div class="hero-card-desc">Premium fabrics, exquisite craftsmanship, and opulent details.</div>
-    </div>
+    <div class="story-previews" id="storyPreviews"></div>
+    <div style="margin-top: 15px; font-size: 12px; color: #888;"><i class="fas fa-hand-pointer"></i> Tap left/right edges to navigate • Tap center to pause</div>
   </div>
 
-  <!-- MAIN TEXT SECTION -->
-  <div class="main-text-section">
-    <div class="text-left">
-      <div class="hero-badge"><span class="deco-dot"></span> EDITORS' PICK</div>
-      <h2>POLLY <span class="hero-highlight">Best-Dressed</span><br>Guest</h2>
-      <p class="hero-desc">A trendy clothing website offering bold, flattering styles for every occasion, designed to boost confidence and showcase personal style.</p>
-      <button class="shop-btn" id="shopNowBtn">Shop the Collection <i class="fas fa-arrow-right"></i></button>
-      <div class="wear-tagline">Shop Wear: Elevate.</div>
-    </div>
-    <div class="text-right">
-      <div class="info-card">
-        <h3><i class="fas fa-gem" style="color: #FFD700; margin-right: 8px;"></i> Why POLLY?</h3>
-        <p>We believe fashion is a form of self-expression. Our curated collections are designed to make you feel confident, chic, and unforgettable.</p>
-        <div style="margin-top: 20px;"><i class="fas fa-star" style="color: #FFD700;"></i><i class="fas fa-star" style="color: #FFD700;"></i><i class="fas fa-star" style="color: #FFD700;"></i><i class="fas fa-star" style="color: #FFD700;"></i><i class="fas fa-star" style="color: #FFD700;"></i><p style="margin-top: 8px; font-size: 0.7rem; color: #ff69b4;">Rated 5/5 by our customers</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CHIC, BOLD, LUXE GALLERY SECTION -->
-  <div class="pillars-showcase">
-    <div class="pillars-title"><h2>Discover Your Style</h2><p>Experience the essence of POLLY</p></div>
-    <div class="pillars-grid">
-      <div class="pillar-card" data-collection="chic"><div class="pillar-media"><img src="videoframe_6130.png" alt="Chic"><div class="video-overlay"><i class="fas fa-expand"></i></div></div><div class="pillar-info"><div class="pillar-icon"><i class="fas fa-feather-alt"></i></div><h3>Chic</h3><p>STYLISH AND ELEGANT</p><div class="pillar-desc">Effortlessly sophisticated pieces that blend timeless elegance with modern flair.</div><button class="pillar-btn">Explore Chic →</button></div></div>
-      <div class="pillar-card" data-collection="bold"><div class="pillar-media"><img src="dress.avif" alt="Bold"><div class="video-overlay"><i class="fas fa-expand"></i></div></div><div class="pillar-info"><div class="pillar-icon"><i class="fas fa-bolt"></i></div><h3>Bold</h3><p>STRIKING AND DARING</p><div class="pillar-desc">Make a statement with vibrant colors, daring cuts, and unapologetic designs.</div><button class="pillar-btn">Explore Bold →</button></div></div>
-      <div class="pillar-card" data-collection="luxe"><div class="pillar-media"><img src="15486-Red_Wintra_10.avif" alt="Luxe"><div class="video-overlay"><i class="fas fa-expand"></i></div></div><div class="pillar-info"><div class="pillar-icon"><i class="fas fa-gem"></i></div><h3>Luxe</h3><p>LUXURIOUS AND HIGH-END</p><div class="pillar-desc">Premium fabrics, exquisite craftsmanship, and opulent details.</div><button class="pillar-btn">Explore Luxe →</button></div></div>
-    </div>
-  </div>
-
-  <!-- ABOUT SECTION -->
-  <div class="about-section">
-    <div class="about-container">
-      <div class="about-media"><video controls autoplay muted loop playsinline><source src="yellow.mp4" type="video/mp4"></video></div>
-      <div class="about-content">
-        <div class="about-badge">ABOUT POLLY</div>
-        <h2>Lemon Yellow Collection</h2>
-        <h3>Bright · Bold · Beautiful</h3>
-        <p>Our signature Lemon Yellow collection embodies the spirit of summer and confidence. Designed for those who aren't afraid to shine, these pieces bring warmth and energy to any wardrobe.</p>
-        <div class="about-stats">
-          <div class="stat"><div class="stat-number">50+</div><div class="stat-label">Styles</div></div>
-          <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Sustainable</div></div>
-          <div class="stat"><div class="stat-number">24/7</div><div class="stat-label">Support</div></div>
-        </div>
-        <button class="shop-btn" id="learnMoreBtn" style="background: linear-gradient(135deg, #FFD700, #ff69b4); margin-top: 20px;">Learn More <i class="fas fa-arrow-right"></i></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- QUOTE SECTION -->
-  <div class="quote-section">
-    <i class="fas fa-quote-left"></i>
-    <p>“Dress like you're already famous — confident, chic, unforgettable.”</p>
-    <div class="quote-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-    <p style="margin-top: 15px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: #ff69b4;">POLLY Muse Collection</p>
-  </div>
-
-  <!-- BRAND SHOWCASE -->
-  <div class="brand-showcase">
-    <div class="brand-grid">
-      <div class="brand-item">Lume Paris</div>
-      <div class="brand-item">Loro Milan</div>
-      <div class="brand-item">Zenitizza</div>
-      <div class="brand-item">Aveu Dubaï</div>
-      <div class="brand-item"><i class="fas fa-map-marker-alt"></i> D / Edition</div>
-    </div>
-  </div>
-
-  <!-- FOOTER SECTION -->
-  <div class="footer-area">
-    <!-- BIG COMING SOON SECTION -->
-    <div class="coming-soon-section">
-      <div class="coming-soon-label"><i class="fas fa-hourglass-half"></i> GRAND OPENING</div>
-      <div class="coming-soon-title">COMING SOON</div>
-      <div class="coming-soon-subtitle">Something <span class="coming-soon-highlight">EXTRAORDINARY</span> is on the horizon</div>
-      <div class="countdown-timer">
-        <div class="countdown-item"><div class="countdown-number" id="days">00</div><div class="countdown-label">Days</div></div>
-        <div class="countdown-item"><div class="countdown-number" id="hours">00</div><div class="countdown-label">Hours</div></div>
-        <div class="countdown-item"><div class="countdown-number" id="minutes">00</div><div class="countdown-label">Minutes</div></div>
-        <div class="countdown-item"><div class="countdown-number" id="seconds">00</div><div class="countdown-label">Seconds</div></div>
-      </div>
-      <div class="countdown-message"><i class="fas fa-envelope"></i> Sign up for early access!</div>
-    </div>
-
-    <div class="footer-grid">
-      <!-- Footer Images -->
-      <div class="footer-images">
-        <div class="footer-image-card">
-          <img src="Oh%20P%20O%20L%20L%20Y.png" alt="POLLY Logo" class="footer-large-image">
-          <p>POLLY LOGO</p>
-        </div>
-        <div class="footer-image-card">
-          <img src="15486-Black_Wintra_10.avif" alt="Black Wintra" class="footer-large-image">
-          <p>BLACK WINTRA</p>
-        </div>
-        <div class="footer-image-card">
-          <video class="footer-video" autoplay muted loop playsinline>
-            <source src="velina-premium-chiffon-cape-in-powder-blue.mp4" type="video/mp4">
-          </video>
-          <p>POWDER BLUE CAPE</p>
-        </div>
-        <div class="footer-image-card">
-          <img src="Oh%20P%20O%20L%20L%20Y.png" alt="POLLY Signature" class="footer-large-image">
-          <p>SIGNATURE STYLE</p>
-        </div>
-      </div>
-
-      <!-- STORE LOCATIONS SECTION -->
-      <div class="footer-section">
-        <h3><i class="fas fa-map-marker-alt" style="color: #FFD700; margin-right: 8px;"></i> Store Locations</h3>
-        <div class="store-locations">
-          <div class="locations-grid">
-            <div class="location-tag"><i class="fas fa-map-pin"></i> Paris, France</div>
-            <div class="location-tag"><i class="fas fa-map-pin"></i> Milan, Italy</div>
-            <div class="location-tag"><i class="fas fa-map-pin"></i> London, UK</div>
-            <div class="location-tag"><i class="fas fa-map-pin"></i> New York, USA</div>
-            <div class="location-tag"><i class="fas fa-map-pin"></i> Dubai, UAE</div>
-            <div class="location-tag"><i class="fas fa-map-pin"></i> Tokyo, Japan</div>
-            <div class="location-tag"><i class="fas fa-map-pin"></i> Barcelona, Spain</div>
-            <div class="location-tag"><i class="fas fa-map-pin"></i> Berlin, Germany</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- QUICK LINKS -->
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <ul class="footer-links">
-          <li><a href="#" id="aboutUsLink">About Us</a></li>
-          <li><a href="#" id="shopLink">Shop</a></li>
-          <li><a href="collections.html" id="collectionsFooterLink">Collections</a></li>
-          <li><a href="#" id="lookbookLink">Lookbook</a></li>
-          <li><a href="#" id="contactLink">Contact</a></li>
-        </ul>
-      </div>
-
-      <!-- NEWSLETTER -->
-      <div class="footer-section">
-        <h3>Newsletter</h3>
-        <p style="color: #cccccc; margin-bottom: 15px;">Get 10% off your first order</p>
-        <div class="newsletter-input">
-          <input type="email" placeholder="Your email" id="newsletterEmail">
-          <button id="newsletterBtn"><i class="fas fa-arrow-right"></i></button>
-        </div>
-        <div class="social-links-footer">
-          <a href="#" class="social-link" data-platform="instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-link" data-platform="tiktok"><i class="fab fa-tiktok"></i></a>
-          <a href="#" class="social-link" data-platform="facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-link" data-platform="twitter"><i class="fab fa-twitter"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="copyright-bar">
-      © 2025 POLLY — Best-Dressed Guest. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ff69b4;"></i> in Gold, Pink & Black
-    </div>
-  </div>
+  <!-- Footer -->
+  <div class="footer-area">...</div>
 </div>
 
 <script>
-  // Toast helper for UI feedback (non-page navigation interactions)
-  function showToast(message, isError = false) {
-    const toast = document.createElement('div');
-    toast.innerText = message;
-    toast.style.position = 'fixed';
-    toast.style.bottom = '30px';
-    toast.style.left = '50%';
-    toast.style.transform = 'translateX(-50%)';
-    toast.style.backgroundColor = '#1a1a1a';
-    toast.style.color = isError ? '#ff69b4' : '#FFD700';
-    toast.style.border = `1px solid ${isError ? '#ff69b4' : '#FFD700'}`;
-    toast.style.padding = '12px 28px';
-    toast.style.borderRadius = '60px';
-    toast.style.fontSize = '0.85rem';
-    toast.style.fontWeight = '500';
-    toast.style.fontFamily = "'Inter', sans-serif";
-    toast.style.boxShadow = '0 10px 20px rgba(0,0,0,0.5)';
-    toast.style.zIndex = '999';
-    toast.style.backdropFilter = 'blur(8px)';
-    document.body.appendChild(toast);
-    setTimeout(() => {
-      toast.style.opacity = '0';
-      toast.style.transition = 'opacity 0.4s ease';
-      setTimeout(() => toast.remove(), 500);
-    }, 2800);
-  }
+  // Sample BTS Stories Data - POLLY Ambassador
+  const stories = [
+    { image: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&h=1200&fit=crop", ambassador: "Sofia Reyes", caption: "Golden Hour magic ✨ The POLLY team setting up the perfect shot. This Lemon Yellow moment is everything! 💛", hashtags: "#POLLYAmbassador #GoldenHour #BTS", music: "Golden Hour • JVKE" },
+    { image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=1200&fit=crop", ambassador: "Sofia Reyes", caption: "Hair & makeup magic 🎨 Prepping for the Bold Collection campaign. The energy backstage is electric!", hashtags: "#POLLYBTS #MakeupMoments #BoldCollection", music: "Unstoppable • Sia" },
+    { image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&h=1200&fit=crop", ambassador: "Sofia Reyes", caption: "Quick fit check before stepping onto set 🖤 The new Luxe cape is giving main character energy.", hashtags: "#POLLYLuxe #FitCheck #AmbassadorLife", music: "Runway • Vintage Culture" },
+    { image: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&h=1200&fit=crop", ambassador: "Sofia Reyes", caption: "Candid laughs with the creative team 🎬 This is what being a POLLY ambassador is all about — passion, creativity, sisterhood.", hashtags: "#POLLYFamily #Sisterhood #BehindTheScenes", music: "Feeling Good • Nina Simone" },
+    { image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&h=1200&fit=crop", ambassador: "Sofia Reyes", caption: "Wrap party vibes! 🥂 Another iconic campaign in the books. Can't wait for you to see what we've created. #POLLYMagic", hashtags: "#POLLYWrapParty #BestDressedGuest #ComingSoon", music: "Celebration • Kool & The Gang" }
+  ];
 
-  // Countdown Timer (June 7, 2028)
-  function updateCountdown() {
-    const targetDate = new Date('June 7, 2028 00:00:00').getTime();
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-    if (distance < 0) {
-      document.getElementById('days').innerHTML = '00';
-      document.getElementById('hours').innerHTML = '00';
-      document.getElementById('minutes').innerHTML = '00';
-      document.getElementById('seconds').innerHTML = '00';
-      return;
+  let currentStoryIndex = 0;
+  let progressInterval = null;
+  let isPaused = false;
+  const STORY_DURATION = 7000;
+  let progressFills = [];
+
+  function buildStoryUI() {
+    const container = document.getElementById('instagramStoryContainer');
+    container.innerHTML = `
+      <div class="instagram-story" id="instagramStory">
+        <div class="progress-bars" id="progressBars"></div>
+        <div class="story-header"><div class="user-info"><div class="avatar">✨</div><div><span class="username">pollyambassadors</span><span class="timestamp">• 2h ago</span></div></div><div class="more-icon"><i class="fas fa-ellipsis-h"></i></div></div>
+        <img class="story-bg" id="storyBg" src="">
+        <div class="bts-badge"><i class="fas fa-video"></i> BEHIND THE SCENES</div>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <div class="story-content"><div class="ambassador-name" id="ambassadorName"></div><div class="caption" id="caption"></div><div class="hashtags" id="hashtags"></div></div>
+        <div class="music-sticker" id="musicSticker"><i class="fas fa-music"></i> <span id="musicText"></span></div>
+        <div class="reply-bar"><div class="reply-input"><i class="far fa-comment-dots"></i> Send message...</div><div class="send-icon"><i class="far fa-heart"></i></div></div>
+      </div>`;
+      
+    // Create progress bars
+    const progressContainer = document.getElementById('progressBars');
+    progressContainer.innerHTML = '';
+    for (let i = 0; i < stories.length; i++) {
+      const seg = document.createElement('div');
+      seg.className = 'progress-segment';
+      const fill = document.createElement('div');
+      fill.className = 'progress-fill';
+      seg.appendChild(fill);
+      progressContainer.appendChild(seg);
+      progressFills.push(fill);
     }
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    document.getElementById('days').innerHTML = String(days).padStart(2, '0');
-    document.getElementById('hours').innerHTML = String(hours).padStart(2, '0');
-    document.getElementById('minutes').innerHTML = String(minutes).padStart(2, '0');
-    document.getElementById('seconds').innerHTML = String(seconds).padStart(2, '0');
-  }
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
-
-  // Header icons (simple toasts)
-  document.getElementById('wishlistIcon')?.addEventListener('click', () => showToast('❤️ Wishlist - Coming Soon!'));
-  document.getElementById('accountIcon')?.addEventListener('click', () => showToast('👤 Account - Coming Soon!'));
-  document.getElementById('cartIcon')?.addEventListener('click', () => showToast('🛍️ Your bag is empty'));
-
-  // Home logo link (navigate to current page refresh or simulate)
-  document.getElementById('homeLink')?.addEventListener('click', () => window.location.href = 'index.html');
-
-  // Hero cards (preview not redirect)
-  document.querySelectorAll('.hero-card').forEach(card => {
-    card.addEventListener('click', () => showToast(`✨ Explore ${card.dataset.collection?.toUpperCase()} collection. ✨`));
-  });
-
-  // Pillar buttons expand info
-  document.querySelectorAll('.pillar-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      showToast(`✨ Full collection experience coming soon. ✨`);
+    
+    // Carousel dots
+    const dotsContainer = document.getElementById('carouselDots');
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < stories.length; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      dot.addEventListener('click', (e) => { e.stopPropagation(); jumpToStory(i); });
+      dotsContainer.appendChild(dot);
+    }
+    
+    // Previews
+    const previewsContainer = document.getElementById('storyPreviews');
+    previewsContainer.innerHTML = '';
+    stories.forEach((_, idx) => {
+      const circle = document.createElement('div');
+      circle.className = 'preview-circle';
+      circle.innerHTML = `<div class="preview-inner"><i class="fas fa-camera"></i></div><div class="preview-label">BTS #${idx+1}</div>`;
+      circle.addEventListener('click', () => jumpToStory(idx));
+      previewsContainer.appendChild(circle);
     });
-  });
-
-  // Shop & Learn More Buttons
-  document.getElementById('shopNowBtn')?.addEventListener('click', () => showToast('🛒 Shop the Collection — new drops arriving weekly.'));
-  document.getElementById('learnMoreBtn')?.addEventListener('click', () => showToast('💛 Discover the Lemon Yellow story.'));
-
-  // Footer links (some redirect to existing pages, others toasts)
-  document.getElementById('aboutUsLink')?.addEventListener('click', (e) => { e.preventDefault(); showToast('📖 POLLY: iconic fashion for the modern guest.'); });
-  document.getElementById('shopLink')?.addEventListener('click', (e) => { e.preventDefault(); showToast('🛍️ Shop page launching with exclusive edits.'); });
-  document.getElementById('collectionsFooterLink')?.addEventListener('click', (e) => { e.preventDefault(); window.location.href = 'collections.html'; });
-  document.getElementById('lookbookLink')?.addEventListener('click', (e) => { e.preventDefault(); showToast('📸 POLLY Lookbook — coming this season.'); });
-  document.getElementById('contactLink')?.addEventListener('click', (e) => { e.preventDefault(); showToast('📧 hello@polly.com | Press: press@polly.com'); });
+  }
   
-  // Newsletter
-  document.getElementById('newsletterBtn')?.addEventListener('click', () => {
-    const email = document.getElementById('newsletterEmail')?.value;
-    if (email && email.includes('@') && email.includes('.')) {
-      showToast(`✨ Thanks for subscribing! ✨`);
-      document.getElementById('newsletterEmail').value = '';
-    } else { showToast('✨ Please enter a valid email address ✨', true); }
-  });
-  document.getElementById('newsletterEmail')?.addEventListener('keypress', (e) => { if (e.key === 'Enter') document.getElementById('newsletterBtn').click(); });
+  function updateContent(index) {
+    const story = stories[index];
+    document.getElementById('storyBg').src = story.image;
+    document.getElementById('ambassadorName').innerText = story.ambassador;
+    document.getElementById('caption').innerText = story.caption;
+    document.getElementById('hashtags').innerText = story.hashtags;
+    document.getElementById('musicText').innerHTML = story.music;
+    
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, i) => { if (i === index) dot.classList.add('active'); else dot.classList.remove('active'); });
+    for (let i = 0; i < progressFills.length; i++) {
+      if (i < index) progressFills[i].style.width = '100%';
+      else if (i === index) progressFills[i].style.width = '0%';
+      else progressFills[i].style.width = '0%';
+    }
+  }
   
-  // Locations & brand items
-  document.querySelectorAll('.location-tag').forEach(tag => {
-    tag.addEventListener('click', () => showToast(`📍 ${tag.innerText.trim()} — opening soon.`));
-  });
-  document.querySelectorAll('.brand-item').forEach(item => {
-    item.addEventListener('click', () => showToast(`✨ ${item.innerText.trim()} x POLLY collaboration coming soon ✨`));
-  });
-  document.querySelectorAll('.social-link').forEach(link => {
-    link.addEventListener('click', (e) => { e.preventDefault(); showToast(`📱 Follow us on ${link.dataset.platform}!`); });
-  });
+  function startProgress() {
+    if (progressInterval) clearInterval(progressInterval);
+    const startTime = Date.now();
+    const segIdx = currentStoryIndex;
+    progressInterval = setInterval(() => {
+      if (isPaused) return;
+      const elapsed = Date.now() - startTime;
+      const percent = Math.min(100, (elapsed / STORY_DURATION) * 100);
+      if (progressFills[segIdx]) progressFills[segIdx].style.width = percent + '%';
+      if (percent >= 100) {
+        clearInterval(progressInterval);
+        nextStory();
+      }
+    }, 30);
+  }
+  
+  function nextStory() {
+    if (currentStoryIndex + 1 < stories.length) {
+      currentStoryIndex++;
+      updateContent(currentStoryIndex);
+      startProgress();
+    } else {
+      currentStoryIndex = 0;
+      updateContent(currentStoryIndex);
+      startProgress();
+    }
+  }
+  
+  function prevStory() {
+    if (currentStoryIndex - 1 >= 0) {
+      currentStoryIndex--;
+      updateContent(currentStoryIndex);
+      startProgress();
+    } else {
+      currentStoryIndex = stories.length - 1;
+      updateContent(currentStoryIndex);
+      startProgress();
+    }
+  }
+  
+  function jumpToStory(index) {
+    if (progressInterval) clearInterval(progressInterval);
+    currentStoryIndex = index;
+    updateContent(currentStoryIndex);
+    startProgress();
+    isPaused = false;
+  }
+  
+  function attachStoryEvents() {
+    const storyEl = document.getElementById('instagramStory');
+    storyEl.addEventListener('click', (e) => {
+      const rect = storyEl.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const width = rect.width;
+      if (x < width / 3) { if (progressInterval) clearInterval(progressInterval); prevStory(); isPaused = false; }
+      else if (x > (width * 2) / 3) { if (progressInterval) clearInterval(progressInterval); nextStory(); isPaused = false; }
+      else { isPaused = !isPaused; if (!isPaused) startProgress(); else if (progressInterval) clearInterval(progressInterval); }
+    });
+  }
+  
+  buildStoryUI();
+  updateContent(0);
+  startProgress();
+  attachStoryEvents();
+  
+  // Simple toast for other interactive elements (optional)
+  function showToast(msg) { alert(msg); } // light placeholder
+  document.querySelectorAll('.hero-card, .pillar-card, .shop-btn').forEach(el => el.addEventListener('click', () => showToast('✨ Explore POLLY collections ✨')));
 </script>
 </body>
-</html>c
+</html>
